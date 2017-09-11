@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          英语笔记01 - 程序员小徐的Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite-url/2017/09/11/英语笔记01/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('null')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/BeanTechSign-white.png');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>英语笔记01</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by XGH on
+                            2017-09-11
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Hello</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>1.The film _____before I got to the cinema</p>
+<pre><code>    A already started  
+    B starts   
+    C had already started  
+    D had been started
+</code></pre>
+<p>2.She recommended two books to me,but____of them was interesting</p>
+<pre><code>    A either  B both   
+    C none   D neither
+</code></pre>
+<p>3.Thirty miles___a long way to cover</p>
+<pre><code>A seem to be   B is  
+C are   D were
+</code></pre>
+<p>4.Tommy caught the school bus,____</p>
+<pre><code>    A but Jane didn’t  
+    B but so did Jane  
+    C and Jane didn’t either   
+    D and Jane did either
+</code></pre>
+<p>5.China is one of the largest countries in the world,____9.6 million square kilometers</p>
+<pre><code>    A to cover   B covered   
+    C  covers   D covering
+</code></pre>
+<p>6.The railway is_____in about two months</p>
+<pre><code>    A completed  B completing  
+    C to complete   D to be completed
+</code></pre>
+<p>7.The reason ____he was absent from school was that he had been knocked down by a car<br>
+定语从句（缺不缺成分、搭配）</p>
+<pre><code>    A where  B when  C why   D that
+</code></pre>
+<p>8.I can’t find the key to my office.I ___ it on my way home</p>
+<pre><code>    A would have lost    B must have lost   C should have lost   D ought to have lost
+</code></pre>
+<p>9 some of the listening questions have four choices that sound___a+动词 adj(句末) asleep  awake</p>
+<pre><code>    A alike  B unlike  C likely   D like
+</code></pre>
+<p>10.Internet allows one to follow the____ developments in science</p>
+<pre><code>    A latter   B latest   C later   D late
+</code></pre>
+<h3><span id="1-语法选择-十大语法模块教材真题">1 语法选择    十大语法模块（教材，真题）</span></h3>
+<h3><span id="2-词性转换教材">2 词性转换（教材）</span></h3>
+<h3><span id="3-阅读理解3篇-3a真题-四级真题及练习">3 阅读理解3篇   3A真题  四级真题及练习</span></h3>
+<h3><span id="4-完形填空-3a">4 完形填空 （3A）</span></h3>
+<h3><span id="5-简答题-不超过3个单词">5 简答题  不超过3个单词</span></h3>
+<h3><span id="6-翻译-1翻译选择-英译汉2段落翻译-分别计分">6 翻译 (1)翻译选择 英译汉（2）段落翻译 分别计分</span></h3>
+<h3><span id="7-写作-商务英文写作-3a">7 写作 商务英文写作   3A</span></h3>
+<h3><span id="8-词语搭配">8 词语搭配</span></h3>
+<pre><code>    十大语法模块
+    动词类         从句类
+    动词的时态    定语从句
+    动词的语态  名词性从句（主宾表同）
+    非谓语动词   状语从句
+    虚拟语气
+    其他类
+    主谓一致   反义疑问句  倒装
+</code></pre>
+<h3><span id="语法选择">语法选择</span></h3>
+<h3><span id="词性转换">词性转换</span></h3>
+<h3><span id="写作">写作</span></h3>
+<h3><span id="时态和语态并行">时态和语态并行</span></h3>
+<pre><code>    做动词题目的步骤
+    1.	找时间状语
+    2.	如果是从句要注意背景动词
+    3.	主动和被动
+    4.	动作有没有先后
+</code></pre>
+<h3><span id="时态">时态</span></h3>
+<h3><span id="完成体">完成体</span></h3>
+<pre><code>现在完成时     have/has +done
+过去完成时     had done
+将来完成      will have done
+</code></pre>
+<p>Recently</p>
+<p>I have been an English</p>
+<p>Since</p>
+<p>I graduated from college</p>
+<p>Since Daqing oilfield opened up</p>
+<p>虽然没有时间状语但是产生结果，翻译成已经</p>
+<p>Over the past five years</p>
+<h3><span id="词性转换">词性转换</span></h3>
+<p>名变形    形变名</p>
+<pre><code>    Ce(结尾的名词)变成形容词
+    见到ce 变成t
+    T结尾的形容词变名词
+    见到t 变ce
+    Evidence
+    Different
+    Suggest   表明或者暗示
+    The cause of his illness
+    第一最好和最糟 完成时态少不了
+    序数词
+    最高级
+    现在完成时答题注意时间状语和单三
+</code></pre>
+<p>This was the third time that he had been late</p>
+<p>1.本来打算  had done</p>
+<p>I had thought/I had hoped</p>
+<p>动词变成名词</p>
+<pre><code>    T 结尾的动词  变名词+ion
+    Te结尾的动词  去e + ion
+    其他字母+e ze  fe  we   
+    去e +ation
+    Modernization
+    Expection
+    Thought 想法理论
+    This is my thought
+    I will/am going to   I plan to
+</code></pre>
+<h3><span id="虚拟语气">虚拟语气</span></h3>
+<pre><code>    时间愿望和宁愿虚拟时态要倒退
+    
+    看到现在想过去 看到过去想过完
+    
+    动作发生的早 用过完
+</code></pre>
+<p>John told____(tell)me that he had server_____(serve)in the army for ten years<br>
+Before<br>
+句子考过完</p>
+<pre><code>    到了那时再去看，将来完成will have done
+    By the time+(将来时间)
+    By the time of next year I will have worked
+    By the time +(过去时间)
+    BY the time of the end of last year
+    I had been a teacher 
+    Leave for
+    Production
+    进行体
+    现在进行时
+    过去进行时
+    将来进行时 will be doing
+    完成进行时 have been doing/done
+</code></pre>
+<h4><span id="进行时有时要根据句意来判断">进行时有时要根据句意来判断</span></h4>
+<p>People who have been to London always complain (complain)about the weather there<br>
+两种分类</p>
+<h5><span id="一-简单句-一个主语-一个谓语">一 简单句  一个主语 +一个谓语</span></h5>
+<h5><span id="二-复合句-有连接词-定语从句除外">二 复合句   有连接词 （定语从句除外）</span></h5>
+<p>He is smiling forever</p>
+<p>He is not crying forever</p>
+<h5><span id="感官动词无进行时态">感官动词无进行时态</span></h5>
+<pre><code>    Satisfaction
+    Hatred
+    When 和while引导的时间状语从句表示动作同时发生   一定有进行时
+</code></pre>
+<p>I am listening to music while I am doing homework</p>
+<pre><code>    瞬间动词表将来
+    1 将来
+    2 时间点
+    3 正在发生
+    4.有时表示事先计划好的事情
+</code></pre>
+<p>I will be watching TV news at 7 tonight</p>
+<p>Mary will be playing the violin the whole day tomorrow</p>
+<p>Have been doing   have done</p>
+<pre><code>    1 过去发生
+    2 现在进行
+    3 将来延续
+</code></pre>
+<p>I have been  being a teacher for 10</p>
+<p>The pipe had been leaking(leak)for 2 hours ,and I considered that………</p>
+<p>Have been done(被动语态)</p>
+<p>had　ｂｅｅｎ　ｄｏｉｎｇ　完成进行</p>
+<p>用在等人 表示不满</p>
+<p>一般体</p>
+<p>一般现在时</p>
+<p>常态</p>
+<pre><code>    Part  partial
+    Agree  agreement
+</code></pre>
+<p>客观事实和普遍真理</p>
+<p>主将从现</p>
+<p>关系词后的是从句</p>
+<h3><span id="if-引导条件状语从句">If 引导条件状语从句</span></h3>
+<pre><code>    1 真实条件句（主将从现）
+    2 非真实条件句（虚拟语气）
+    As 作为  当。。。时候  因为 
+    Not ….. unless
+    I will not lend you my computer unless you treat me for meal
+    My treat
+</code></pre>
+<h3><span id="一般过去时">一般过去时</span></h3>
+<pre><code>    虚拟语气 时态倒退
+    时间 It’s high time (到了。。。的时候了) It’s about the time
+    Take effective measures to do something(采取措施)
+    Effective 果    effect
+    Efficient 效率  efficiency
+</code></pre>
+<p>###愿望和宁愿</p>
+<pre><code>    Used to do（曾经）used to doing 习惯于  be used to do 被用于
+</code></pre>
+<h3><span id="一般将来时">一般将来时</span></h3>
+<pre><code>    Will  be going to   be about to   
+    be to do
+    I was to start my own biz
+    I would start my own biz
+    I was going to
+    I am about to 
+</code></pre>
+<h3><span id="过去将来时">过去将来时</span></h3>
+<pre><code>    while 两个意思一个是当。。。时候
+    另外一个是尽管
+    直译
+    电视机去完全取代
+    Came to the door
+    不是同时发生因为选项当中无进行时
+    Just 完成时
+    Just  have done    came
+    Non-stop
+    Refuel
+    Since现在完
+    Reach the conclusion
+    Come to a conclushin
+    注意意思相近和相反的选项
+    Did know
+    从句优先翻
+    ｔａｋｅ　place无被动
+    从句语序一定是陈述语序
+    主谓宾
+    将来计划好的事情
+    Cheated
+    was cheating
+    solve
+    would try
+    ee服从者
+    employee
+    criticize   critic
+    pleased
+    inde
+    acknowledge  动词
+    person   personal  personality
+    日常必需品   必要性
+    Meaningless
+    Electric guitar
+    Electrician
+    Historic event
+    Time  timeless
+    Likely 
+    Costly
+    Weekly
+    Strong
+    Large  enlarge
+    Irregular
+    Regulation
+    Industry()行业
+    Industrious勤奋的
+    Industrialization
+    Besides(还有)  
+    except  （没有）（同类）
+    except  for （不同类的排除）
+    I work everyday except Sunday
+    The office is empty,____ Mary
+    But
+    On Sunday morning
+    With pen
+    By meter
+</code></pre>
+<h3><span id="解题步骤">解题步骤</span></h3>
+<h4><span id="step-1-分析选项">Step 1 分析选项</span></h4>
+<p>意思相近或者相反的选项</p>
+<p>绝对选项绝对不选（only never,always,nobody）</p>
+<p>找出哪些选项讲的是一回事儿</p>
+<h4><span id="step-2-找到题干当中的定位词">Step 2 找到题干当中的定位词</span></h4>
+<h4><span id="step-3-根据选项分析题的类型再作答">Step 3 根据选项分析题的类型再作答</span></h4>
+<h3><span id="题的类型">题的类型</span></h3>
+<pre><code>    1.主旨大意   点面原则
+    选择涵盖范围最广的或者说得意思最笼统的选项
+    位置   句首二句    最后一段
+    2.	推断题  infer  
+    原文当中的内容和选项一样的
+    绝对不选
+    3 细节题  分析选项找原文
+    3.	观点态度 neutral 、indifferent
+    5 语义题   将选项代入原文
+</code></pre>
+<h3><span id="强逻辑关系词周围有设题点">强逻辑关系词周围有设题点</span></h3>
+<pre><code>    Although  but however,yet,while
+    What’s more  furthermore
+    
+    What can we learn about 
+    Tear donw
+</code></pre>
+<p>通过之前答题用过的句子推理</p>
+<p>出现的频率最高的词是正确选项</p>
+<p>找到答案的句子画出来</p>
+<p>翻译为主</p>
+<p>自拟内容为辅</p>
+<p>不要漏项（审题很关键）</p>
+<p>审题步骤<br>
+判断题材<br>
+把题目中的内容标注1,2,3<br>
+分析哪些需要自拟</p>
+<h3><span id="高分作文的标准">高分作文的标准</span></h3>
+<ul>
+<li>
+<p>复合从句</p>
+</li>
+<li>
+<p>过度的连接词</p>
+</li>
+<li>
+<p>被动语态、倒装是加分项</p>
+</li>
+<li>
+<p>格式 Dear sir or madam</p>
+</li>
+<li>
+<p>日期右上角  月日年</p>
+</li>
+<li>
+<p>右下角  yours sincerely  yours</p>
+</li>
+<li>
+<p>Yours faithfully</p>
+</li>
+<li>
+<p>邀请信</p>
+</li>
+</ul>
+<h3><span id="格式">格式</span></h3>
+<pre><code>Dear 被邀请人  右上角要表明邀请人的职位和公司+日期不能少  
+Manager  
+Human resources department Dong fang Group/corporation  
+Dec.13th , 2011  
+Manager  
+Personnel Department  
+Dear sir or madam
+</code></pre>
+<h4><span id="写信的时候要学会直接表达目的">写信的时候要学会直接表达目的</span></h4>
+<pre><code>    I am writing to  
+    I would like to
+    1.I am writing to invite you to attend the workshop over/about/on/concerning 
+    personnel management  which will be held from January 3rd to 4th 2012 
+    at Youyi Hotel in Binhai.
+    2.We will mainly discuss something about the new mode and method/approach/thought
+    of personnel management in the new situation
+    密切关注words for reference
+    3.Besides/in addition/additionally
+    The keynote speaker is professor Dingyi who is from Management 
+    department of Binhai university
+    4.	The outlines of the speech written by people who are to take part 
+    in the workshop are expected to/should be sent to Human resources
+    department office of Dongfang company before December 20 th 
+    5.By the way,please inform me whether you will attend the meeting or not.
+    I am looking forward to your reply
+
+                                                 yours
+                                                 Jianguo zhang
+
+                                                 发信人的人名写在右上角
+                                                 日期
+    Dear peter
+    I would like get more information about your latest laser printer.
+    Please provide me the recent pricelists and the situation of your after
+    sale service. I am lookingforw
+</code></pre>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/09/12/计算机基础01/" data-toggle="tooltip" data-placement="top" title="计算机基础01">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/09/11/我的blog诞生记/" data-toggle="tooltip" data-placement="top" title="我的blog诞生记">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1 语法选择    十大语法模块（教材，真题）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2 词性转换（教材）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3 阅读理解3篇   3A真题  四级真题及练习</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4 完形填空 （3A）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5 简答题  不超过3个单词</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6 翻译 (1)翻译选择 英译汉（2）段落翻译 分别计分</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7 写作 商务英文写作   3A</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">8 词语搭配</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">语法选择</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">词性转换</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">写作</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">时态和语态并行</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">时态</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">14.</span> <span class="toc-nav-text">完成体</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">15.</span> <span class="toc-nav-text">词性转换</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">16.</span> <span class="toc-nav-text">虚拟语气</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">16.1.</span> <span class="toc-nav-text">进行时有时要根据句意来判断</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">16.1.1.</span> <span class="toc-nav-text">一 简单句  一个主语 +一个谓语</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">16.1.2.</span> <span class="toc-nav-text">二 复合句   有连接词 （定语从句除外）</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">16.1.3.</span> <span class="toc-nav-text">感官动词无进行时态</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">17.</span> <span class="toc-nav-text">If 引导条件状语从句</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">18.</span> <span class="toc-nav-text">一般过去时</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">19.</span> <span class="toc-nav-text">一般将来时</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">20.</span> <span class="toc-nav-text">过去将来时</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">21.</span> <span class="toc-nav-text">解题步骤</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">21.1.</span> <span class="toc-nav-text">Step 1 分析选项</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">21.2.</span> <span class="toc-nav-text">Step 2 找到题干当中的定位词</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">21.3.</span> <span class="toc-nav-text">Step 3 根据选项分析题的类型再作答</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">22.</span> <span class="toc-nav-text">题的类型</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">23.</span> <span class="toc-nav-text">强逻辑关系词周围有设题点</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">24.</span> <span class="toc-nav-text">高分作文的标准</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">25.</span> <span class="toc-nav-text">格式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">25.1.</span> <span class="toc-nav-text">写信的时候要学会直接表达目的</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "xgh";
+    var disqus_identifier = "http://yoursite-url/2017/09/11/英语笔记01/";
+    var disqus_url = "http://yoursite-url/2017/09/11/英语笔记01/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Miracle">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/Paragon丶X">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/xgh1996">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; XGH 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite-url/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://yoursite-url/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Hexo] Theme BeanTech - 程序员小徐的Blog
+          计算机基础01 - 程序员小徐的Blog
         
     </title>
 
-    <link rel="canonical" href="http://yoursite-url/2017/03/18/hexo-theme-beantech/">
+    <link rel="canonical" href="http://yoursite-url/2017/09/12/计算机基础01/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('Demo.png')
+            background-image: url('null')
             /*post*/
         
     }
@@ -90,16 +90,12 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
-                            
-                              <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
-                            
                         </div>
-                        <h1>[Hexo] Theme BeanTech</h1>
-                        <h2 class="subheading">This is hexo theme Demo.</h2>
+                        <h1>计算机基础01</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by XGH on
-                            2017-03-18
+                            2017-09-12
                         </span>
                     </div>
                 
@@ -216,60 +212,238 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>Ported Theme of <a href="https://github.com/Huxpro/huxpro.github.io" target="_blank" rel="external">Hux Blog</a>, Thank <a href="https://github.com/Huxpro" target="_blank" rel="external">Huxpro</a> for designing such a flawless theme.</p>
-<p>This BeanTech theme created by <a href="http://beantech.org" target="_blank" rel="external">YuHsuan</a> modified from the original Porter <a href="http://kaijun.rocks/hexo-theme-huxblog/" target="_blank" rel="external">Kaijun</a></p>
-</blockquote>
-<h1><span id="live-demo"></span></h1>
-<hr>
-<p><img src="http://beantech.org/img/beantech-desktop.png" alt="BeanTech Desktop"></p>
-<h1><span id="usage">Usage</span></h1>
-<hr>
-<p>I publish the whole project for your convenience, so you can just follow the instruction down below, then you can easily customiz your own blog!</p>
-<p>Let’s begin!!!</p>
-<h2><span id="init">Init</span></h2>
-<hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/YenYuHsuan/hexo-theme-beantech.git ./hexo-beantech</div><div class="line"><span class="built_in">cd</span> hexo-beantech</div><div class="line">npm install</div></pre></td></tr></table></figure>
-<h2><span id="modify">Modify</span></h2>
-<hr>
-<p>Modify <code>_config.yml</code> file with your own info.<br>
-Especially the section:</p>
-<h3><span id="deployment">Deployment</span></h3>
-<p>Replace to your own repo!</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/&lt;yourAccount&gt;/&lt;repo&gt;</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">&lt;your-branch&gt;</span></div></pre></td></tr></table></figure>
-<h3><span id="sidebar-settings">Sidebar settings</span></h3>
-<p>Copy your avatar image to <code>&lt;root&gt;/img/</code> and modify the <code>_config.yml</code>:</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">sidebar:</span> <span class="literal">true</span>    <span class="comment"># whether or not using Sidebar.</span></div><div class="line"><span class="attr">sidebar-about-description:</span> <span class="string">"&lt;your description&gt;"</span></div><div class="line"><span class="attr">sidebar-avatar:</span> <span class="string">img/&lt;your</span> <span class="string">avatar</span> <span class="string">path&gt;</span></div></pre></td></tr></table></figure>
-<p>and activate your personal widget you like</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attr">widgets:</span>         <span class="comment"># here are widget you can use, you can comment out</span></div><div class="line"><span class="bullet">-</span> <span class="string">featured-tags</span></div><div class="line"><span class="bullet">-</span> <span class="string">short-about</span></div><div class="line"><span class="bullet">-</span> <span class="string">recent-posts</span></div><div class="line"><span class="bullet">-</span> <span class="string">friends-blog</span></div><div class="line"><span class="bullet">-</span> <span class="string">archive</span></div><div class="line"><span class="bullet">-</span> <span class="string">category</span></div></pre></td></tr></table></figure>
-<p>if you want to add sidebar widget, please add at <code>layout/_widget</code>.</p>
-<h3><span id="signature-setup">Signature Setup</span></h3>
-<p>Copy your signature image to <code>&lt;root&gt;/img/signature</code> and modify the <code>_config.yml</code>:</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">signature:</span> <span class="literal">true</span>   <span class="comment"># show signature</span></div><div class="line"><span class="attr">signature-img:</span> <span class="string">img/signature/&lt;your-signature-ID&gt;</span></div></pre></td></tr></table></figure>
-<h3><span id="go-to-top-icon-setup">Go to top icon Setup</span></h3>
-<p>My icon is using iron man, you can change to your own icon at <code>css/image</code>.</p>
-<h3><span id="post-tag">Post tag</span></h3>
-<p>You can decide to show post tags or not.</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">home_posts_tag:</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
-<p><img src="home_posts_tag-true.png" alt="home_posts_tag-true"></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">home_posts_tag:</span> <span class="literal">false</span></div></pre></td></tr></table></figure>
-<p><img src="home_posts_tag-false.png" alt="home_posts_tag-false"></p>
-<h3><span id="markdown-render">Markdown render</span></h3>
-<p>My markdown render engine plugin is <a href="https://github.com/celsomiranda/hexo-renderer-markdown-it" target="_blank" rel="external">hexo-renderer-markdown-it</a>.</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Markdown-it config</span></div><div class="line"><span class="comment">## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki</span></div><div class="line"><span class="attr">markdown:</span></div><div class="line"><span class="attr">  render:</span></div><div class="line"><span class="attr">    html:</span> <span class="literal">true</span></div><div class="line"><span class="attr">    xhtmlOut:</span> <span class="literal">false</span></div><div class="line"><span class="attr">    breaks:</span> <span class="literal">true</span></div><div class="line"><span class="attr">    linkify:</span> <span class="literal">true</span></div><div class="line"><span class="attr">    typographer:</span> <span class="literal">true</span></div><div class="line"><span class="attr">    quotes:</span> <span class="string">'“”‘’'</span></div></pre></td></tr></table></figure>
-<p>and if you want to change the header anchor ‘ℬ’, you can go to <code>layout/post.ejs</code> to change it.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">async</span>(<span class="string">"https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        anchors.options = &#123;</div><div class="line">          visible: <span class="string">'hover'</span>,</div><div class="line">          placement: <span class="string">'left'</span>,</div><div class="line">          icon: ℬ <span class="comment">// this is the header anchor "unicode" icon</span></div><div class="line">        &#125;;</div></pre></td></tr></table></figure>
-<h2><span id="hexo-basics">Hexo Basics</span></h2>
-<hr>
-<p>Some hexo command:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo new post <span class="string">"&lt;post name&gt;"</span> <span class="comment"># you can change post to another layout if you want</span></div><div class="line">hexo clean &amp;&amp; hexo generate <span class="comment"># generate the static file</span></div><div class="line">hexo server <span class="comment"># run hexo in local environment</span></div><div class="line">hexo deploy <span class="comment"># hexo will push the static files automatically into the specific branch(gh-pages) of your repo!</span></div></pre></td></tr></table></figure>
-<h1><span id="have-fun-_">Have fun ^_^</span></h1>
-<hr>
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<!-- Place this tag where you want the button to render. -->
-<p>Please <a class="github-button" href="https://github.com/YenYuHsuan/hexo-theme-beantech" data-icon="octicon-star" aria-label="Star YenYuHsuan/hexo-theme-beantech on GitHub" target="_blank" rel="external">Star</a> this Project if you like it! <a class="github-button" href="https://github.com/YenYuHsuan" aria-label="Follow @YenYuHsuan on GitHub" target="_blank" rel="external">Follow</a> would also be appreciated!<br>
-Peace!</p>
+                <ol>
+<li>
+<p>1946年产生人类第一台数字电子计算机，称为ENIAC，主要用于科学计算</p>
+</li>
+<li>
+<p>计算机发展的四个时代，用电子元器件进行划分，包括电子管时代，晶体管时代，集成电路时代和大规模集成电路时代</p>
+</li>
+<li>
+<p>计算机的分类：按照计算机的大小划分为巨型机、小型机和微型机，PC机是微机</p>
+</li>
+<li>
+<p>按照用途划分为通用计算机和专用计算机<br>
+按照原理划分为数字计算机和模拟电子计算机</p>
+</li>
+<li>
+<p>计算机的应用包括：</p>
+<pre><code> 计算机最基本的应用为科学计算
+ 计算机最主要的应用为信息(或数据)处理 
+ 计算机包括的辅助功能有：CAD(辅助设计)、CAT(辅助测试)、
+ CAL(辅助学习)、CAM(辅助制造)、CAI(辅助教学)
+</code></pre>
+</li>
+<li>
+<p>计算机的发展趋势：</p>
+<pre><code> 巨型化（表示功能）、微型化（表示体积）、多媒体化和网络化
+</code></pre>
+</li>
+<li>
+<p>计算机系统的组成：</p>
+<pre><code> 计算机系统由硬件系统和软件系统组成，其中硬件主要由主机和外设组成，
+ 主机包括中央处理器（也称为CPU）和内存（也称为主存）组成，CPU由运算器和控制器组成
+ ，运算器主要能够执行算术运算和逻辑运算，控制器由程序计数器、指令寄存器、指令译码器、
+ 时序产生器和操作控制器组成，完成协调指挥计算机系统的操作。
+ 内存主要由随机存取存储器（简称RAM）和只读存储器（简称ROM）组成，在系统断电的前提下，
+ RAM中的信息会全部丢失，ROM中的信息不会丢失。外设主要由输入设备和输出设备组成，
+ 同时还包括外部存储器（如硬盘等），输入设备包括键盘、鼠标、摄像头、光笔、扫描仪、手写输入杆
+ 、游戏杆、语音输入装置等；输出设备包括显示器、打印机、绘图仪、影像输出系统、
+ 语音输出系统和磁记录设备等
+</code></pre>
+</li>
+<li>
+<p>软件系统由系统软件和应用软件组成</p>
+</li>
+<li>
+<p>在中央处理器和内存之间存在高速缓冲存储器，解决CPU和内存速度不匹配的问题</p>
+</li>
+<li>
+<p>冯·诺依曼计算机在世界上第一次提出计算机硬件系统由五部分组成，分别是</p>
+<pre><code>运算器、控制器、存储器、输入设备和输出设备
+</code></pre>
+</li>
+<li>
+<p>计算机的基本工作原理主要包括指令和程序，指令是包括操作数和操作地址的一组代码，程序是指令的集合</p>
+</li>
+<li>
+<p>计算机语言发展的基本历程包括：</p>
+<pre><code>机器语言、汇编语言和高级语言，汇编语言应用了助记符
+</code></pre>
+</li>
+<li>
+<p>计算机系统中的数据单位包括：</p>
+<pre><code>（1）位：bit，代表计算机中的一位，值为0或1，是计算机系统存储的最小单位
+（2）字节：Byte，1Byte=8bit，即一个字节占8位，是计算机系统存储最基本的单位
+（3）字：Word，1Word=2Byte，即一个汉字占2个字节
+（4）其他相关数据存储的单位换算
+1KB=1024B
+1MB=1024KB
+1GB=1024MB
+1TB=1024GB
+计算机中表示字符用ascii码，一个ascii码占1个字节的长度，但是ascii码的最高位永远为0，因此ascii码的值为0~127，注意在ascii码表中前32个字符是无法打印的，第一个能够被打印出来的为ascii码值为32的空格
+汉字编码包括外码、交换码、机内码和字形码
+（1）外码：也称为输入码，是用来将汉字输入到计算机中的一组键盘符号 
+常见输入码包括拼音码、五笔字形码、自然码、表形码、认知码、区位码和电报码
+（2）交换码（国标码）：中华人民共和国国家标准GB2312_80
+（3）机内码：在微机内部的汉字代码
+（4）汉字字形码：汉字的输出码，采用图形方式，将笔划写在16*16点阵中
+（5）汉字地址码：汉字库存储汉字字形信息的逻辑地址码
+注意国标码分两级：一级汉字和二级汉字
+GBK字符集：国家标准扩展字符集
+</code></pre>
+</li>
+<li>
+<p>CPU是计算机系统的核心部件，主要的性能指标包括主频和字长，主频代表一个时钟周期内，计算机CPU能够完成的操作次数，其单位为MHz；字长是计算机CPU能够一次处理的二进制位数</p>
+</li>
+<li>
+<p>内存的性能指标包括容量和运算速度，所谓内存的运算速度即为单位时间内，内存能够执行的指令条数</p>
+</li>
+<li>
+<p>计算机总线包括三种：分别是</p>
+<pre><code>控制总线、地址总线和数据总线
+</code></pre>
+</li>
+<li>
+<p>计算机病毒的特性包括：</p>
+<pre><code>传染性、隐蔽性、破坏性、潜伏性和变异性 
+</code></pre>
+</li>
+<li>
+<p>计算机病毒的分类：</p>
+<pre><code>按照破坏性分为：良性病毒、恶性病毒、极恶性病毒和灾难性病毒
+按照传染方式分为：引导区型病毒、文件型病毒、混合型病毒和宏病毒
+按照连接方式分为：源码型病毒、入侵型病毒、操作系统型病毒和外壳型病毒 
+</code></pre>
+</li>
+<li>
+<p>关于输入法切换操作问题：</p>
+<pre><code>（1）中英文输入法切换：ctrl+空格
+（2）输入法的切换：shift+ctrl
+（3）全半角的切换：shift+空格
+（4）中英文标点符号切换：ctrl+.
+</code></pre>
+</li>
+<li>
+<p>国际标准化组织ISO提出了OSI开发系统互连参考模型，将计算机网络的通信协议从低到高分为七个层次，分别是</p>
+<pre><code>物理层，数据链路层，网络层，传输层，会话层，表示层和应用层 
+</code></pre>
+</li>
+<li>
+<p>机器数包括两种：</p>
+<pre><code>有符号数和无符号数，
+</code></pre>
+</li>
+<li>
+<p>有符号数则最高位代表符号位，0代表正数，1代表负数；无符号数则对应数值所有位都为数值本身</p>
+</li>
+<li>
+<p>数据包括整数和小数，整数即为机器数，小数即为定点数和浮点数，如果小数点位置固定，则称为定点数；小数点位置不固定的数称为浮点数，一般在表示浮点数时，常用科学计数法<br>
+科学计数法的表示方法：</p>
+<pre><code>用e或E代表10，在E或e前面是一个小数，在E或e后面是一个整数n，代表10的幂指数，
+如果n为正数，则代表乘以10的正n次幂，如果n为负数，则代表乘以10的负n次幂
+</code></pre>
+</li>
+<li>
+<p>进制的转换问题</p>
+<pre><code>最基本的进制转换操作为十进制与二进制之间的转换 
+（1）十进制转换为二进制 
+十进制整数部分做除以2取余数逆序输出操作， 十进制小数部分做乘以2取整数正序输出操作     
+（2）二进制转换为十进制 
+二进制整数部分做对应位乘以2的正n-1次幂相加操作，二进制小数部分做对应位乘以2的负n次幂相加操作
+所有的进制都可以与二进制之间进行转换，即二进制为媒介
+八进制和二进制之间的转换
+（1）八进制转换为二进制：八进制的一位，二进制用三位表示
+八进制     二进制
+0	000
+1	001
+2	010
+3	011
+4	100
+5	101
+6	110
+7	111
+注意：如果在八进制转换为二进制的过程中，二进制整数部分开头的0可以省略，二进制小数部分结尾的0可以省略
+（2）二进制转换为八进制 
+二进制转换为八进制的操作为二进制三位，用八进制一位表示，对应关系如（1），操作过程为二进制整数部分从右向左看位数，不足位则前补0，二进制小数部分从左向右看位数，不足位则后补0
+
+十六进制和二进制之间的转换 
+（1）十六进制转换为二进制 
+十六进制的一位，二进制用四位表示
+十六进制  二进制 
+0	0000
+1	0001
+2	0010
+3	0011
+4	0100
+5	0101
+6	0110
+7	0111
+8	1000
+9	1001
+A	1010
+B	1011
+C	1100
+D	1101
+E	1110
+F	1111
+（2）二进制转换为十六进制 
+二进制转换为十六进制的方式为二进制的四位，十六进制用一位表示，对应二进制整数部分从右向左操作，不足位前补0，二进制小数部分从左向右操作，不足位后补0
+
+(11001101.1011)B=(205.6875)D=(CD.B)H=(315.54)O
+(52.6)O=(101010.11)B=(42.75)D=(2A.C)H
+(99.9375)D=(63.F)H=(1100011.1111)B=(143.74)O
+(A8.4)H=(168.25)D=(250.2)O=(10101000.01)
+</code></pre>
+</li>
+<li>
+<p>计算机中有一种编码格式为BCD码，也称为8421码，该编码方式为用四位二进制数表示一位十进制数（不涉及到进位等操作）<br>
+0：数字，采用数值编码格式<br>
+’0’：字符，采用ascii码格式<br>
+注意字符0的ascii码值为48，之后数值逐一ascii码值+1，大写字母A的ascii码值为<br>
+65，剩余大写字母按顺序逐一+1，小写字母a的ascii码值为97，剩余小写字母按顺序逐一+1<br>
+注意回收站占据的是硬盘上的一块空间，文件被delete后，会放到回收站中（注意如果是shift+delete则代表彻底删除，文件不在回收站中），该文件可以恢复<br>
+剪贴板上主要包含的是被剪切或复制的文本信息，在一个剪贴板上可以包含多个复制或剪切的文本内容，剪贴板占据的是内存的一块空间<br>
+文件是存储在外部存储器上的一组名字不同的信息组合，文件的名称由文件名和文件的扩展名组成，注意在Windows中不区分大小写，<br>
+即如果保存A.txt，则再创建a.txt代表是同名文件，但是如果创建的是相同文件名，不同扩展名的文件，则可以实现存储，例如同路径下，可以保存A.txt和A.docx<br>
+文件的扩展名代表了文件的类型，一般文件扩展名为三位，常见的扩展名文件包括</p>
+<pre><code>.exe：可执行文件 
+.sys：系统文件 
+.com：命令文件
+.doc或.docx：Word文档
+.xls或.xlsx：Excel表格
+.ppt或.pptx：演示文稿文件 
+.txt：文本文档
+文件的查找操作包括全字匹配的精确查找和信息不确定的模糊查找，在模糊查找过程中，需要注意使用通配符操作
+？代表单个字符 
+*代表多个字符 
+</code></pre>
+</li>
+<li>
+<p>计算机使用目录树进行文件信息显示的方式，用Windows资源管理器实现<br>
+打开Windows资源管理器的方式：</p>
+<pre><code>（1）右键单击开始按钮，选择Windows资源管理器
+（2）单击开始按钮，选择所有程序，选择附件，选择Windows资源管理器
+    资源管理器中的每一个磁盘名为根目录，如果该目录没有展开，则目录名前会有向右指向的空心箭头，展开后，则变为向右下角指向的实心箭头，
+    同时在Windows资源管理器中能够显示的最底层为文件夹
+</code></pre>
+</li>
+<li>
+<p>系统软件包括</p>
+<pre><code>操作系统、语言处理软件（如C语言、Java等）、数据库系统软件（VF、SQL Server等）、
+操作系统实用程序（如磁盘碎片整理程序等），常用的应用软件包括MS Office，WPS，防病毒软件和防火墙软件等 
+</code></pre>
+</li>
+<li>
+<p>各种数据在计算机中的存储的数据方式是不同的，数值采用进制存储，字母采用ascii码存储，汉字采用汉字编码存储<br>
+数值的进制包括：</p>
+<pre><code>二进制：计算机的机器语言，常用数值0，1，运算原则逢二进一，表示为B
+八进制：常用数值0~7，运算原则逢八进一，表示为O
+十进制：常用数值0~9，运算原则逢十进一，表示为D
+十六进制：常用数值0~9，A~F，运算原则逢十六进一，表示为H
+</code></pre>
+</li>
+</ol>
 
                 
 
@@ -277,10 +451,10 @@ Peace!</p>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/09/11/hello-world/" data-toggle="tooltip" data-placement="top" title="Hello World">&larr; Previous Post</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/2017/09/11/英语笔记01/" data-toggle="tooltip" data-placement="top" title="英语笔记01">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -309,7 +483,7 @@ Peace!</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"></span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Usage</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Init</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">Modify</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">Deployment</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">Sidebar settings</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.3.</span> <span class="toc-nav-text">Signature Setup</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.4.</span> <span class="toc-nav-text">Go to top icon Setup</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.5.</span> <span class="toc-nav-text">Post tag</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.6.</span> <span class="toc-nav-text">Markdown render</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">Hexo Basics</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Have fun ^_^</span></a></li></ol>
+          <ol class="nav">none</ol>
         
         </div>
       </aside>
@@ -329,10 +503,6 @@ Peace!</p>
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
-                        
-                          <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
-                        
                     </div>
                 </section>
                 
@@ -358,8 +528,8 @@ Peace!</p>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "xgh";
-    var disqus_identifier = "http://yoursite-url/2017/03/18/hexo-theme-beantech/";
-    var disqus_url = "http://yoursite-url/2017/03/18/hexo-theme-beantech/";
+    var disqus_identifier = "http://yoursite-url/2017/09/12/计算机基础01/";
+    var disqus_url = "http://yoursite-url/2017/09/12/计算机基础01/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
