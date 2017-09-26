@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite-url/2017/09/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%8003/</loc>
+        <lastmod>2017-09-26T04:36:28.026Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2017/09/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%8002/</loc>
+        <lastmod>2017-09-26T04:31:07.049Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite-url/2017/09/26/%E6%95%B0%E6%8D%AE%E5%BA%9304/</loc>
         <lastmod>2017-09-26T04:04:51.518Z</lastmod>
         <changefreq>weekly</changefreq>
