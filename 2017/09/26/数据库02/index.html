@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          数据库 - Power的Blog
+          数据库02 - Power的Blog
         
     </title>
 
-    <link rel="canonical" href="http://yoursite-url/2017/09/26/数据库/">
+    <link rel="canonical" href="http://yoursite-url/2017/09/26/数据库02/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -91,7 +91,7 @@
                         <div class="tags">
                             
                         </div>
-                        <h1>数据库</h1>
+                        <h1>数据库02</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by XGH on
@@ -212,93 +212,101 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3><span id="数据管理技术发展的三个阶段">数据管理技术发展的三个阶段：</span></h3>
-<pre><code>（1）人工管理阶段
-（2）文件系统管理阶段
-（3）数据库管理阶段 
+                <h4><span id="关系运算">关系运算：</span></h4>
+<pre><code>（1）交：存在两个关系R和S，注意两个关系必须具有相同的属性列表，交操作结果为既属于R也属于S的元组集合，组成一个新的关系
+（2）并：存在两个关系R和S，注意两个关系必须具有相同的属性列表，并操作结果为属于R或者属于S的元组集合，组成一个新的关系
+（3）差：存在两个关系R和S，注意两个关系必须具有相同的属性列表，差操作结果为属于R但不属于S的元组集合，组成一个新的关系
+（4）笛卡尔乘积：存在两个关系R和S，将
+R×S的结果为笛卡尔乘积，结果中做两个关系属性的加法，元组的乘法，例如关系R包含m1个属性，n1个元组，S包含m2个属性，n2个元组，则R×S的结果包含m1+m2个属性，n1*n2个元组
+注意笛卡尔乘积的两个关系可以不具有相同的属性列集
+（5）选择操作：选择也称为限制，在关系R中选择满足指定条件的元组
+σ条件(关系)
+实际上就是从关系中查找满足条件的子关系内容
+（6）投影操作：从对应关系中选择出某一些具体的属性组成一个新的关系作为结果
 </code></pre>
-<p>数据库，Database，简称DB，大量数据的集合</p>
-<p>数据库管理系统，Database Management System，简称DBMS，是位于用户和操作系统之间的一级系统软件，用于实现数据库管理操作，是数据库系统的核心<br>
-数据库系统，Database System，简称DBS，数据库系统由数据库、数据库管理系统、计算机、用户及数据库管理员（DBA）组成</p>
-<h4><span id="dbms的主要操作内容包括">DBMS的主要操作内容包括：</span></h4>
-<pre><code>（1）数据定义
-create（创建数据库对象）、alter(修改数据库对象)、drop（删除数据库对象）
-（2）数据操纵
-insert（插入数据）、update（更新数据）、delete（删除数据）
-（3）数据查询
-select
-（4）数据控制
-grant（授予权限）、revoke（收回权限）
+<h4><span id="属性列表关系">∏属性列表(关系)</span></h4>
+<pre><code>（7）连接操作
+连接操作为θ连接，从两个关系的笛卡尔乘积中选取属性间满足一定条件的元组，组成一个新的关系作为结果、
+连接分为两种，等值连接和不等值连接，不等值连接则代表条件是不等于相关的比较符号，等值连接则代表条件是相同的操作关系，等值连接又包括等值连接和自然连接两种
+等值连接直接按照相等条件连接即可，自然连接是特殊的等值连接，将两个关系中进行比较的必须是相同的属性，并且要在结果中将重复的属性去掉
+
+关系的完整性操作包括三种类型，分别是实体完整性，用户自定义完整性和参照完整性 
+1、实体完整性 
+也称为行完整性，能够实现对应关系中的每一行唯一确定值，实现实体完整性的操作包括设置主键、设置唯一约束和设置索引
+2、用户自定义完整性 
+也称为列完整性，也称为域完整性，能够实现在某一具体列（属性）上的域设置范围，实现用户自定义完整性的操作包括设置规则和默认值约束条件
+3、参照完整性
+设置参照完整性的应用，即在主从两表上，主表需要设置主键，从表需要设置外键，从表的信息要随着主表信息的修改而修改
 </code></pre>
-<p>数据库系统的体系结构：主要采用客户机/服务器的工作原理，简称C/S</p>
-<p>除此之外，常见的工作模式还包括B/S，此处所说B代表Browser，浏览器；S代表Server，服务器</p>
-<h4><span id="数据库体系结构三级模式两级映射">数据库体系结构：三级模式/两级映射</span></h4>
-<p>设计数据库的体系结构首先要有用户需求，例如设计实现学生成绩管理系统,</p>
-<ul>
-<li>首先需要针对用户的需求进行分析，分析数据包括有哪些具体组成以及基本的数据元素，在需求分析阶段产物为数据字典（简称DD），需要将需求分析的结果转换为存储在计算机中的数据实体，因此中间过程，将需求分析结果进行人脑的客观反应，产生概念模型设计，在概念模型设计中以E-R图（也称为实体-联系模型）展示数据库中数据之间的关系；将E-R图转换为数据库还需要中间过程，将概念模型转换为逻辑模型，逻辑模型的产物为关系模式，逻辑模型实际上就是对整体用户需求的一个完整的描述，因此称为逻辑模式或模式，逻辑模型最终会直接转换为计算机的内部存储，称为物理模型，内部存储为内模式，逻辑模型的设计实际上是面向外部用户应用的，外部应用称为外模式，由于外部应用可能有多个，因此外模式有多个，在模式和外模式、模式和内模式之间分别存在一级映射关系，因此数据库系统结构被称作三级模式/两级映射</li>
-</ul>
-<h4><span id="数据模型的三要素数据结构-数据操作和数据约束">数据模型的三要素：数据结构、数据操作和数据约束</span></h4>
-<pre><code>（1）数据结构：在数据库中，存储了具体哪些数据库对象即为数据结构
-（2）数据操作：是数据操作的核心内容，包括增加、删除、更改、查询
-（3）数据约束：描述数据结构内数据间的语法、语义联系，一定要满足的条件
-一般来说，数据约束即为数据完整性操作
+<h2><span id="关系的规范化理论">关系的规范化理论</span></h2>
+<h3><span id="关系规范化即为了创建数据库中的关系时一定要尽量减少数据冗余情况和可能发生的异常情况">关系规范化即为了创建数据库中的关系时，一定要尽量减少数据冗余情况和可能发生的异常情况</span></h3>
+<h3><span id="关系规范化的主要解决问题为">关系规范化的主要解决问题为：</span></h3>
+<pre><code>（1）数据冗余
+（2）插入数据异常
+（3）更新数据异常
+（4）删除数据异常
 </code></pre>
-<p>数据库建模:</p>
-<p>概念模型的设计</p>
-<h5><span id="概念模型是人脑对数据库需求的抽象反应">概念模型是人脑对数据库需求的抽象反应</span></h5>
-<h5><span id="概念模型中的主要概念包括">概念模型中的主要概念包括：</span></h5>
-<pre><code>（1）实体：客观存在的可以相互区分的事物
-实体也可以是抽象的概念 
-（2）实体集：同类实体的集合称为实体集
-（3）属性：实体所具有的某一方面的特性 
-（4）域：属性的取值范围称之为域
-（5）联系：实体与实体之间的关系称为联系，注意在一个数据库中，所有的实体之间或直接或间接一定会存在联系，否则无法实现一个数据库系统的设计 
-联系的类型分为三种，分别为一对一联系（1:1），一对多联系(1:n)，多对多联系(m:n)
+<h2><span id="函数依赖">函数依赖</span></h2>
+<pre><code>如果存在关系R（U），注意U代表关系的属性集，X和Y分别是U的子集，
+存在对于R(U)的任意一个可能的关系r，r中不可能存在两个元组在X上的属性值相等，而Y上的属性值不等，则称X函数决定Y函数，或Y函数依赖于X，X-&gt;Y
+学生(学号,姓名,性别,出生日期)
+注意学号决定了姓名，性别和出生日期，因此为函数依赖关系，X属性集为学号，
+Y属性集为姓名，性别和出生日期。在整个关系模式中，非学号的其他所有属性均由学号主关键字决定，
+因此也可以被称为是完全函数依赖关系
 </code></pre>
-<ul>
-<li>1:1联系：存在两个实体集A和B，如果针对实体集A中的任意一个实体，在实体集B中至多有一个实体与之对应，反之，在实体集B中的任意一个实体，实体集A中也至多有一个实体与之对应，则称实体集A和B为一对一联系<br>
-例如：国家和首都，班级和班长</li>
-</ul>
+<h2><span id="部分函数依赖">部分函数依赖</span></h2>
+<pre><code>如果针对一个关系模式，存在子属性集X函数依赖决定Y，X的子集函数依赖决定Y'，则代表该关系中存在部分函数依赖
+选课(学号,课程号,成绩,姓名)
+该关系模式主码为学号和课程号共同实现主码，学号和课程号决定了学生成绩，但是主码的一部分学号决定了姓名，因此存在部分函数依赖关系
+</code></pre>
+<h2><span id="传递函数依赖">传递函数依赖</span></h2>
+<pre><code>如果存在子属性集X函数依赖决定Y，而Y函数依赖决定Z，那么X传递函数依赖决定Z
+学生(学号,姓名,所在系,系主任)
+学号决定了学生的姓名和所在系，但是所在系决定了系主任，因此学号被传递决定了系主任，因此系主任传递函数依赖于学号
+</code></pre>
+<h2><span id="第一范式1nf">第一范式（1NF）</span></h2>
+<pre><code>设定存在关系R，如果关系R中的所有属性均不可再分，则实现满足1NF的要求，此要求是关系规范化的最低要求 
+</code></pre>
+<h2><span id="第二范式2nf">第二范式(2NF)</span></h2>
+<pre><code>设定存在关系R，在满足1NF的前提下，如果关系中存在部分函数依赖，将部分函数依赖关系全部清除后，实现第二范式的规范化要求
+将1NF的规范化进行2NF规范化处理的过程：
+（1）将对应关系模式的每一个主关键字的子集均单独创建一个关系模式
+（2）将每一个关系模式的完全函数依赖属性设置在对应关系模式中
+（3）去掉除了主关键字子集属性外，没有其他属性的关系模式即可
+</code></pre>
+<h2><span id="第三范式3nf">第三范式(3NF)</span></h2>
+<pre><code>设定存在关系R，在满足2NF的基础上，如果关系中存在传递函数依赖关系，将传递函数依赖关系去除，则称为满足3NF规范化要求 
+将2NF的关系进行#NF规范化处理的过程：
+（1）将传递函数依赖的属性在对应关系模式中去掉，将决定该属性的属性单独设计关系模式
+（2）将传递函数依赖的属性写在决定属性设计的新关系模式里
+学生(学号,姓名,所在系)
+R(所在系,系主任)
+</code></pre>
+<h2><span id="bc范式bcnf">BC范式（BCNF）</span></h2>
+<pre><code>在关系模式的设计中，如果不是每一个决定因素都包含关键字，则不满足BCNF，即设定存在关系R，
+则关系R中的所有属性均不传递函数依赖于每一个候选码，即消除属性对候选码的传递函数依赖即为满足BCNF
+</code></pre>
 <ul>
 <li>
-<p>1:n联系：存在两个实体集A和B，如果针对实体集A中的任意一个实体，在实体集B中至多有一个实体与之对应，反之，在实体集B中的任意一个实体，在实体集A中有多个实体与之对应，则称实体集A和B为一对多联系，注意在数据库中不存在多对一联系<br>
-例如：教师和学生<br>
-注意在很多情况下，联系只是在一定条件满足的情况下实现的联系类型确定，不一定绝对</p>
-</li>
-<li>
-<p>m:n联系：存在两个实体集A和B，如果针对实体集A中的任意一个实体，在实体集B中有多个实体与之对应，反之实体集B中的任意一个实体，在实体集A中有多个实体与之对应，则称实体集A和B为多对多联系<br>
-例如：学生和课程，读者和书籍</p>
-<pre><code>（6）唯一标识符：如果在一个实体集中存在一个属性或属性的组合能够唯一性确定实体集中每一个实体，则称该属性或属性的组合为唯一标识符，也可以看做是关键字，称为码或键
-（7）候选关键字：概念与唯一标识符或关键字的概念相同，也称为候选码或候选键 
-（8）主关键字：在候选关键字中，找到最能够代表实体集特点的候选关键字作为主关键字，也称为主码或主键
-注意唯一标识符、关键字、候选关键字可以有多个，但是主关键字只能有一个 
-注意主关键字的要求是不允许对应属性或属性的组合上存在重复值或空值 
-（9）主属性：候选关键字中的属性称为主属性
-（10）非主属性：不在候选关键字中的属性称为非主属性 
+<p>某医院住院部业务如下：</p>
+<pre><code>（1）一个病人只有一位主治医生，每一位主治医生可以治疗多位病人；
+（2）一个病房可多位患者，一个患者可以多次住院；
+（3）病人的属性有患者编号、姓名、性别、年龄，医生的属性有医生编号、姓名、
+职务，病房的属性有病房编号、科室。
+试根据上述业务规则：① 设计E-R模型。② 将E-R模型转换成关系模式集。
+患者(患者编号,姓名,性别,年龄)
+主码是患者编号
+医生(医生编号,姓名,职务)
+主码是医生编号
+治疗(患者编号,医生编号,病历)
+主码是患者编号，外码是医生编号
+病房(病房编号,科室)
+主码是病房编号
+住院(患者编号,病房编号,住院时间,出院时间)
+主码是患者编号+病房编号，外码是患者编号，病房编号
 </code></pre>
 </li>
 </ul>
-<h3><span id="概念模型的设计产物为e-r图也称为实体-联系模型对应e-r图包含三要素分别是实体-联系和属性在e-r图的设计中需要将数据库系统中所有的三部分信息全部描述清楚">概念模型的设计产物为E-R图，也称为实体-联系模型，对应E-R图包含三要素，分别是实体、联系和属性，在E-R图的设计中，需要将数据库系统中所有的三部分信息全部描述清楚</span></h3>
-<p>####E-R图设计的具体步骤：<br>
-	（1）用矩形框表示实体集<br>
-	（2）用椭圆形表示属性<br>
-	（3）用菱形表示联系<br>
-	（4）将联系的类型在连接线上标注出来<br>
-	（5）标注出每一个实体集的主码<br>
-在绘制E-R图的过程中，还需要掌握E-R图中各个基本元素的结构分析，是属性，还是实体集，还是联系，同时也要注意结构的归属问题，是属于实体集的，还是联系产生的自身属性</p>
-<p>概念模型转换为逻辑模型的过程，是将图形转换为关系的过程，逻辑模型的产物为关系模式，也称为关系，关系模式的样式为：<br>
-关系模式名(属性1,属性2,…)</p>
-<p>在概念模型的E-R图转换为逻辑模型的关系模式过程中，注意每一个实体集均需要单独对应一个关系模式。但是如果将概念模型转换为逻辑模型时，只转换实体集，则还缺少关于联系的转换操作，E-R图中的联系转换为关系模式时，需要根据不同的联系类型进行不同的转换操作</p>
-<p>如果存在一个属性或属性的组合在一个关系模式A中作为主码设置，在另一个关系模式B中作为普通属性设置，则称该属性或属性的组合为关系模式B的外码，也称为外部关键字或外键</p>
-<p>一个关系就是一张二维表，由行和列组成，一般关系的一行称为一个元组，关系的一列称为一个属性，实际上的关系就是物理存储中的表的概念，同样的，关系中的一行对应表中的一行概念为记录，关系中的一列对应表中的一列概念为字段<br>
-关系代数：</p>
-<h4><span id="关系代数包括四种运算符">关系代数包括四种运算符：</span></h4>
-<pre><code>（1）集合运算符：常用操作包括交、并、差、笛卡尔乘积
-（2）关系运算符：常用操作包括选择，投影和连接
-（3）比较运算符：常用操作包括&gt;、 &gt;=、 &lt; 、&lt;=、 =、 !=
-（4）逻辑运算符：常用操作包括与、或、非
-</code></pre>
-<p>一般比较运算符和逻辑运算符是设置在集合运算和关系运算中的辅助操作，逻辑运算的与和或可以连接多个条件</p>
 
                 
 
@@ -306,13 +314,9 @@ grant（授予权限）、revoke（收回权限）
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/09/26/数据库02/" data-toggle="tooltip" data-placement="top" title="数据库02">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/09/12/计算机基础01/" data-toggle="tooltip" data-placement="top" title="计算机基础01">Next Post &rarr;</a>
+                            <a href="/2017/09/26/数据库/" data-toggle="tooltip" data-placement="top" title="数据库">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -342,7 +346,7 @@ grant（授予权限）、revoke（收回权限）
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">数据管理技术发展的三个阶段：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">DBMS的主要操作内容包括：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">数据库体系结构：三级模式/两级映射</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">数据模型的三要素：数据结构、数据操作和数据约束</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">概念模型是人脑对数据库需求的抽象反应</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">概念模型中的主要概念包括：</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">概念模型的设计产物为E-R图，也称为实体-联系模型，对应E-R图包含三要素，分别是实体、联系和属性，在E-R图的设计中，需要将数据库系统中所有的三部分信息全部描述清楚</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">关系代数包括四种运算符：</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">关系运算：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">∏属性列表(关系)</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number"></span> <span class="toc-nav-text">关系的规范化理论</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number"></span> <span class="toc-nav-text">关系规范化即为了创建数据库中的关系时，一定要尽量减少数据冗余情况和可能发生的异常情况</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number"></span> <span class="toc-nav-text">关系规范化的主要解决问题为：</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number"></span> <span class="toc-nav-text">函数依赖</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number"></span> <span class="toc-nav-text">部分函数依赖</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number"></span> <span class="toc-nav-text">传递函数依赖</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number"></span> <span class="toc-nav-text">第一范式（1NF）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number"></span> <span class="toc-nav-text">第二范式(2NF)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number"></span> <span class="toc-nav-text">第三范式(3NF)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number"></span> <span class="toc-nav-text">BC范式（BCNF）</span></a>
         
         </div>
       </aside>
@@ -387,8 +391,8 @@ grant（授予权限）、revoke（收回权限）
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "xgh";
-    var disqus_identifier = "http://yoursite-url/2017/09/26/数据库/";
-    var disqus_url = "http://yoursite-url/2017/09/26/数据库/";
+    var disqus_identifier = "http://yoursite-url/2017/09/26/数据库02/";
+    var disqus_url = "http://yoursite-url/2017/09/26/数据库02/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
