@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          计算机基础01 - Power的Blog
+          数据库04 - Power的Blog
         
     </title>
 
-    <link rel="canonical" href="http://yoursite-url/2017/09/12/计算机基础01/">
+    <link rel="canonical" href="http://yoursite-url/2017/09/26/数据库04/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -91,11 +91,11 @@
                         <div class="tags">
                             
                         </div>
-                        <h1>计算机基础01</h1>
+                        <h1>数据库04</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by XGH on
-                            2017-09-12
+                            2017-09-26
                         </span>
                     </div>
                 
@@ -212,238 +212,177 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <ol>
-<li>
-<p>1946年产生人类第一台数字电子计算机，称为ENIAC，主要用于科学计算</p>
-</li>
-<li>
-<p>计算机发展的四个时代，用电子元器件进行划分，包括电子管时代，晶体管时代，集成电路时代和大规模集成电路时代</p>
-</li>
-<li>
-<p>计算机的分类：按照计算机的大小划分为巨型机、小型机和微型机，PC机是微机</p>
-</li>
-<li>
-<p>按照用途划分为通用计算机和专用计算机<br>
-按照原理划分为数字计算机和模拟电子计算机</p>
-</li>
-<li>
-<p>计算机的应用包括：</p>
-<pre><code> 计算机最基本的应用为科学计算
- 计算机最主要的应用为信息(或数据)处理 
- 计算机包括的辅助功能有：CAD(辅助设计)、CAT(辅助测试)、
- CAL(辅助学习)、CAM(辅助制造)、CAI(辅助教学)
+                <h2><span id="sql-server的服务">SQL Server的服务：</span></h2>
+<p>必须让SQL Server的服务处于启动状态，才可以正常使用SSMS</p>
+<p>在启动服务时，其应用为选择控制面板中的管理工具，其中有服务的选项，在服务中将SQL Express，右键手动启动即可</p>
+<h2><span id="sql-server中的数据类型">SQL Server中的数据类型</span></h2>
+<h3><span id="1-数值型">1、数值型</span></h3>
+<p>####（1）整型<br>
+		bit：位型，其操作数据的值只有两个，1或0，占1位<br>
+		tinyint：小整数，值为0~255，占1个字节<br>
+		smallint：短整数，值占2个字节<br>
+		int：整型，占4个字节<br>
+		bigint：长整型，占8个字节<br>
+		注意所有整型数据在用时，均无需设置长度，长度系统默认给出</p>
+<h4><span id="2浮点型">（2）浮点型</span></h4>
+<pre><code>	表示小数，小数包括一种有限小数，一种是无限小数，有限小数在SQL Server中称为精确数值型，无限小数即为浮点型
+	精确数值型包括：
+	decimal
+	numeric
+	两种精确数值型的操作方式相同，使用也相同，均为decimal(p,s)，numeric(p,s)，
+	其中的p代表精度，s代表小数位数，精度里面包含小数点占1位，同时需要注意四舍五入问题
+	如：declare @a decimal(5,2)
+	set @a=34.567
+	select @a
+	答案为34.57
+	无限小数包括float和real，一般在操作时，直接使用即可，长度是系统默认给的，无需设置
 </code></pre>
-</li>
-<li>
-<p>计算机的发展趋势：</p>
-<pre><code> 巨型化（表示功能）、微型化（表示体积）、多媒体化和网络化
+<h3><span id="2-字符型">2、字符型</span></h3>
+<p>####（1）char<br>
+		称为定长字符型，对应字符型数据一般是需要使用者给定字符长度的，<br>
+		设定长度的方式为char(整数值)，在应用中，要注意所谓char的定长字符型，<br>
+		其操作为设定了整数值为多少，则对应输入的数据就会占据整数值个长度，<br>
+		不足位则对应数值后补空格，超长则多余部分从尾部截取<br>
+		在SQL Server中，所有字符型数据均需要用单引号修饰<br>
+		declare @a char(4)<br>
+		set @a=‘abcde’<br>
+		select @a<br>
+		答案：abcd<br>
+		declare @a char(4)<br>
+		set @a=‘abc’<br>
+		select @a+‘d’<br>
+		答案：abc d<br>
+		（2）变长字符型varchar<br>
+		也是需要给出长度的，在应用中，要注意所谓varchar的变长字符型，<br>
+		其操作为设定了整数值为多少，则对应输入的数据就会占据整数值个长度，<br>
+		不足位则无操作，保留数值本身；超长则多余部分从尾部截取</p>
+<pre><code>	declare @a varchar(4)
+	set @a='abcde'
+	select @a
+	答案：abcd
+	declare @a varchar(4)
+	set @a='abc'
+	select @a+'d'
+	答案：abcd
+	（3）text：文本型，代表的数据如果过长，则需要使用text，char型和varchar型均无法正常表示，text如设置个人简历等内容较多的文本
+	使用text数据类型，无需设置长度
 </code></pre>
-</li>
-<li>
-<p>计算机系统的组成：</p>
-<pre><code> 计算机系统由硬件系统和软件系统组成，其中硬件主要由主机和外设组成，
- 主机包括中央处理器（也称为CPU）和内存（也称为主存）组成，CPU由运算器和控制器组成
- ，运算器主要能够执行算术运算和逻辑运算，控制器由程序计数器、指令寄存器、指令译码器、
- 时序产生器和操作控制器组成，完成协调指挥计算机系统的操作。
- 内存主要由随机存取存储器（简称RAM）和只读存储器（简称ROM）组成，在系统断电的前提下，
- RAM中的信息会全部丢失，ROM中的信息不会丢失。外设主要由输入设备和输出设备组成，
- 同时还包括外部存储器（如硬盘等），输入设备包括键盘、鼠标、摄像头、光笔、扫描仪、手写输入杆
- 、游戏杆、语音输入装置等；输出设备包括显示器、打印机、绘图仪、影像输出系统、
- 语音输出系统和磁记录设备等
+<h3><span id="3-货币型">3、货币型</span></h3>
+<pre><code>	money
+	smallmoney
+	类似于数值型，做正常使用，无需设置长度
 </code></pre>
-</li>
-<li>
-<p>软件系统由系统软件和应用软件组成</p>
-</li>
-<li>
-<p>在中央处理器和内存之间存在高速缓冲存储器，解决CPU和内存速度不匹配的问题</p>
-</li>
-<li>
-<p>冯·诺依曼计算机在世界上第一次提出计算机硬件系统由五部分组成，分别是</p>
-<pre><code>运算器、控制器、存储器、输入设备和输出设备
+<h3><span id="4-日期时间型">4、日期时间型</span></h3>
+<pre><code>	smalldatetime：占4个字节，能够精确到分钟
+	datetime：占8个字节，能够精确到毫秒
+	该数据类型在使用时，无需设置长度
 </code></pre>
-</li>
-<li>
-<p>计算机的基本工作原理主要包括指令和程序，指令是包括操作数和操作地址的一组代码，程序是指令的集合</p>
-</li>
-<li>
-<p>计算机语言发展的基本历程包括：</p>
-<pre><code>机器语言、汇编语言和高级语言，汇编语言应用了助记符
+<h2><span id="变量-运算符和表达式">变量、运算符和表达式</span></h2>
+<h3><span id="1在sql-server中的变量类型">（1）在SQL Server中的变量类型</span></h3>
+<pre><code>	包括两种：全局变量和局部变量，全局变量用@@开头，局部变量用@开头
+	常用的程序中包括两种标识符，一种为变量，
+	即在程序运行过程中其值可以发生改变的则称为变量；在程序运行过程中，其值不可以发生变化的称为常量
+	变量的操作需要经历先定义后赋值的过程
+	变量的定义：
+	declare @变量名 数据类型(宽度)
+	变量的赋值：
+	方式有两种，可以使用set或select赋值
+	set @变量名=变量值
+	注意此操作只能一次为一个变量赋值
+	select @变量名1=变量值1,@变量名2=变量值2,...
+	注意此操作能够为多个变量进行赋值
+	变量的输出操作包括两种：
+	select @变量名1,@变量名2,...
+	此操作能够以表格方式输出结果
+	print @变量名1,@变量名2,...
+	此操作能够以打印方式输出结果
+	在操作中可以发现，定义变量、变量赋值和变量输出的操作单独运行时，
+	只有定义变量的无问题，剩余均出错，则代表该变量的使用过程应该是一个完整的操作过程，
+	要一起运行，在SQL Server中被称为是一个批处理
 </code></pre>
-</li>
-<li>
-<p>计算机系统中的数据单位包括：</p>
-<pre><code>（1）位：bit，代表计算机中的一位，值为0或1，是计算机系统存储的最小单位
-（2）字节：Byte，1Byte=8bit，即一个字节占8位，是计算机系统存储最基本的单位
-（3）字：Word，1Word=2Byte，即一个汉字占2个字节
-（4）其他相关数据存储的单位换算
-1KB=1024B
-1MB=1024KB
-1GB=1024MB
-1TB=1024GB
-计算机中表示字符用ascii码，一个ascii码占1个字节的长度，但是ascii码的最高位永远为0，因此ascii码的值为0~127，注意在ascii码表中前32个字符是无法打印的，第一个能够被打印出来的为ascii码值为32的空格
-汉字编码包括外码、交换码、机内码和字形码
-（1）外码：也称为输入码，是用来将汉字输入到计算机中的一组键盘符号 
-常见输入码包括拼音码、五笔字形码、自然码、表形码、认知码、区位码和电报码
-（2）交换码（国标码）：中华人民共和国国家标准GB2312_80
-（3）机内码：在微机内部的汉字代码
-（4）汉字字形码：汉字的输出码，采用图形方式，将笔划写在16*16点阵中
-（5）汉字地址码：汉字库存储汉字字形信息的逻辑地址码
-注意国标码分两级：一级汉字和二级汉字
-GBK字符集：国家标准扩展字符集
+<h3><span id="2运算符">（2）运算符</span></h3>
+<pre><code>	算术运算符
+	+  -  *  /  %
+	注意/的操作：两个整数进行相除操作，答案也是一个整数
+	%求余数，保证操作数为整数
+	赋值运算符
+	=
+	在SQL Server中，等号既可以做赋值运算符，也可以做比较运算符
+	赋值运算符的使用为：将=右侧的值为=左侧的值赋值
+	比较运算符
+	&gt;  &gt;=  &lt;  &lt;=  =  !=(不等于) &lt;&gt;(不等于)
+	运算结果为逻辑型，true代表结果为真，false代表结果为假
+	
+	逻辑运算符 
+	逻辑与and：操作原则为前后连接两个关系运算，遇假则假
+	逻辑或or：操作原则为前后连接两个关系运算，遇真则真
+	逻辑非not：操作原则为其后连接一个关系运算，遇真则假，遇假则真
+	
+	字符串连接运算符+
+	前后连接两个字符串型数据，用+代表连接 
+	
+	在多种运算符应用中，运算符的优先级别设计为首先做算术运算（先做* / %，再做+  -)，
+	再做字符串连接运算，再做比较运算，再做逻辑非，再做逻辑与，再做逻辑或，再做赋值操作，
+	但是使用圆括号可以改变优先级，圆括号的优先级高于一切，注意同级别的运算符如果同时出现，运算顺序为从左到右
 </code></pre>
-</li>
-<li>
-<p>CPU是计算机系统的核心部件，主要的性能指标包括主频和字长，主频代表一个时钟周期内，计算机CPU能够完成的操作次数，其单位为MHz；字长是计算机CPU能够一次处理的二进制位数</p>
-</li>
-<li>
-<p>内存的性能指标包括容量和运算速度，所谓内存的运算速度即为单位时间内，内存能够执行的指令条数</p>
-</li>
-<li>
-<p>计算机总线包括三种：分别是</p>
-<pre><code>控制总线、地址总线和数据总线
+<h2><span id="sql中的流程控制语句结构">SQL中的流程控制语句结构</span></h2>
+<pre><code>顺序结构 
+选择结构
+循环结构
 </code></pre>
-</li>
-<li>
-<p>计算机病毒的特性包括：</p>
-<pre><code>传染性、隐蔽性、破坏性、潜伏性和变异性 
+<h3><span id="1-顺序结构">1、顺序结构</span></h3>
+<h4><span id="所谓顺序结构代表程序中的所有语句自上而下逐条运行">所谓顺序结构，代表程序中的所有语句自上而下逐条运行</span></h4>
+<h4><span id="在程序设计中一定要注意数据类型必须统一字符型和数值型是无法在一个表达式中直接运算的">在程序设计中，一定要注意数据类型必须统一，字符型和数值型是无法在一个表达式中直接运算的，</span></h4>
+<h4><span id="必须转换为相同的数据类型一般是将数值型转换为字符型操作">必须转换为相同的数据类型，一般是将数值型转换为字符型操作</span></h4>
+<h4><span id="数据类型转换使用转换函数包括cast和convert两种具体用法为">数据类型转换使用转换函数，包括cast和convert两种，具体用法为：</span></h4>
+<pre><code>	cast(表达式 as 数据类型)
+	convert(数据类型,表达式)
+	注意如果数据类型中包含了长度设计，则直接给出即可
 </code></pre>
-</li>
-<li>
-<p>计算机病毒的分类：</p>
-<pre><code>按照破坏性分为：良性病毒、恶性病毒、极恶性病毒和灾难性病毒
-按照传染方式分为：引导区型病毒、文件型病毒、混合型病毒和宏病毒
-按照连接方式分为：源码型病毒、入侵型病毒、操作系统型病毒和外壳型病毒 
+<h2><span id="sql-server中的函数">SQL Server中的函数</span></h2>
+<h3><span id="1-数学函数">1、数学函数</span></h3>
+<pre><code>（1）abs(数值n)：取n的绝对值函数
+（2）rand()：是一个随机函数，返回值为0~1之间的随机浮点数
+（3）sqrt（数值n）：平方根函数
+（4）square(数值n)：平方函数
+（5）round(数值n，整数m)：四舍五入函数，针对数值n的小数部分保留m位有效小数
+例如：select round(456.789,2)
+答案为456.790
+（6）ceiling(数值n)：取上界，大于等于n的最小整数
+（7）floor(数值n)：取下界，小于等于n的最大整数
+注意在取上下界的过程中，如果操作数是一个整数，那么该整数的上界和下界均是本身
+（8）power(数值n，整数m)：返回n的m次方
+（9）pi()：返回圆周率的值
+（10）sign(数值n)：返回n的符号，如果n为正数，则返回1，如果n为负数，则返回-1，如果n为0，则返回0
 </code></pre>
-</li>
-<li>
-<p>关于输入法切换操作问题：</p>
-<pre><code>（1）中英文输入法切换：ctrl+空格
-（2）输入法的切换：shift+ctrl
-（3）全半角的切换：shift+空格
-（4）中英文标点符号切换：ctrl+.
+<h3><span id="2-字符串函数">2、字符串函数</span></h3>
+<pre><code>（1）ascii(字符串s)：返回字符串s中首字母的ascii码值
+（2）char(整数n)：返回ascii码值为n的对应字符
+（3）charindex(字符串s1，字符串s)：返回字符串s1在字符串s中首次出现时首字母的位置，如果没有在s中出现，则返回值为0
+select charindex('ab','mnq')
+答案为0,因为ab不是mnq的子串
+select charindex('mn','mnq')
+答案1，因为sql server的字符串下标从1开始
+select charindex('mn','mnqmn')
+答案为1，因为返回的是mn在mnqmn中首次出现的首字符的位置
+（4）left(字符串s,整数n)：针对字符串s从左侧开始取n个长度的子串 
+（5）right(字符串s，整数n)：针对字符串s从右侧开始取n个长度的子串，注意操作结果为从左到右显示，不是逆序 
+（6）substring(字符串s，整数m，整数n)：针对字符串s从m位置开始取n个长度的子串
+（7）len(字符串s)：求字符串s的长度
+datalength(字符串s)：求字符串s的字节数
+注意一个汉字占2个字节，但是len无汉字和字符之分，均按照1个字符统计；datalength则按照具体的内存空间占有进行统计
+select len('ab')
+答案为2
+select datalength('ab')
+答案为2
+select len('中国')
+答案为2
+select datalength('中国')
+答案为4
+（8）upper(字符串s)：将字符串中所有小写字符变为大写字符输出
+（9）lower(字符串s)：将字符串s中所有大写字符变为小写字符输出
+（10）replace(字符串s，字符串s1，字符串s2)：将字符串s中的字符串s1，由字符串s2替换，注意有几个s1，就替换成几个s2
 </code></pre>
-</li>
-<li>
-<p>国际标准化组织ISO提出了OSI开发系统互连参考模型，将计算机网络的通信协议从低到高分为七个层次，分别是</p>
-<pre><code>物理层，数据链路层，网络层，传输层，会话层，表示层和应用层 
-</code></pre>
-</li>
-<li>
-<p>机器数包括两种：</p>
-<pre><code>有符号数和无符号数，
-</code></pre>
-</li>
-<li>
-<p>有符号数则最高位代表符号位，0代表正数，1代表负数；无符号数则对应数值所有位都为数值本身</p>
-</li>
-<li>
-<p>数据包括整数和小数，整数即为机器数，小数即为定点数和浮点数，如果小数点位置固定，则称为定点数；小数点位置不固定的数称为浮点数，一般在表示浮点数时，常用科学计数法<br>
-科学计数法的表示方法：</p>
-<pre><code>用e或E代表10，在E或e前面是一个小数，在E或e后面是一个整数n，代表10的幂指数，
-如果n为正数，则代表乘以10的正n次幂，如果n为负数，则代表乘以10的负n次幂
-</code></pre>
-</li>
-<li>
-<p>进制的转换问题</p>
-<pre><code>最基本的进制转换操作为十进制与二进制之间的转换 
-（1）十进制转换为二进制 
-十进制整数部分做除以2取余数逆序输出操作， 十进制小数部分做乘以2取整数正序输出操作     
-（2）二进制转换为十进制 
-二进制整数部分做对应位乘以2的正n-1次幂相加操作，二进制小数部分做对应位乘以2的负n次幂相加操作
-所有的进制都可以与二进制之间进行转换，即二进制为媒介
-八进制和二进制之间的转换
-（1）八进制转换为二进制：八进制的一位，二进制用三位表示
-八进制     二进制
-0	000
-1	001
-2	010
-3	011
-4	100
-5	101
-6	110
-7	111
-注意：如果在八进制转换为二进制的过程中，二进制整数部分开头的0可以省略，二进制小数部分结尾的0可以省略
-（2）二进制转换为八进制 
-二进制转换为八进制的操作为二进制三位，用八进制一位表示，对应关系如（1），操作过程为二进制整数部分从右向左看位数，不足位则前补0，二进制小数部分从左向右看位数，不足位则后补0
-
-十六进制和二进制之间的转换 
-（1）十六进制转换为二进制 
-十六进制的一位，二进制用四位表示
-十六进制  二进制 
-0	0000
-1	0001
-2	0010
-3	0011
-4	0100
-5	0101
-6	0110
-7	0111
-8	1000
-9	1001
-A	1010
-B	1011
-C	1100
-D	1101
-E	1110
-F	1111
-（2）二进制转换为十六进制 
-二进制转换为十六进制的方式为二进制的四位，十六进制用一位表示，对应二进制整数部分从右向左操作，不足位前补0，二进制小数部分从左向右操作，不足位后补0
-
-(11001101.1011)B=(205.6875)D=(CD.B)H=(315.54)O
-(52.6)O=(101010.11)B=(42.75)D=(2A.C)H
-(99.9375)D=(63.F)H=(1100011.1111)B=(143.74)O
-(A8.4)H=(168.25)D=(250.2)O=(10101000.01)
-</code></pre>
-</li>
-<li>
-<p>计算机中有一种编码格式为BCD码，也称为8421码，该编码方式为用四位二进制数表示一位十进制数（不涉及到进位等操作）<br>
-0：数字，采用数值编码格式<br>
-’0’：字符，采用ascii码格式<br>
-注意字符0的ascii码值为48，之后数值逐一ascii码值+1，大写字母A的ascii码值为<br>
-65，剩余大写字母按顺序逐一+1，小写字母a的ascii码值为97，剩余小写字母按顺序逐一+1<br>
-注意回收站占据的是硬盘上的一块空间，文件被delete后，会放到回收站中（注意如果是shift+delete则代表彻底删除，文件不在回收站中），该文件可以恢复<br>
-剪贴板上主要包含的是被剪切或复制的文本信息，在一个剪贴板上可以包含多个复制或剪切的文本内容，剪贴板占据的是内存的一块空间<br>
-文件是存储在外部存储器上的一组名字不同的信息组合，文件的名称由文件名和文件的扩展名组成，注意在Windows中不区分大小写，<br>
-即如果保存A.txt，则再创建a.txt代表是同名文件，但是如果创建的是相同文件名，不同扩展名的文件，则可以实现存储，例如同路径下，可以保存A.txt和A.docx<br>
-文件的扩展名代表了文件的类型，一般文件扩展名为三位，常见的扩展名文件包括</p>
-<pre><code>.exe：可执行文件 
-.sys：系统文件 
-.com：命令文件
-.doc或.docx：Word文档
-.xls或.xlsx：Excel表格
-.ppt或.pptx：演示文稿文件 
-.txt：文本文档
-文件的查找操作包括全字匹配的精确查找和信息不确定的模糊查找，在模糊查找过程中，需要注意使用通配符操作
-？代表单个字符 
-*代表多个字符 
-</code></pre>
-</li>
-<li>
-<p>计算机使用目录树进行文件信息显示的方式，用Windows资源管理器实现<br>
-打开Windows资源管理器的方式：</p>
-<pre><code>（1）右键单击开始按钮，选择Windows资源管理器
-（2）单击开始按钮，选择所有程序，选择附件，选择Windows资源管理器
-    资源管理器中的每一个磁盘名为根目录，如果该目录没有展开，则目录名前会有向右指向的空心箭头，展开后，则变为向右下角指向的实心箭头，
-    同时在Windows资源管理器中能够显示的最底层为文件夹
-</code></pre>
-</li>
-<li>
-<p>系统软件包括</p>
-<pre><code>操作系统、语言处理软件（如C语言、Java等）、数据库系统软件（VF、SQL Server等）、
-操作系统实用程序（如磁盘碎片整理程序等），常用的应用软件包括MS Office，WPS，防病毒软件和防火墙软件等 
-</code></pre>
-</li>
-<li>
-<p>各种数据在计算机中的存储的数据方式是不同的，数值采用进制存储，字母采用ascii码存储，汉字采用汉字编码存储<br>
-数值的进制包括：</p>
-<pre><code>二进制：计算机的机器语言，常用数值0，1，运算原则逢二进一，表示为B
-八进制：常用数值0~7，运算原则逢八进一，表示为O
-十进制：常用数值0~9，运算原则逢十进一，表示为D
-十六进制：常用数值0~9，A~F，运算原则逢十六进一，表示为H
-</code></pre>
-</li>
-</ol>
 
                 
 
@@ -451,13 +390,9 @@ F	1111
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/09/26/数据库/" data-toggle="tooltip" data-placement="top" title="数据库">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/09/11/英语笔记01/" data-toggle="tooltip" data-placement="top" title="英语笔记01">Next Post &rarr;</a>
+                            <a href="/2017/09/26/数据库03/" data-toggle="tooltip" data-placement="top" title="数据库03">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -487,7 +422,7 @@ F	1111
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">SQL Server的服务：</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">SQL Server中的数据类型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1、数值型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">（2）浮点型</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2、字符型</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3、货币型</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4、日期时间型</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">变量、运算符和表达式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">（1）在SQL Server中的变量类型</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">（2）运算符</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">SQL中的流程控制语句结构</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">1、顺序结构</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.1.1.</span> <span class="toc-nav-text">所谓顺序结构，代表程序中的所有语句自上而下逐条运行</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.1.2.</span> <span class="toc-nav-text">在程序设计中，一定要注意数据类型必须统一，字符型和数值型是无法在一个表达式中直接运算的，</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.1.3.</span> <span class="toc-nav-text">必须转换为相同的数据类型，一般是将数值型转换为字符型操作</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.1.4.</span> <span class="toc-nav-text">数据类型转换使用转换函数，包括cast和convert两种，具体用法为：</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">SQL Server中的函数</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">1、数学函数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">2、字符串函数</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -532,8 +467,8 @@ F	1111
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "xgh";
-    var disqus_identifier = "http://yoursite-url/2017/09/12/计算机基础01/";
-    var disqus_url = "http://yoursite-url/2017/09/12/计算机基础01/";
+    var disqus_identifier = "http://yoursite-url/2017/09/26/数据库04/";
+    var disqus_url = "http://yoursite-url/2017/09/26/数据库04/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

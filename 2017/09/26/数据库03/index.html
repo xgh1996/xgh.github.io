@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          数据库03 - Power的Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite-url/2017/09/26/数据库03/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('null')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/BeanTechSign-white.png');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>数据库03</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by XGH on
+                            2017-09-26
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Hello</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2><span id="主要针对关系的规范化">主要针对关系的规范化</span></h2>
+<pre><code>1NF：只要属性不可再分则实现1NF
+2NF：在1NF的基础上，去掉部分函数依赖
+3NF：在2NF的基础上，去掉传递函数依赖
+BCNF：去掉所有非主属性对主属性的依赖关系
+</code></pre>
+<ul>
+<li>某商店的业务描述如下：</li>
+<li>
+<pre><code>（1）每一张发票有唯一的发票编号；
+发票主码为发票编码
+（2）一张发票可以购买多种商品，不同的发票可以购买同一种商品；
+发票：商品 多对多
+（3）一个厂商可以供应多种商品，一个商品可以由多家厂商供应；
+厂商： 商品 多对多 
+（4）每一个厂商和每一种商品有唯一的编号
+厂商编号和商品编号为主码
+根据上述业务规则得到商品厂商发票关系模式R（发票编号，日期，厂商编号，厂商名称，商品编号，商品名称，定价，数量）
+ 试求：① 写出R的基本函数依赖集F，求R的候选键,判断R的规范化范式级别。
+      ② 将R规范到BCNF范式。
+</code></pre>
+</li>
+</ul>
+<h5><span id="r的候选键发票编号商品编号厂商编号原因是多对多的联系两个实体集的主码共同做联系的关系模式的主码">R的候选键发票编号+商品编号+厂商编号，原因是多对多的联系，两个实体集的主码共同做联系的关系模式的主码，</span></h5>
+<h5><span id="由于发票和商品之间为多对多联系因此联系的主码为发票编号商品编号由于厂商和商品之间为多对多联系">由于发票和商品之间为多对多联系，因此联系的主码为发票编号+商品编号；由于厂商和商品之间为多对多联系，</span></h5>
+<h5><span id="因此联系的主码为商品编号厂商编号因此两个联系放在一个关系模式集中则主码为发票编号商品编号厂商编号">因此联系的主码为商品编号+厂商编号，因此两个联系放在一个关系模式集中，则主码为发票编号+商品编号+厂商编号。</span></h5>
+<h5><span id="从当前例子中可以发现日期是由发票编号决定的因为开发票是需要设置日期的厂商名称是由厂商编号决定的">从当前例子中可以发现，日期是由发票编号决定的，因为开发票是需要设置日期的；厂商名称是由厂商编号决定的；</span></h5>
+<h5><span id="商品名称和单价是由商品编号决定的数量则是在具体的某一张发票上某厂商订购某商品的数量值">商品名称和单价是由商品编号决定的；数量，则是在具体的某一张发票上，某厂商订购某商品的数量值，</span></h5>
+<h5><span id="因此是由发票编号厂商编号商品编号共同决定的">因此是由发票编号+厂商编号+商品编号共同决定的</span></h5>
+<h5><span id="因此从当前的例子中可以发现存在部分函数依赖关系所以当前的关系模式函数依赖集合只满足1nf的规范化">因此从当前的例子中可以发现，存在部分函数依赖关系，所以当前的关系模式函数依赖集合只满足1NF的规范化</span></h5>
+<pre><code>R1(发票编号,厂商编号,商品编号，数量)
+R2(发票编号，日期)
+R3(厂商编号，厂商名称)
+R4(商品编号，商品名称，定价)
+</code></pre>
+<ul>
+<li>
+<p>某企业集团有若干工厂，每工厂生产多种产品，且每种产品可以在多个工厂生产，</p>
+<p>每个工厂按照固定的计划数量生产产品；每个工厂聘用多名职工，且每名职工只能在一个工厂工作，</p>
+<p>工厂聘用职工有聘期和工资。工厂属性有工厂编号、厂名、地址，</p>
+<p>产品的属性有产品编号、产品名、规格，职工的属性有职工号、姓名。</p>
+</li>
+</ul>
+<h4><span id="1-根据上述语义画出er图在er图中需注明实体的属性-联系的类型及实体的标识符">(1) 根据上述语义画出ER图，在ER图中需注明实体的属性、联系的类型及实体的标识符。</span></h4>
+<pre><code>工厂(工厂编号,厂名,地址)
+主键工厂编号
+产品(产品编号，产品名，规格)
+主键产品编号
+职工（职工号，姓名）
+主键职工号
+生产(工厂编号，产品编号，计划数量)
+主码为工厂编号+产品编号，外码为工厂编号，产品编号
+聘用(职工号，工厂编号，聘期，工资)
+主码职工号，外码是工厂编号
+分析后，发现所有的关系模式均达到3NF
+</code></pre>
+<h4><span id="2-将er模型转换成关系模型并指出每个关系模式的主键和外键">(2) 将ER模型转换成关系模型，并指出每个关系模式的主键和外键。</span></h4>
+<h4><span id="3-分析每个关系模式已经达到第几范式并完成3nf的规范化要求">(3) 分析每个关系模式已经达到第几范式，并完成3NF的规范化要求</span></h4>
+<ul>
+<li>某连锁商店数据库中有三个实体集。</li>
+</ul>
+<pre><code>	“商店”实体集；“职工”实体集；“商品”实体集。业务规则如下：
+	一个商店有若干职工，每个职工只能在一个商店工作；职工在商店工作有聘用日期、月薪等属性；
+	商店可以销售多种商品，统计月商品销售量。（自定义属性）
+
+
+	商店（商店编号，商店名称，地址）
+	主码为商店编号
+	商品（商品编号，商品名称，单价）
+	主码为商品编号
+	职工（职工编号，姓名，性别，出生日期，电话）
+	主码为职工编号
+	聘用（职工编号，商店编号，聘用日期，月薪）
+	主码为职工编号，外码为商店编号
+	销售（商店编号，商品编号，月商品销售量）
+	主码为商店编号+商品编号，外码为商店编号，商品编号
+	每一个关系模式均达到3NF
+</code></pre>
+<h4><span id="需要注意在关系模式转换过程中一定要保证当前原有的题目中没有单独设计的关系模式即没有独立存在与其他的关系模式无关的关系模式定义否则出错">需要注意在关系模式转换过程中，一定要保证当前原有的题目中没有单独设计的关系模式（即没有独立存在与其他的关系模式无关的关系模式）定义，否则出错</span></h4>
+<p>试根据上述业务规则：</p>
+<h4><span id="1-设计e-r模型">① 设计E-R模型。</span></h4>
+<h4><span id="2-将e-r模型转换成关系模式集并指出主码和外码并转换为3nf">② 将E-R模型转换成关系模式集，并指出主码和外码，并转换为3NF</span></h4>
+<ul>
+<li>某书店的业务描述如下：</li>
+</ul>
+<pre><code>	（1）每一个订单有唯一的订单编号；
+	订单编号是订单的主码
+	（2）一个订单可以订购多种图书，不同的订单可以订购同一种图书；
+	订单和图书为多对多联系
+	（3）一个订单只对应一个客户，一个客户可以有多个订单； 
+	订单和客户之间为一对多联系，客户是1，订单是多
+	（4）每一个客户和每种图书均有唯一的编号
+	客户编号和图书编号为主码
+	根据上述业务规则得到商品订单关系模式R:
+	R（订单编号，日期，客户编号，客户名称，客户电话，图书编号，图书名称，定价，数量）
+</code></pre>
+<h5><span id="分析本题目订单和图书之间为多对多联系因此联系的主码为订单编号图书编号">分析本题目，订单和图书之间为多对多联系，因此联系的主码为订单编号+图书编号，</span></h5>
+<h5><span id="但是订单和客户为一对多联系因此一对多联系中联系的主码应该为多端实体集的主码即订单编号">但是订单和客户为一对多联系，因此一对多联系中，联系的主码应该为多端实体集的主码，即订单编号，</span></h5>
+<h5><span id="因此对应商品订单关系模式r的候选键应该为订单编号图书编号">因此对应商品订单关系模式R的候选键应该为订单编号+图书编号</span></h5>
+<h5><span id="由于当前的关系模式r中候选键的一部分订单编号决定了日期客户编号图书编号决定了图书名称和单价因此存在部分函数依赖关系">由于当前的关系模式R中，候选键的一部分订单编号决定了日期，客户编号；图书编号决定了图书名称和单价，因此存在部分函数依赖关系，</span></h5>
+<h5><span id="同时客户编号决定了客户名称和客户电话因此订单编号间接决定了客户名称和客户电话因此该关系中还存在传递函数依赖关系">同时客户编号决定了客户名称和客户电话，因此订单编号间接决定了客户名称和客户电话，因此该关系中还存在传递函数依赖关系</span></h5>
+<h5><span id="当前关系模式满足属性不可再分的1nf的规范化要求">，当前关系模式满足属性不可再分的1NF的规范化要求</span></h5>
+<pre><code>	R1(订单编号，图书编号，数量)
+	主码是订单编号+图书编号，外码是订单编号，图书编号
+	R2(订单编号，日期，客户编号)
+	主码是订单编号，外码是客户编号
+	R3(图书编号，图书名称，定价)
+	主码是图书编号
+	R4(客户编号，客户名称，客户电话)
+	主码客户编号
+</code></pre>
+<h5><span id="部分函数依赖关系要注意将候选键的子集依次创建一个单独的关系模式将决定的属性写在对应关系模式中即可">部分函数依赖关系要注意将候选键的子集依次创建一个单独的关系模式，将决定的属性写在对应关系模式中即可；</span></h5>
+<h5><span id="传递函数依赖关系则注意将传递函数依赖决定的属性剔除单独创建关系模式将将传递函数依赖决定的直接属性置于这个单独创建的关系模式中做主码">传递函数依赖关系则注意将传递函数依赖决定的属性剔除，单独创建关系模式，将将传递函数依赖决定的直接属性置于这个单独创建的关系模式中做主码</span></h5>
+<pre><code>  试求：① 写出R的基本函数依赖集F，并求出R的候选键。
+        ② 判断R的规范化范式级别。
+		③ 若R不满足3NF范式，将R规范到3NF范式。
+</code></pre>
+<h4><span id="设物资管理数据库中有两个实体集-一是仓库实体集具有仓库号-地址-电话等属性另一个是零件实体集具有零件号-零件名称-规格-单价等属性-如果规定一种零件可以存放在多个仓库中一个仓库可以存放多种零件-存放在仓库中的零件有存放日期-库存量">设物资管理数据库中有两个实体集。一是“仓库”实体集，具有仓库号、地址、电话等属性；另一个是“零件”实体集，具有零件号、零件名称、规格、单价等属性。如果规定：一种零件可以存放在多个仓库中，一个仓库可以存放多种零件。存放在仓库中的零件有存放日期、库存量。</span></h4>
+<pre><code>仓库(仓库号，地址，电话)
+主码是仓库号
+零件（零件号，零件名称，规格，单价）
+主码是零件号
+存放（零件号，仓库号，存放日期，库存量）
+主码是零件号+仓库号，外码是零件号，仓库号
+每一个关系模式均达到3NF要求
+(2)将E-R图转换成关系模型，并注明每个表的主码与外码
+</code></pre>
+<ul>
+<li>
+<p>假设某商业集团数据库中有关系模式R 如下：</p>
+<pre><code>R (商店编号,商品编号,数量,部门编号,负责人)
+如果规定：
+(1) 每个商店的每种商品只在一个部门销售；
+商店编号+商品编号，决定了部门编号
+(2) 每个商店的每个部门只有一个负责人；
+部门编号决定了负责人
+(3) 每个商店的每种商品只有一个库存数量。
+商店编号+商品编号，决定了库存数量
+候选键为商店编号+商品编号
+</code></pre>
+</li>
+</ul>
+<h5><span id="从1条件可以发现每个商店的每种商品只在一个部门销售则代表商店编号商品编号决定了部门编号">从（1）条件可以发现，每个商店的每种商品只在一个部门销售，则代表商店编号+商品编号决定了部门编号；</span></h5>
+<h5><span id="从2条件可以发现部门编号决定了部门的负责人">从（2）条件可以发现，部门编号决定了部门的负责人；</span></h5>
+<h5><span id="从3条件可以发现每个商店的每种商品只有一个库存两因此商店编号商品编号决定了库存数量">从（3）条件可以发现，每个商店的每种商品只有一个库存两，因此商店编号+商品编号决定了库存数量</span></h5>
+<h5><span id="由此商店编号商品编号分别决定了部门编号和库存数量但是部门编号决定了负责人">由此商店编号+商品编号，分别决定了部门编号和库存数量，但是部门编号决定了负责人，</span></h5>
+<h5><span id="因此该关系模式本身已经实现2nf因为关系模式中不存在部分函数依赖关系但是不满足3nf因为存在传递函数依赖关系">因此该关系模式本身已经实现2NF（因为关系模式中不存在部分函数依赖关系），但是不满足3NF（因为存在传递函数依赖关系）</span></h5>
+<pre><code>R1(商店编号,商品编号,数量,部门编号)
+主键是商品编号+商店编号，外码为部门编号
+R2(部门编号,负责人)
+主码为部门编号
+试回答下列问题：
+(1) 根据上述规定，写出关系模式R 的基本函数依赖；
+(2) 找出关系模式R 的候选码；
+(3) 试问关系模式R 最高已经达到第几范式？为什么？
+(4) 如果R 不属于3NF，请将R 分解成3NF 模式集。
+</code></pre>
+<ul>
+<li>
+<p>书店的业务描述：</p>
+<pre><code>（1）每一个订单有惟一的订单编号；
+订单编号为主码
+（2）一个订单可以订购多种图书，且每一种图书可以在多个订单中出现；
+订单和图书为多对多联系
+（3）一个订单对应一个客户，且一个客户可以有多个订单；
+订单和客户为一对多联系，客户为1，订单为n
+（4）每一个客户有惟一的客户编号；
+客户编号为主码
+（5）每一种图书有惟一的图书编号。
+图书编号为主码
+根据上述业务描述和订单格式得到关系模式R
+R（订单编号，日期，客户编号，客户名称，客户电话，地址，图书编号，书名，定价，数量）
+候选键应该是订单编号+图书编号
+R1(订单编号,图书编号，数量)
+主键是订单编号+图书编号，外键为订单编号，图书编号
+R2(订单编号，日期，客户编号)
+主键为订单编号，外键为客户编号
+R3(图书编号，书名，定价)
+主键为图书编号
+R4(客户编号，客户名称，客户电话，地址)
+主键为客户编号
+问：（1）写出R的基本函数依赖集。
+   （2）找出R的候选键。
+（3）判断R最高可达到第几范式，转成3NF
+（4）将R分解为一组满足3NF的模式。
+</code></pre>
+</li>
+<li>
+<p>9.设有关系模式：</p>
+<pre><code>教师授课（课程号，课程名，学分，授课教师号，教师名，授课时数），
+其语义为：一门课程（由课程号决定）有确定的课程名和学分，每名教师（由教师号决定）有确定的教师名，
+每门课程可以由多名教师讲授，每名教师也可以讲授多门课程，每名教师对每门课程有确定的授课时数。
+指出此关系模式的候选码，判断次关系模式属于第几范式，若不属于第三范式，请将其规范化为第三范式关系模式，
+并指出分解后的每个关系模式的主码和外码
+
+
+课程号决定课程名和学分
+教师号决定了教师名
+教师和课之间是多对多联系，那么主码应该为教师号+课程号
+教师授课（课程号，课程名，学分，授课教师号，教师名，授课时数）
+R1(课程号，授课教师号，授课时数)
+主码课程号+教师号，外码是课程号，教师号
+R2(课程号，课程名，学分)
+主码是课程号
+R3(授课教师号，教师名)
+主码是教师号
+</code></pre>
+</li>
+</ul>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/09/26/数据库04/" data-toggle="tooltip" data-placement="top" title="数据库04">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/09/26/数据库02/" data-toggle="tooltip" data-placement="top" title="数据库02">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">主要针对关系的规范化</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.0.1.</span> <span class="toc-nav-text">R的候选键发票编号+商品编号+厂商编号，原因是多对多的联系，两个实体集的主码共同做联系的关系模式的主码，</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.0.2.</span> <span class="toc-nav-text">由于发票和商品之间为多对多联系，因此联系的主码为发票编号+商品编号；由于厂商和商品之间为多对多联系，</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.0.3.</span> <span class="toc-nav-text">因此联系的主码为商品编号+厂商编号，因此两个联系放在一个关系模式集中，则主码为发票编号+商品编号+厂商编号。</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.0.4.</span> <span class="toc-nav-text">从当前例子中可以发现，日期是由发票编号决定的，因为开发票是需要设置日期的；厂商名称是由厂商编号决定的；</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.0.5.</span> <span class="toc-nav-text">商品名称和单价是由商品编号决定的；数量，则是在具体的某一张发票上，某厂商订购某商品的数量值，</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.0.6.</span> <span class="toc-nav-text">因此是由发票编号+厂商编号+商品编号共同决定的</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.0.7.</span> <span class="toc-nav-text">因此从当前的例子中可以发现，存在部分函数依赖关系，所以当前的关系模式函数依赖集合只满足1NF的规范化</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">(1) 根据上述语义画出ER图，在ER图中需注明实体的属性、联系的类型及实体的标识符。</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">(2) 将ER模型转换成关系模型，并指出每个关系模式的主键和外键。</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">(3) 分析每个关系模式已经达到第几范式，并完成3NF的规范化要求</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.4.</span> <span class="toc-nav-text">需要注意在关系模式转换过程中，一定要保证当前原有的题目中没有单独设计的关系模式（即没有独立存在与其他的关系模式无关的关系模式）定义，否则出错</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.5.</span> <span class="toc-nav-text">① 设计E-R模型。</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.6.</span> <span class="toc-nav-text">② 将E-R模型转换成关系模式集，并指出主码和外码，并转换为3NF</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.6.1.</span> <span class="toc-nav-text">分析本题目，订单和图书之间为多对多联系，因此联系的主码为订单编号+图书编号，</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.6.2.</span> <span class="toc-nav-text">但是订单和客户为一对多联系，因此一对多联系中，联系的主码应该为多端实体集的主码，即订单编号，</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.6.3.</span> <span class="toc-nav-text">因此对应商品订单关系模式R的候选键应该为订单编号+图书编号</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.6.4.</span> <span class="toc-nav-text">由于当前的关系模式R中，候选键的一部分订单编号决定了日期，客户编号；图书编号决定了图书名称和单价，因此存在部分函数依赖关系，</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.6.5.</span> <span class="toc-nav-text">同时客户编号决定了客户名称和客户电话，因此订单编号间接决定了客户名称和客户电话，因此该关系中还存在传递函数依赖关系</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.6.6.</span> <span class="toc-nav-text">，当前关系模式满足属性不可再分的1NF的规范化要求</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.6.7.</span> <span class="toc-nav-text">部分函数依赖关系要注意将候选键的子集依次创建一个单独的关系模式，将决定的属性写在对应关系模式中即可；</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.6.8.</span> <span class="toc-nav-text">传递函数依赖关系则注意将传递函数依赖决定的属性剔除，单独创建关系模式，将将传递函数依赖决定的直接属性置于这个单独创建的关系模式中做主码</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.7.</span> <span class="toc-nav-text">设物资管理数据库中有两个实体集。一是“仓库”实体集，具有仓库号、地址、电话等属性；另一个是“零件”实体集，具有零件号、零件名称、规格、单价等属性。如果规定：一种零件可以存放在多个仓库中，一个仓库可以存放多种零件。存放在仓库中的零件有存放日期、库存量。</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.7.1.</span> <span class="toc-nav-text">从（1）条件可以发现，每个商店的每种商品只在一个部门销售，则代表商店编号+商品编号决定了部门编号；</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.7.2.</span> <span class="toc-nav-text">从（2）条件可以发现，部门编号决定了部门的负责人；</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.7.3.</span> <span class="toc-nav-text">从（3）条件可以发现，每个商店的每种商品只有一个库存两，因此商店编号+商品编号决定了库存数量</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.7.4.</span> <span class="toc-nav-text">由此商店编号+商品编号，分别决定了部门编号和库存数量，但是部门编号决定了负责人，</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.0.7.5.</span> <span class="toc-nav-text">因此该关系模式本身已经实现2NF（因为关系模式中不存在部分函数依赖关系），但是不满足3NF（因为存在传递函数依赖关系）</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "xgh";
+    var disqus_identifier = "http://yoursite-url/2017/09/26/数据库03/";
+    var disqus_url = "http://yoursite-url/2017/09/26/数据库03/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Miracle">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/Paragon丶X">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/xgh1996">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; XGH 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite-url/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://yoursite-url/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
