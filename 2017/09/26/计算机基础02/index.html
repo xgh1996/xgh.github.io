@@ -1,218 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/ironman-draw.png">
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <title>
-        
-          计算机基础02  - Power的Blog
-        
-    </title>
-
-    <link rel="canonical" href="http://yoursite-url/2017/09/26/计算机基础02/">
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    <!-- Custom CSS --> 
-    <link rel="stylesheet" href="/css/beantech.min.css">
-    
-    <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
-
-    <link rel="stylesheet" href="/css/widget.css">
-
-    <link rel="stylesheet" href="/css/rocket.css">
-
-    <link rel="stylesheet" href="/css/signature.css">
-
-    <link rel="stylesheet" href="/css/toc.css">
-
-    <!-- Custom Fonts -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- ga & ba script hoook -->
-    <script></script>
-</head>
-
-
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="">
-	<!-- Modified by Yu-Hsuan Yen -->
-<!-- Post Header -->
-<style type="text/css">
-    header.intro-header{
-        
-            background-image: url('null')
-            /*post*/
-        
+<!DOCTYPE html><html lang=""><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="XGH"><meta name="renderer" content="webkit"><meta name="copyright" content="XGH"><meta name="keywords" content="Hello"><meta name="description" content=""><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>计算机基础02  · Mr.Long's Blog</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/favicon.ico"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
     }
-    
-    #signature{
-        background-image: url('/img/signature/BeanTechSign-white.png');
+    return function(){
+      return ret;
+    };
+  })();
+
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
     }
-    
-</style>
 
-<header class="intro-header" >
-    <!-- Signature -->
-    <div id="signature">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-heading">
-                        <div class="tags">
-                            
-                        </div>
-                        <h1>计算机基础02 </h1>
-                        <h2 class="subheading"></h2>
-                        <span class="meta">
-                            Posted by XGH on
-                            2017-09-26
-                        </span>
-                    </div>
-                
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-	
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Hello</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-
-                    
-
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
     }
-</script>
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
 
 
-    <!-- Main Content -->
-    <!-- Modify by Yu-Hsuan Yen -->
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                <h4><span id="访问文件的方式包括绝对路径访问和相对路径访问">访问文件的方式包括绝对路径访问和相对路径访问</span></h4>
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script></head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/cat.png"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">longlongyu</div><div class="profile-signature">for me</div><div class="friends"><div>FRIENDS</div><span><a href="//github.com/Longlongyu" target="_black">friendA</a></span><span><a href="//github.com/" target="_black">friendB</a></span><span><a href="//github.com/" target="_black">friendC</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a href="/">Mr.Long's Blog</a></div><div class="intro-nav-label-box"><a href="/">Home</a><a href="/about">About</a><a href="/archives">Archives</a><a href="/tags">Tags</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">Home</a><a href="/about">About</a><a href="/archives">Archives</a><a href="/tags">Tags</a></div></i><div class="clear"></div></section></nav><h1 class="post-title">计算机基础02 </h1><div class="post-intros"><div class="post-intro-meta"><span class="post-intro-time"><i class="post-intro-calendar fa fa-calendar"></i><span>2017/09/26</span></span><span class="busuanzi-pv" id="busuanzi_container_page_pv"><i class="post-intro-calendar fa fa-user-o"></i><span id="busuanzi_value_page_pv"></span></span></div></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><article class="article-entry" id="post"><h4><span id="访问文件的方式包括绝对路径访问和相对路径访问">访问文件的方式包括绝对路径访问和相对路径访问</span></h4>
 <h5><span id="windows操作系统为多任务-单用户的操作系统多任务代表可以同时在windows打开多个应用程序运行但是在多个应用程序中只有一个处于前台运行状态其余应用程序处于后台运行状态">Windows操作系统为多任务、单用户的操作系统，多任务代表可以同时在Windows打开多个应用程序运行，但是在多个应用程序中只有一个处于前台运行状态，其余应用程序处于后台运行状态</span></h5>
 <h5><span id="处于windows桌面时指向操作没有按键应用单击代表选定右击会出现快捷菜单双击代表打开双单击代表可以为应用程序重命名如果使用开始菜单则单击开始菜单中的应用程序为打开操作">处于windows桌面时，指向操作没有按键应用，单击代表选定，右击会出现快捷菜单，双击代表打开，双单击代表可以为应用程序重命名，如果使用开始菜单，则单击开始菜单中的应用程序为打开操作</span></h5>
 <h5><span id="针对文件左键拖动到指定位置可以实现文件的移动右键拖动则可以实现文件复制或移动到指定位置">针对文件，左键拖动到指定位置可以实现文件的移动；右键拖动则可以实现文件复制或移动到指定位置</span></h5>
@@ -400,309 +285,4 @@ ctlr+i：倾斜
 </code></pre>
 <h5><span id="插图操作选择插入菜单中的插图选项其中包含插入图片-剪贴画-形状-smartart-图表和屏幕截图注意图片来自文件smartart称为组织结构图图表必须有excel的表格数据做支撑屏幕截图一定是除了当前正在编辑的word文档以外的其他已打开的应用程序窗口">插图操作：选择插入菜单中的插图选项，其中包含插入图片、剪贴画、形状、SmartArt、图表和屏幕截图，注意图片来自文件，SmartArt称为组织结构图，图表必须有Excel的表格数据做支撑，屏幕截图一定是除了当前正在编辑的Word文档以外的其他已打开的应用程序窗口</span></h5>
 <h5><span id="插入形状时做规则图形按shift键鼠标拖动形状的位置微调按ctrl上下左右箭头形状的大小微调按alt鼠标拖动">插入形状时，做规则图形按shift键+鼠标拖动，形状的位置微调按ctrl+上下左右箭头，形状的大小微调按alt+鼠标拖动</span></h5>
-
-                
-
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/2017/09/26/计算机基础03/" data-toggle="tooltip" data-placement="top" title="计算机基础03">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/2017/09/26/数据库04/" data-toggle="tooltip" data-placement="top" title="数据库04">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
-
-                <!-- duoshuo Share start -->
-                
-                <!-- 多说 Share end-->
-
-                <!-- 多说评论框 start -->
-                
-                <!-- 多说评论框 end -->
-
-                <!-- disqus comment start -->
-                
-                    <div class="comment">
-                        <div id="disqus_thread" class="disqus-thread"></div>
-                    </div>
-                
-                <!-- disqus comment end -->
-            </div>
-            
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
-
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">访问文件的方式包括绝对路径访问和相对路径访问</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Windows操作系统为多任务、单用户的操作系统，多任务代表可以同时在Windows打开多个应用程序运行，但是在多个应用程序中只有一个处于前台运行状态，其余应用程序处于后台运行状态</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">处于windows桌面时，指向操作没有按键应用，单击代表选定，右击会出现快捷菜单，双击代表打开，双单击代表可以为应用程序重命名，如果使用开始菜单，则单击开始菜单中的应用程序为打开操作</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">针对文件，左键拖动到指定位置可以实现文件的移动；右键拖动则可以实现文件复制或移动到指定位置</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">选择应用程序的标题栏，右键单击会产生应用程序的控制菜单，控制菜单主要选项包括还原（显示应用程序窗口原大小）、移动、大小（可以调整大小）、最小化、最大化和关闭</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">窗口与对话框的不同在于，窗口可以改变大小和位置，但是对话框只能改变位置，不可以改变大小</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">常用的功能键包括：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">切换应用程序窗口的操作：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">计算机Windows操作系统的状态：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">显示/隐藏文件扩展名的操作：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">文件的创建操作：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">文件的创建可以在右键菜单中选择新建创建，但是文件种类较少，</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">最好的方式为选择开始菜单中所有程序中的具体程序，新建，但是需要设计文件存储路径</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">文件的重命名操作：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">以上三种方式删除的文件会置于回收站</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">按shift+del实现彻底删除，清空回收站实现彻底删除</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">控制面板是计算机配置软件、硬件的管理工具，打开控制面板的方式：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">显示器的类型包括CRT显示器和LCD显示器，CRT显示器的性能指标包括：分辨率，扫描频率，带宽，TCD认证</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">LCD显示器的性能指标包括：响应时间，可视角度，点距，分辨率，刷新率，亮度，对比度等</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">打印机的使用需要安装驱动程序，或者如果用户不安装打印机驱动，则可以与安装驱动的计算机实现网络资源共享（一定是局域网共享操作）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">画图软件的用法：选择开始菜单中的附件选项中的画图，保存文件的类型包括.bmp/.png/.jpg/.gif/.tiff等常见图像文件格式</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">画图软件中可以实现设置文字、设置形状等</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">14.</span> <span class="toc-nav-text">常见的文字编辑软件包括：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">15.</span> <span class="toc-nav-text">文件的属性包括：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">16.</span> <span class="toc-nav-text">Word的编辑状态包括两种：插入状态和改写状态，在系统默认情况下为插入状态，具体设置插入/改写的方式为：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">17.</span> <span class="toc-nav-text">Word中的标尺包括水平标尺和垂直标尺两种，Word中的视图包括四种，分别为</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">18.</span> <span class="toc-nav-text">页面视图、阅读版式视图、Web版式视图和大纲视图，在四种视图中，页面视图最为常用，包括水平标尺和垂直标尺显示，Web版式视图只能显示水平标尺，阅读版式视图和大纲视图中无法显示标尺</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">19.</span> <span class="toc-nav-text">Word文档的保存文件类型包括：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">20.</span> <span class="toc-nav-text">注意：Word的文件菜单中的关闭和退出命令效果不同，关闭代表当前Word文档内容关闭，但是不退出Word应用程序软件窗口；退出则代表退出应用程序窗口</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">21.</span> <span class="toc-nav-text">删除文字操作：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">22.</span> <span class="toc-nav-text">选择具体的文字信息，使用shift+向左/向右箭头即可，还可以用鼠标拖动法</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">23.</span> <span class="toc-nav-text">选定一行的操作：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">24.</span> <span class="toc-nav-text">选定一段的操作：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">25.</span> <span class="toc-nav-text">选定整篇文档：ctrl+a</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">26.</span> <span class="toc-nav-text">移动光标的操作：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">27.</span> <span class="toc-nav-text">在Word中，可以按住alt键+鼠标拖动，选中一列，因此如果有题目说Word能够实现选择列字块，答案是正确的</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">28.</span> <span class="toc-nav-text">删除文字的方式除了可以使用del或backspace以外，还可以选择开始菜单中的清除命令中的清除内容，实现删除</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">29.</span> <span class="toc-nav-text">注意Word中的清除操作可以实现清除格式/清除内容</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">30.</span> <span class="toc-nav-text">Word默认的格式为两端对齐，宋体，五号字，无首行缩进</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">31.</span> <span class="toc-nav-text">Word中文本的复制/移动操作</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">32.</span> <span class="toc-nav-text">查找操作的应用：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">32.1.</span> <span class="toc-nav-text">选择ctrl+F组合键打开查找对话框或选择开始菜单中的编辑选项中的查找中的高级查找</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">33.</span> <span class="toc-nav-text">查找可以查找内容，也可以查找格式或特殊格式，同时查找的方向可以向上、向下和全部查找，查找时可以全字匹配查找，还可以模糊查找，区分大小写查找等等</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">34.</span> <span class="toc-nav-text">多个文档想要同时查看的操作：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">34.1.</span> <span class="toc-nav-text">选择视图菜单中的窗口选项中的并排查看，默认情况下，Word使用左右方式显示多个并排查看的文档，并排查看时还可以同步滚动</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">35.</span> <span class="toc-nav-text">字体的设置：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">35.1.</span> <span class="toc-nav-text">选择开始菜单中的字体， 可以打开字体对话框（ctrl+d组合键）设置字体，包括设置字体样式，字号和字型</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">35.2.</span> <span class="toc-nav-text">注意选中文字则设置的字体是为选中文字设置的，未选中文字则设置的字体是为光标插入点之后的文字设置的</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">35.3.</span> <span class="toc-nav-text">设置字体包括设置中文字体和英文字体两种，字型包括常规、加粗、倾斜、加粗+倾斜四种，字号单位包括号和磅两种</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">35.4.</span> <span class="toc-nav-text">字符的间距是字体设置的，行与行之间的距离是段落设置的，字符间距包括的选择有三种：标准、加宽和紧缩</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">36.</span> <span class="toc-nav-text">Word中的段落设置：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">36.1.</span> <span class="toc-nav-text">选择开始菜单中的段落选项，打开段落对话框，包含缩进和间距、换行和分页、中文版式三个选项</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">36.2.</span> <span class="toc-nav-text">在缩进和间距选项中，注意段落的对齐方式包括五种：左对齐、右对齐、居中、两端对齐和分散对齐</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">36.3.</span> <span class="toc-nav-text">缩进的设置可以设置左缩进、右缩进、悬挂缩进和首行缩进效果</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">36.4.</span> <span class="toc-nav-text">在设置间距时，可以在段落对话框中设置段前、段后间距，还可以设置行间距，选项包括单倍行距、1.5倍行距、2倍行距、多倍行距、最小值和固定值，注意最小值和固定值的单位为磅</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">36.5.</span> <span class="toc-nav-text">在段落的换行和分页选项中，分页的设置可以实现孤行控制、段前分页、与下段同页和段中不分页四种选择，在页面视图的水平标尺使用中，可以设置段落的缩进方式，左侧倒三角实现首行缩进效果，左侧正三角实现悬挂缩进效果，左侧小方块实现左缩进效果，右侧正三角实现右缩进效果</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">36.6.</span> <span class="toc-nav-text">在开始菜单中的段落选项中，还可以设置边框和底纹效果，打开的对话框中设置边框和底纹操作的对象可以是文字也可以是段落，还可以设置页面边框，选项包括整篇文档、本节、本节——仅首页；本节——除首页以外所有页</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">37.</span> <span class="toc-nav-text">设置首字下沉的方法：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">37.1.</span> <span class="toc-nav-text">选中一段的第一个文字，选择插入菜单中的文本选项中的首字下沉，包含三个选择，无、下沉和悬挂，选择下沉后，在默认的情况下，下沉行数为3行</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">38.</span> <span class="toc-nav-text">在Word操作中，按enter键为硬回车操作，另起一段；按shift+enter键为软回车操作，在当前段另起一行</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">39.</span> <span class="toc-nav-text">在页面布局菜单中包括页面设置选项，可以设置纸张的大小、纸张的方向、页面的边距等，设置页面边距包括上下左右四个边距操作，还可以设置装订线，注意装订线位置包括左侧和上方两种，注意页面设置选项中还可以设置Word文档的页眉和页脚信息，同时可以指定当前文档每页多少行，每行多少字，但是不可以指定每页多少字</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">39.1.</span> <span class="toc-nav-text">Word中设置样式的方法：选择开始菜单中的样式选项，系统包含快速样式和更改样式两个选择，可以套用；</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">39.2.</span> <span class="toc-nav-text">在Word中，选择页面布局菜单中的页面背景，可以设置水印效果，水印包括无水印、图片水印和文字水印三种，其中文字水印可以设置文字的字体、字号和字体颜色，还可以设置字体显示的版式，版式包括斜式和水平两种</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">39.3.</span> <span class="toc-nav-text">设置页面边框的方式：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">39.4.</span> <span class="toc-nav-text">插图操作：选择插入菜单中的插图选项，其中包含插入图片、剪贴画、形状、SmartArt、图表和屏幕截图，注意图片来自文件，SmartArt称为组织结构图，图表必须有Excel的表格数据做支撑，屏幕截图一定是除了当前正在编辑的Word文档以外的其他已打开的应用程序窗口</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">39.5.</span> <span class="toc-nav-text">插入形状时，做规则图形按shift键+鼠标拖动，形状的位置微调按ctrl+上下左右箭头，形状的大小微调按alt+鼠标拖动</span></a></li></ol></li></ol>
-        
-        </div>
-      </aside>
-    
-
-                
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    
-                </ul>
-                
-            </div>
-        </div>
-    </div>
-</article>
-
-
-
-
-<!-- disqus embedded js code start (one page only need to embed once) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "xgh";
-    var disqus_identifier = "http://yoursite-url/2017/09/26/计算机基础02/";
-    var disqus_url = "http://yoursite-url/2017/09/26/计算机基础02/";
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus embedded js code start end -->
-
-
-
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'hover',
-          placement: 'left',
-          icon: 'ℬ'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
-
-
-
-    <!-- Footer -->
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                
-                
-                
-                    <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/Miracle">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa  fa-stack-1x fa-inverse">知</i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-                    <li>
-                        <a target="_blank" href="http://weibo.com/Paragon丶X">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-
-                
-                    <li>
-                        <a target="_blank"  href="https://github.com/xgh1996">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; XGH 2018 
-                    <br>
-                    Theme by <a href="http://huangxuan.me">Hux</a> 
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span> 
-                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
-                    </iframe>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/hux-blog.min.js"></script>
-
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-<!-- 
-     Because of the native support for backtick-style fenced code blocks 
-     right within the Markdown is landed in Github Pages, 
-     From V1.6, There is no need for Highlight.js, 
-     so Huxblog drops it officially.
-
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
--->
-<!--
-    <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
-
-
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://yoursite-url/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-<!--fastClick.js -->
-<script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-<!-- Google Analytics -->
-
-
-<script>
-    // dynamic User by Hux
-    var _gaId = 'UA-XXXXXXXX-X';
-    var _gaDomain = 'yoursite';
-
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
-
-
-
-
-<!-- Baidu Tongji -->
-
-
-
-
-
-
-	<a id="rocket" href="#top" class=""></a>
-	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
-    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
-<!-- Image to hack wechat -->
-<img src="http://yoursite-url/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
-
-</body>
-
-</html>
+</article><!-- lincense--><div class="license-wrapper"><p> <span>Author:  </span><a href="http://yoursite-url">XGH</a></p><p> <span>Link:  </span><a href="http://yoursite-url/2017/09/26/计算机基础02/">http://yoursite-url/2017/09/26/计算机基础02/</a></p><p> <span>Copyright:  </span><span>All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0">CC BY-NC-SA 3.0</a> unless stating additionally.</span></p></div><div class="post-paginator"><a class="prevSlogan" href="/2017/09/26/计算机基础03/" title="计算机基础03"><span>< PreviousPost</span><br><span class="prevTitle">计算机基础03</span></a><a class="nextSlogan" href="/2017/09/26/数据库04/" title="数据库04"><span>NextPost ></span><br><span class="nextTitle">数据库04</span></a><div class="clear"></div></div><div id="comment"></div></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><div class="toc-wrapper" style="top: 70vh;"><div class="toc-catalog"><i class="fa fa-list"> </i><span>CATALOG</span></div><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">访问文件的方式包括绝对路径访问和相对路径访问</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">Windows操作系统为多任务、单用户的操作系统，多任务代表可以同时在Windows打开多个应用程序运行，但是在多个应用程序中只有一个处于前台运行状态，其余应用程序处于后台运行状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.</span> <span class="toc-text">处于windows桌面时，指向操作没有按键应用，单击代表选定，右击会出现快捷菜单，双击代表打开，双单击代表可以为应用程序重命名，如果使用开始菜单，则单击开始菜单中的应用程序为打开操作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">针对文件，左键拖动到指定位置可以实现文件的移动；右键拖动则可以实现文件复制或移动到指定位置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.4.</span> <span class="toc-text">选择应用程序的标题栏，右键单击会产生应用程序的控制菜单，控制菜单主要选项包括还原（显示应用程序窗口原大小）、移动、大小（可以调整大小）、最小化、最大化和关闭</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.5.</span> <span class="toc-text">窗口与对话框的不同在于，窗口可以改变大小和位置，但是对话框只能改变位置，不可以改变大小</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">常用的功能键包括：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">切换应用程序窗口的操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">计算机Windows操作系统的状态：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">显示/隐藏文件扩展名的操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">文件的创建操作：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">6.1.</span> <span class="toc-text">文件的创建可以在右键菜单中选择新建创建，但是文件种类较少，</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">6.2.</span> <span class="toc-text">最好的方式为选择开始菜单中所有程序中的具体程序，新建，但是需要设计文件存储路径</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">文件的重命名操作：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">7.1.</span> <span class="toc-text">以上三种方式删除的文件会置于回收站</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">7.2.</span> <span class="toc-text">按shift+del实现彻底删除，清空回收站实现彻底删除</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text">控制面板是计算机配置软件、硬件的管理工具，打开控制面板的方式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">9.</span> <span class="toc-text">显示器的类型包括CRT显示器和LCD显示器，CRT显示器的性能指标包括：分辨率，扫描频率，带宽，TCD认证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">10.</span> <span class="toc-text">LCD显示器的性能指标包括：响应时间，可视角度，点距，分辨率，刷新率，亮度，对比度等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">11.</span> <span class="toc-text">打印机的使用需要安装驱动程序，或者如果用户不安装打印机驱动，则可以与安装驱动的计算机实现网络资源共享（一定是局域网共享操作）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">12.</span> <span class="toc-text">画图软件的用法：选择开始菜单中的附件选项中的画图，保存文件的类型包括.bmp/.png/.jpg/.gif/.tiff等常见图像文件格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">13.</span> <span class="toc-text">画图软件中可以实现设置文字、设置形状等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">14.</span> <span class="toc-text">常见的文字编辑软件包括：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">15.</span> <span class="toc-text">文件的属性包括：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">16.</span> <span class="toc-text">Word的编辑状态包括两种：插入状态和改写状态，在系统默认情况下为插入状态，具体设置插入/改写的方式为：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">17.</span> <span class="toc-text">Word中的标尺包括水平标尺和垂直标尺两种，Word中的视图包括四种，分别为</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">18.</span> <span class="toc-text">页面视图、阅读版式视图、Web版式视图和大纲视图，在四种视图中，页面视图最为常用，包括水平标尺和垂直标尺显示，Web版式视图只能显示水平标尺，阅读版式视图和大纲视图中无法显示标尺</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">19.</span> <span class="toc-text">Word文档的保存文件类型包括：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">20.</span> <span class="toc-text">注意：Word的文件菜单中的关闭和退出命令效果不同，关闭代表当前Word文档内容关闭，但是不退出Word应用程序软件窗口；退出则代表退出应用程序窗口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">21.</span> <span class="toc-text">删除文字操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">22.</span> <span class="toc-text">选择具体的文字信息，使用shift+向左/向右箭头即可，还可以用鼠标拖动法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">23.</span> <span class="toc-text">选定一行的操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">24.</span> <span class="toc-text">选定一段的操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">25.</span> <span class="toc-text">选定整篇文档：ctrl+a</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">26.</span> <span class="toc-text">移动光标的操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">27.</span> <span class="toc-text">在Word中，可以按住alt键+鼠标拖动，选中一列，因此如果有题目说Word能够实现选择列字块，答案是正确的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">28.</span> <span class="toc-text">删除文字的方式除了可以使用del或backspace以外，还可以选择开始菜单中的清除命令中的清除内容，实现删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">29.</span> <span class="toc-text">注意Word中的清除操作可以实现清除格式/清除内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">30.</span> <span class="toc-text">Word默认的格式为两端对齐，宋体，五号字，无首行缩进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">31.</span> <span class="toc-text">Word中文本的复制/移动操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">32.</span> <span class="toc-text">查找操作的应用：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">32.1.</span> <span class="toc-text">选择ctrl+F组合键打开查找对话框或选择开始菜单中的编辑选项中的查找中的高级查找</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">33.</span> <span class="toc-text">查找可以查找内容，也可以查找格式或特殊格式，同时查找的方向可以向上、向下和全部查找，查找时可以全字匹配查找，还可以模糊查找，区分大小写查找等等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">34.</span> <span class="toc-text">多个文档想要同时查看的操作：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">34.1.</span> <span class="toc-text">选择视图菜单中的窗口选项中的并排查看，默认情况下，Word使用左右方式显示多个并排查看的文档，并排查看时还可以同步滚动</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">35.</span> <span class="toc-text">字体的设置：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">35.1.</span> <span class="toc-text">选择开始菜单中的字体， 可以打开字体对话框（ctrl+d组合键）设置字体，包括设置字体样式，字号和字型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">35.2.</span> <span class="toc-text">注意选中文字则设置的字体是为选中文字设置的，未选中文字则设置的字体是为光标插入点之后的文字设置的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">35.3.</span> <span class="toc-text">设置字体包括设置中文字体和英文字体两种，字型包括常规、加粗、倾斜、加粗+倾斜四种，字号单位包括号和磅两种</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">35.4.</span> <span class="toc-text">字符的间距是字体设置的，行与行之间的距离是段落设置的，字符间距包括的选择有三种：标准、加宽和紧缩</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">36.</span> <span class="toc-text">Word中的段落设置：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">36.1.</span> <span class="toc-text">选择开始菜单中的段落选项，打开段落对话框，包含缩进和间距、换行和分页、中文版式三个选项</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">36.2.</span> <span class="toc-text">在缩进和间距选项中，注意段落的对齐方式包括五种：左对齐、右对齐、居中、两端对齐和分散对齐</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">36.3.</span> <span class="toc-text">缩进的设置可以设置左缩进、右缩进、悬挂缩进和首行缩进效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">36.4.</span> <span class="toc-text">在设置间距时，可以在段落对话框中设置段前、段后间距，还可以设置行间距，选项包括单倍行距、1.5倍行距、2倍行距、多倍行距、最小值和固定值，注意最小值和固定值的单位为磅</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">36.5.</span> <span class="toc-text">在段落的换行和分页选项中，分页的设置可以实现孤行控制、段前分页、与下段同页和段中不分页四种选择，在页面视图的水平标尺使用中，可以设置段落的缩进方式，左侧倒三角实现首行缩进效果，左侧正三角实现悬挂缩进效果，左侧小方块实现左缩进效果，右侧正三角实现右缩进效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">36.6.</span> <span class="toc-text">在开始菜单中的段落选项中，还可以设置边框和底纹效果，打开的对话框中设置边框和底纹操作的对象可以是文字也可以是段落，还可以设置页面边框，选项包括整篇文档、本节、本节——仅首页；本节——除首页以外所有页</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">37.</span> <span class="toc-text">设置首字下沉的方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">37.1.</span> <span class="toc-text">选中一段的第一个文字，选择插入菜单中的文本选项中的首字下沉，包含三个选择，无、下沉和悬挂，选择下沉后，在默认的情况下，下沉行数为3行</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">38.</span> <span class="toc-text">在Word操作中，按enter键为硬回车操作，另起一段；按shift+enter键为软回车操作，在当前段另起一行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">39.</span> <span class="toc-text">在页面布局菜单中包括页面设置选项，可以设置纸张的大小、纸张的方向、页面的边距等，设置页面边距包括上下左右四个边距操作，还可以设置装订线，注意装订线位置包括左侧和上方两种，注意页面设置选项中还可以设置Word文档的页眉和页脚信息，同时可以指定当前文档每页多少行，每行多少字，但是不可以指定每页多少字</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">39.1.</span> <span class="toc-text">Word中设置样式的方法：选择开始菜单中的样式选项，系统包含快速样式和更改样式两个选择，可以套用；</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">39.2.</span> <span class="toc-text">在Word中，选择页面布局菜单中的页面背景，可以设置水印效果，水印包括无水印、图片水印和文字水印三种，其中文字水印可以设置文字的字体、字号和字体颜色，还可以设置字体显示的版式，版式包括斜式和水平两种</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">39.3.</span> <span class="toc-text">设置页面边框的方式：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">39.4.</span> <span class="toc-text">插图操作：选择插入菜单中的插图选项，其中包含插入图片、剪贴画、形状、SmartArt、图表和屏幕截图，注意图片来自文件，SmartArt称为组织结构图，图表必须有Excel的表格数据做支撑，屏幕截图一定是除了当前正在编辑的Word文档以外的其他已打开的应用程序窗口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">39.5.</span> <span class="toc-text">插入形状时，做规则图形按shift键+鼠标拖动，形状的位置微调按ctrl+上下左右箭头，形状的大小微调按alt+鼠标拖动</span></a></li></ol></li></ol></div><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>

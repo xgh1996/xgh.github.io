@@ -1,318 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/ironman-draw.png">
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <title>
-        
-          Power的Blog
-        
-    </title>
-
-    <link rel="canonical" href="http://yoursite-url/">
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    <!-- Custom CSS --> 
-    <link rel="stylesheet" href="/css/beantech.min.css">
-    
-    <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
-
-    <link rel="stylesheet" href="/css/widget.css">
-
-    <link rel="stylesheet" href="/css/rocket.css">
-
-    <link rel="stylesheet" href="/css/signature.css">
-
-    <link rel="stylesheet" href="/css/toc.css">
-
-    <!-- Custom Fonts -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- ga & ba script hoook -->
-    <script></script>
-</head>
-
-
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="">
-	<!-- Modified by Yu-Hsuan Yen -->
-<!-- Post Header -->
-<style type="text/css">
-    header.intro-header{
-        
-            background-image: url('/img/header_img/archive-bg.png') 
-            /*config*/
-        
+<!DOCTYPE html><html lang=""><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="XGH"><meta name="renderer" content="webkit"><meta name="copyright" content="XGH"><meta name="keywords" content="Hello"><meta name="description" content=""><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>Mr.Long's Blog</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/favicon.ico"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
     }
-    
-    #signature{
-        background-image: url('/img/signature/BeanTechSign-white.png');
+    return function(){
+      return ret;
+    };
+  })();
+
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
     }
-    
-</style>
 
-<header class="intro-header" >
-    <!-- Signature -->
-    <div id="signature">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="site-heading">
-                        <h1>Hello</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">Hope to find what you want</span>
-                    </div>
-                
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-	
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Hello</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-
-                    
-
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
     }
-</script>
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
 
 
-    <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <!-- Main Content -->
-
-
-<div class="post-preview">
-
-    <a href="/2017/09/26/计算机基础03/">
-        <h2 class="post-title">
-            计算机基础03
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            设置分栏效果：选择文字后，选择页面布局菜单中的页面设置，其中包含分栏选项，可以设置栏数、栏宽、栏距和分隔线，注意当创建分栏后，系统会自动为分栏的最后一个字符后设置分栏符
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script></head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/cat.png"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">longlongyu</div><div class="profile-signature">for me</div><div class="friends"><div>FRIENDS</div><span><a href="//github.com/Longlongyu" target="_black">friendA</a></span><span><a href="//github.com/" target="_black">friendB</a></span><span><a href="//github.com/" target="_black">friendC</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a href="/">Mr.Long's Blog</a></div><div class="intro-nav-label-box"><a href="/">Home</a><a href="/about">About</a><a href="/archives">Archives</a><a href="/tags">Tags</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">Home</a><a href="/about">About</a><a href="/archives">Archives</a><a href="/tags">Tags</a></div></i><div class="clear"></div></section></nav><h1>Mr.Long's Blog</h1><h5>Welcome to my Blog!</h5><div class="intro-social"><a class="fa fa-github" href="//github.com/" target="_blank" title="github"></a><a class="fa fa-weibo" href="//www.weibo.com" target="_blank" title="weibo"></a><a class="fa fa-facebook" href="//www.facebook.com" target="_blank" title="facebook"></a><a class="fa fa-twitter" href="//twitter.com" target="_blank" title="twitter"></a><a class="fa fa-rss" href="/atom.xml" target="_blank" title="rss"></a></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><section id="recent-posts"><div class="recent-post-item"><div class="post-title"><a href="/2017/09/26/计算机基础03/">计算机基础03</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2017-09-26T04:31:22.000Z">2017-09-26</time></div><div class="recent-post-content">设置分栏效果：选择文字后，选择页面布局菜单中的页面设置，其中包含分栏选项，可以设置栏数、栏宽、栏距和分隔线，注意当创建分栏后，系统会自动为分栏的最后一个字符后设置分栏符
 设置分页符和分节符的操作：选择页面布局菜单中的页面设置，选择插入分页符和分节符选项，可以实现操作
 Word中常见分隔符详解：
 分页符：把标题放在页首或将表格完整放在一页，在分页位置插入分页符
-Word文档正常是自动换行，自动......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by XGH on
-            2017-09-26
-        </p>
-        <div class="tags">
-            
-        </div>
-    
+Word文档正常是自动换行，自动分页，插入分页符则称为强制分页，分页的快捷键操作为ctrl+enter
 
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/26/计算机基础02/">
-        <h2 class="post-title">
-            计算机基础02 
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            访问文件的方式包括绝对路径访问和相对路径访问
+分栏符：设置分栏后，Word自动添加一个分栏符，在每一栏的下方
+换行符：排版需要会给标题设置一个比较大的段后间距，换行符添加没有分段 ...</div><div class="read-more"><a class="more" href="/2017/09/26/计算机基础03/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2017/09/26/计算机基础02/">计算机基础02 </a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2017-09-26T04:24:45.000Z">2017-09-26</time></div><div class="recent-post-content">访问文件的方式包括绝对路径访问和相对路径访问
 Windows操作系统为多任务、单用户的操作系统，多任务代表可以同时在Windows打开多个应用程序运行，但是在多个应用程序中只有一个处于前台运行状态，其余应用程序处于后台运行状态
-处于windows桌面时，指向操作没有按键应用，单击代表选定，右击会出现快捷菜单，双击代表打开，双单击代表可以为应用程序重命名，如果使用开始菜单，则单击开始菜单中的应......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by XGH on
-            2017-09-26
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/26/数据库04/">
-        <h2 class="post-title">
-            数据库04
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            SQL Server的服务：
+处于windows桌面时，指向操作没有按键应用，单击代表选定，右击会出现快捷菜单，双击代表打开，双单击代表可以为应用程序重命名，如果使用开始菜单，则单击开始菜单中的应用程序为打开操作
+针对文件，左键拖动到指定位置可以实现文件的移动；右键拖动则可以实现文件复制或移动到指定位置
+选择应用程序的标题栏，右键单击会产生应用程序的控制菜单，控制菜单主要选项包括还原（显示应用程序窗 ...</div><div class="read-more"><a class="more" href="/2017/09/26/计算机基础02/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2017/09/26/数据库04/">数据库04</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2017-09-26T04:01:00.000Z">2017-09-26</time></div><div class="recent-post-content">SQL Server的服务：
 必须让SQL Server的服务处于启动状态，才可以正常使用SSMS
 在启动服务时，其应用为选择控制面板中的管理工具，其中有服务的选项，在服务中将SQL Express，右键手动启动即可
 SQL Server中的数据类型
 1、数值型
 ####（1）整型
 		bit：位型，其操作数据的值只有两个，1或0，占1位
-		tinyint：小整数，值为0~255，占1个字......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by XGH on
-            2017-09-26
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/26/数据库03/">
-        <h2 class="post-title">
-            数据库03
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            主要针对关系的规范化
+		tinyint：小整数，值为0~255，占1个字节
+		smallint：短整数，值占2个字节
+		int：整型，占4个字节
+		bigint：长整型，占8个字节
+		注意所有整型数据在用时，均无需设置长度，长度系统默认给出
+（2）浮点型
+	表示小数，小 ...</div><div class="read-more"><a class="more" href="/2017/09/26/数据库04/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2017/09/26/数据库03/">数据库03</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2017-09-26T03:48:33.000Z">2017-09-26</time></div><div class="recent-post-content">主要针对关系的规范化
 1NF：只要属性不可再分则实现1NF
 2NF：在1NF的基础上，去掉部分函数依赖
 3NF：在2NF的基础上，去掉传递函数依赖
@@ -325,96 +134,27 @@ BCNF：去掉所有非主属性对主属性的依赖关系
 发票主码为发票编码
 （2）一张发票可以购买多种商品，不同的发票可以购买同一种商品；
 发票：商品 多对多
-（3）一个厂商可以供应多种商品......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by XGH on
-            2017-09-26
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/26/数据库02/">
-        <h2 class="post-title">
-            数据库02
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            关系运算：
+（3）一个厂商可以供应多种商品，一个商品可以由多家厂商供应；
+厂商： 商品 多对多 
+（4）每一个厂商和每一种商品有唯一的编号
+厂商编号和商品编号为主码
+根据上述业务规则得到商品厂商发票关系模式R（发票编号，日期，厂商编号，厂商名称，商 ...</div><div class="read-more"><a class="more" href="/2017/09/26/数据库03/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2017/09/26/数据库02/">数据库02</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2017-09-26T03:42:21.000Z">2017-09-26</time></div><div class="recent-post-content">关系运算：
 （1）交：存在两个关系R和S，注意两个关系必须具有相同的属性列表，交操作结果为既属于R也属于S的元组集合，组成一个新的关系
 （2）并：存在两个关系R和S，注意两个关系必须具有相同的属性列表，并操作结果为属于R或者属于S的元组集合，组成一个新的关系
 （3）差：存在两个关系R和S，注意两个关系必须具有相同的属性列表，差操作结果为属于R但不属于S的元组集合，组成一个新的关系
-（4）笛卡......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by XGH on
-            2017-09-26
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/26/数据库/">
-        <h2 class="post-title">
-            数据库
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            数据管理技术发展的三个阶段：
+（4）笛卡尔乘积：存在两个关系R和S，将
+R×S的结果为笛卡尔乘积，结果中做两个关系属性的加法，元组的乘法，例如关系R包含m1个属性，n1个元组，S包含m2个属性，n2个元组，则R×S的结果包含m1+m2个属性，n1 ...</div><div class="read-more"><a class="more" href="/2017/09/26/数据库02/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2017/09/26/数据库/">数据库</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2017-09-26T03:12:48.000Z">2017-09-26</time></div><div class="recent-post-content">数据管理技术发展的三个阶段：
 （1）人工管理阶段
 （2）文件系统管理阶段
 （3）数据库管理阶段 
 
 数据库，Database，简称DB，大量数据的集合
 数据库管理系统，Database Management System，简称DBMS，是位于用户和操作系统之间的一级系统软件，用于实现数据库管理操作，是数据库系统的核心
-数据库系统，Database System，简称DBS，数据库系统由数据库......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by XGH on
-            2017-09-26
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/12/计算机基础01/">
-        <h2 class="post-title">
-            计算机基础01
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
+数据库系统，Database System，简称DBS，数据库系统由数据库、数据库管理系统、计算机、用户及数据库管理员（DBA）组成
+DBMS的主要操作内容包括：
+（1）数据定义
+create（创建数据库对象）、alter(修改数据库对象)、drop（删除数据库对象）
+（2）数据 ...</div><div class="read-more"><a class="more" href="/2017/09/26/数据库/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2017/09/12/计算机基础01/">计算机基础01</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2017-09-11T16:15:46.000Z">2017-09-12</time></div><div class="recent-post-content">
 
 1946年产生人类第一台数字电子计算机，称为ENIAC，主要用于科学计算
 
@@ -430,65 +170,25 @@ BCNF：去掉所有非主属性对主属性的依赖关系
 
 
 计算机的应用包括：
- 计算机最基本的应用......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by XGH on
-            2017-09-12
-        </p>
-        <div class="tags">
-            
-        </div>
-    
+ 计算机最基本的应用为科学计算
+ 计算机最主要的应用为信息(或数据)处理 
+ 计算机包括的辅助功能有：CAD(辅助设计)、CAT(辅助测试)、
+ CAL(辅助学习)、CAM(辅助制造)、CAI(辅助教学)
 
-</div>
-<hr>
 
-<div class="post-preview">
 
-    <a href="/2017/09/11/英语笔记01/">
-        <h2 class="post-title">
-            英语笔记01
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.The film _____before I got to the cinema
+计算机的发展趋 ...</div><div class="read-more"><a class="more" href="/2017/09/12/计算机基础01/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2017/09/11/英语笔记01/">英语笔记01</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2017-09-11T15:07:48.000Z">2017-09-11</time></div><div class="recent-post-content">1.The film _____before I got to the cinema
     A already started  
     B starts   
     C had already started  
     D had been started
 
-2.She recommended two books to me,but____of them was interesti......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by XGH on
-            2017-09-11
-        </p>
-        <div class="tags">
-            
-        </div>
-    
+2.She recommended two books to me,but____of them was interesting
+    A either  B both   
+    C none   D neither
 
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/11/我的blog诞生记/">
-        <h2 class="post-title">
-            我的blog诞生记
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
+3.Thirty miles___a long way to cover
+A seem to be    ...</div><div class="read-more"><a class="more" href="/2017/09/11/英语笔记01/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2017/09/11/我的blog诞生记/">我的blog诞生记</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2017-09-11T02:53:00.000Z">2017-09-11</time></div><div class="recent-post-content">
 我的blog诞生记
 经历了3个小时的煎熬,终于弄好了HEXO+GITHUB的搭建,正好随笔记录一下其中的问题
 
@@ -501,364 +201,11 @@ WINDOWS版GIT到是没碰到什么问题,网上有很多教程,注意去查阅�
 
 
 2 安装问题
-电脑......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by XGH on
-            2017-09-11
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/11/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by XGH on
-            2017-09-11
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-        <li class="next">
-            <a href="/archives/2/">Older Posts &rarr;</a>
-        </li>
-    
-</ul>
-
-
-
-                <!-- 如果开启评论功能 -->
-                
-            </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Featured Tags -->
-
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-        
-            
-        
-    </div>
-</section>
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
-
-        
-            <img id = "avatar_pic" src="/img/ironman-draw.png" />
-        
-
-        
-            <p>Hi, i&#39;m xgh</p>
-        
-
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
-                <li>
-                    <a target="_blank" href="https://www.zhihu.com/people/Miracle">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank" href="http://weibo.com/Paragon丶X">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/xgh1996">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
-    </div>
-</section>
-        <hr>
-    
-        
-  <h5>RECENT POSTS</h3>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/2017/09/26/计算机基础03/">计算机基础03</a>
-        </li>
-      
-        <li>
-          <a href="/2017/09/26/计算机基础02/">计算机基础02 </a>
-        </li>
-      
-        <li>
-          <a href="/2017/09/26/数据库04/">数据库04</a>
-        </li>
-      
-        <li>
-          <a href="/2017/09/26/数据库03/">数据库03</a>
-        </li>
-      
-        <li>
-          <a href="/2017/09/26/数据库02/">数据库02</a>
-        </li>
-      
-    </ul>
-  </div>
-
-        <hr>
-    
-        <!-- Friends Blog -->
-
-<h5>FRIENDS</h5>
-<ul class="list-inline">
-
-    
-</ul>
-
-        <hr>
-    
-</div>
-
-        
-    </div>
-</div>
-
-
-    <!-- Footer -->
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                
-                
-                
-                    <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/Miracle">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa  fa-stack-1x fa-inverse">知</i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-                    <li>
-                        <a target="_blank" href="http://weibo.com/Paragon丶X">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-
-                
-                    <li>
-                        <a target="_blank"  href="https://github.com/xgh1996">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; XGH 2018 
-                    <br>
-                    Theme by <a href="http://huangxuan.me">Hux</a> 
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span> 
-                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
-                    </iframe>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/hux-blog.min.js"></script>
-
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-<!-- 
-     Because of the native support for backtick-style fenced code blocks 
-     right within the Markdown is landed in Github Pages, 
-     From V1.6, There is no need for Highlight.js, 
-     so Huxblog drops it officially.
-
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
--->
-<!--
-    <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
-
-
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://yoursite-url/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-<!--fastClick.js -->
-<script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-<!-- Google Analytics -->
-
-
-<script>
-    // dynamic User by Hux
-    var _gaId = 'UA-XXXXXXXX-X';
-    var _gaDomain = 'yoursite';
-
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
-
-
-
-
-<!-- Baidu Tongji -->
-
-
-
-
-
-
-	<a id="rocket" href="#top" class=""></a>
-	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
-    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
-<!-- Image to hack wechat -->
-<img src="http://yoursite-url/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
-
-</body>
-
-</html>
+电脑上由于有hadoop,所以npm的时候 hadoop好像也会安装,但是WINDOWS版本的hadoop好像并不会识别Program Files,会导致一直安装失败,google了一下说是需要缩写成progr ...</div><div class="read-more"><a class="more" href="/2017/09/11/我的blog诞生记/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2017/09/11/hello-world/">Hello World</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2017-09-10T16:27:21.282Z">2017-09-11</time></div><div class="recent-post-content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick Start
+Create a new post
+1$ hexo new "My New Post"
+More info: Writing
+Run server
+1$ hexo server
+More ...</div><div class="read-more"><a class="more" href="/2017/09/11/hello-world/#more">ReadMore</a></div><hr></div></section><nav class="cxo-page-nav"><span class="page-number current">1</span><a class="page-number" href="/archives/2/">2</a><a class="extend next" rel="next" href="/archives/2/">NEXT &#62;</a></nav></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>
