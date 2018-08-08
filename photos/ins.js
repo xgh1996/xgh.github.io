@@ -24,6 +24,7 @@
             /******/
             loaded: false
             /******/
+
         };
         /******/
         /******/ // Execute the module function
@@ -116,8 +117,8 @@
                 var data = res.list[j].arr;
                 var liTmpl = "";
                 for (var i = 0, len = data.link.length; i < len; i++) {
-                    var minSrc = 'https://github.com/xgh1996/BlogPhotos/blob/master/min_photos/' + data.link[i]+".jpg";
-                    var src = 'https://github.com/xgh1996/BlogPhotos/blob/master/photos/' + data.link[i]+".jpg";
+                    var minSrc = 'https://github.com/xgh1996/BlogPhotos/blob/master/min_photos/' + data.link[i];
+                    var src = 'https://github.com/xgh1996/BlogPhotos/blob/master/photos/' + data.link[i];
                     var type = data.type[i];
                     var target = src + (type === 'video' ? '.mp4' : '.jpg');
                     src += '';
