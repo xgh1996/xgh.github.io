@@ -2,23 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>//litten.me/photos/data.json</loc>
+    <loc>//litten.me/photos/index.html</loc>
     
-    <lastmod>2018-08-08T18:17:51.227Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/photos/ins.json</loc>
-    
-    <lastmod>2018-08-08T18:15:55.299Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/photos/README.html</loc>
-    
-    <lastmod>2018-06-06T12:34:29.000Z</lastmod>
+    <lastmod>2018-08-08T18:55:48.657Z</lastmod>
     
   </url>
   
@@ -86,55 +72,6 @@
   </url>
   
   <url>
-    <loc>//litten.me/2014/10/05/history-of-browser-useragent2/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2013/08/11/brief-oauth/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2012/12/24/coffee-pc/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2016/04/01/changbaishan/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2012/12/14/css-jiugongge/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2012/12/31/css3-animater/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2012/12/21/css-jiugongge2/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>//litten.me/2016/07/24/diary-2016-0717-0723/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
@@ -149,27 +86,6 @@
   </url>
   
   <url>
-    <loc>//litten.me/2016/07/31/diary-2016-0724-0730/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2016/08/07/diary-2016-0731-0806/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2016/08/14/diary-2016-0807-0813/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>//litten.me/2016/09/25/diary-2016-0911-0924/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
@@ -177,14 +93,14 @@
   </url>
   
   <url>
-    <loc>//litten.me/2016/08/21/diary-2016-0814-0820/</loc>
+    <loc>//litten.me/2016/10/08/diary-2016-1001-1007/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>//litten.me/2016/09/11/diary-2016-0904-0910/</loc>
+    <loc>//litten.me/2012/12/14/css-jiugongge/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -198,7 +114,14 @@
   </url>
   
   <url>
-    <loc>//litten.me/2016/10/30/diary-2016-1023-1029/</loc>
+    <loc>//litten.me/2016/08/21/diary-2016-0814-0820/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2016/07/31/diary-2016-0724-0730/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -212,7 +135,7 @@
   </url>
   
   <url>
-    <loc>//litten.me/2016/10/08/diary-2016-1001-1007/</loc>
+    <loc>//litten.me/2016/10/30/diary-2016-1023-1029/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -233,7 +156,7 @@
   </url>
   
   <url>
-    <loc>//litten.me/2016/12/31/diary-2016-1225-1231/</loc>
+    <loc>//litten.me/2017/01/26/diary-2017-0118-0125/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -247,7 +170,7 @@
   </url>
   
   <url>
-    <loc>//litten.me/2017/01/26/diary-2017-0118-0125/</loc>
+    <loc>//litten.me/2016/12/31/diary-2016-1225-1231/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -261,13 +184,6 @@
   </url>
   
   <url>
-    <loc>//litten.me/2017/02/19/diary-2017-0212-0218/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>//litten.me/2017/05/22/diary-2017-0521-0527/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
@@ -275,42 +191,7 @@
   </url>
   
   <url>
-    <loc>//litten.me/2016/02/13/feng-shui/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2014/10/16/douban-index-for-chrome/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2013/04/15/graduation-shirt-design/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2014/07/25/folder-to-tree/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2015/02/21/guide-for-zb/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2016/08/01/gulangyu/</loc>
+    <loc>//litten.me/2017/02/19/diary-2017-0212-0218/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -324,14 +205,42 @@
   </url>
   
   <url>
-    <loc>//litten.me/2014/08/31/hexo-theme-yilia/</loc>
+    <loc>//litten.me/2016/08/01/gulangyu/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>//litten.me/2012/12/19/a-chrismas-ico/</loc>
+    <loc>//litten.me/2014/07/25/folder-to-tree/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2016/02/13/feng-shui/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2012/12/31/css3-animater/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2014/10/16/douban-index-for-chrome/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2015/02/21/guide-for-zb/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -345,7 +254,21 @@
   </url>
   
   <url>
-    <loc>//litten.me/2015/07/06/hack-in-localstorage/</loc>
+    <loc>//litten.me/2012/12/13/hello-world/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2014/08/31/hexo-theme-yilia/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2014/10/05/history-of-browser-useragent2/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -366,7 +289,7 @@
   </url>
   
   <url>
-    <loc>//litten.me/2014/02/12/about-pjax/</loc>
+    <loc>//litten.me/2012/12/19/a-chrismas-ico/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -387,6 +310,27 @@
   </url>
   
   <url>
+    <loc>//litten.me/2014/08/01/kael-qrcode-info/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2015/05/25/logic-of-chord/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2015/07/06/hack-in-localstorage/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>//litten.me/2014/01/10/lock-me-in-a-cup/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
@@ -401,21 +345,14 @@
   </url>
   
   <url>
-    <loc>//litten.me/2015/05/25/logic-of-chord/</loc>
+    <loc>//litten.me/2013/09/10/my-fairy-tale2/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>//litten.me/2014/08/01/kael-qrcode-info/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2013/04/30/my-fairy-tale1/</loc>
+    <loc>//litten.me/2016/09/11/diary-2016-0904-0910/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -429,7 +366,7 @@
   </url>
   
   <url>
-    <loc>//litten.me/2017/06/05/my-fairy-tale4/</loc>
+    <loc>//litten.me/2013/04/30/my-fairy-tale1/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -443,13 +380,6 @@
   </url>
   
   <url>
-    <loc>//litten.me/2013/09/10/my-fairy-tale2/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>//litten.me/2013/05/03/my-news-reader-box/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
@@ -457,14 +387,7 @@
   </url>
   
   <url>
-    <loc>//litten.me/2013/12/20/no-one-used-pro/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2017/07/09/prevent-spiders/</loc>
+    <loc>//litten.me/2017/06/05/my-fairy-tale4/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -478,7 +401,7 @@
   </url>
   
   <url>
-    <loc>//litten.me/2013/08/20/oauth-rabbit/</loc>
+    <loc>//litten.me/2013/12/20/no-one-used-pro/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -492,14 +415,14 @@
   </url>
   
   <url>
-    <loc>//litten.me/2014/05/27/safety-point-of-view-from-front-end/</loc>
+    <loc>//litten.me/2017/07/09/prevent-spiders/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>//litten.me/2013/11/07/something-about-immersion/</loc>
+    <loc>//litten.me/2013/08/20/oauth-rabbit/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -520,21 +443,14 @@
   </url>
   
   <url>
-    <loc>//litten.me/2012/12/16/theme-update1-dot-0/</loc>
+    <loc>//litten.me/2014/05/27/safety-point-of-view-from-front-end/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>//litten.me/2014/08/22/two-magics-of-the-pilot/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2014/08/20/three-drama/</loc>
+    <loc>//litten.me/2013/11/07/something-about-immersion/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -548,21 +464,14 @@
   </url>
   
   <url>
-    <loc>//litten.me/2015/06/05/viewing-commentary/</loc>
+    <loc>//litten.me/2012/12/16/theme-update1-dot-0/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>//litten.me/2014/03/30/volunteer-activities/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/2013/09/25/web-worker-learning/</loc>
+    <loc>//litten.me/2014/08/20/three-drama/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -576,70 +485,42 @@
   </url>
   
   <url>
+    <loc>//litten.me/2015/06/05/viewing-commentary/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2013/09/25/web-worker-learning/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2014/02/12/about-pjax/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2014/03/30/volunteer-activities/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2014/08/22/two-magics-of-the-pilot/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>//litten.me/2012/12/18/assassins-creed/</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/assets/demo/border1px.html</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/assets/demo/hack_demo.html</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/assets/demo/jiugongge_demo.html</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/assets/demo/jiugongge_demo2.html</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/assets/demo/gift/index.html</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/assets/demo/coffee_pc_demo/pro-con.html</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/assets/demo/pre_css3_demo/demo.html</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/assets/demo/mediator/demo.html</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//litten.me/assets/demo/my_news_reader/index.html</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -653,14 +534,49 @@
   </url>
   
   <url>
-    <loc>//litten.me/photos/index.html</loc>
+    <loc>//litten.me/2012/12/24/coffee-pc/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>//litten.me/2012/12/13/hello-world/</loc>
+    <loc>//litten.me/2013/08/11/brief-oauth/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2016/04/01/changbaishan/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2012/12/21/css-jiugongge2/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2016/08/07/diary-2016-0731-0806/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2016/08/14/diary-2016-0807-0813/</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//litten.me/2013/04/15/graduation-shirt-design/</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
