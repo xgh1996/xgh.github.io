@@ -1,22 +1,171 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang=""><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="Xgh"><meta name="renderer" content="webkit"><meta name="copyright" content="Xgh"><meta name="keywords" content="Xgh的博客"><meta name="description" content="东北财经大学信管专业，喜欢技术，热爱生活，此为博客一枚。"><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>数据库02 · Mr.Long's Blog</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/favicon.ico"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
+    }
+    return function(){
+      return ret;
+    };
+  })();
 
-block content
-  article#post.article-entry
-    != page.content
-  // lincense
-  if(theme.copyright.enable === true && page.copyright !== false)
-    .license-wrapper
-      p 
-        span Author:  
-        a(href=config.url)= config.author
-      p 
-        span Link:  
-        a(href=page.permalink)= page.permalink
-      p 
-        span Copyright:  
-        span!= theme.copyright.license
-  include includes/partial/post-nav.pug
-  #comment
-    include includes/comment/livere.pug
-    include includes/comment/disqus.pug
-    include includes/comment/changyan.pug
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
+    }
+
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
+    }
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
+
+
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script></head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/cat.png"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">longlongyu</div><div class="profile-signature">for me</div><div class="friends"><div>FRIENDS</div><span><a href="//github.com/Longlongyu" target="_black">friendA</a></span><span><a href="//github.com/" target="_black">friendB</a></span><span><a href="//github.com/" target="_black">friendC</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a href="/">Mr.Long's Blog</a></div><div class="intro-nav-label-box"><a href="/">Home</a><a href="/about">About</a><a href="/archives">Archives</a><a href="/tags">Tags</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">Home</a><a href="/about">About</a><a href="/archives">Archives</a><a href="/tags">Tags</a></div></i><div class="clear"></div></section></nav><h1 class="post-title">数据库02</h1><div class="post-intros"><div class="post-intro-meta"><span class="post-intro-time"><i class="post-intro-calendar fa fa-calendar"></i><span>2017/09/26</span></span><span class="busuanzi-pv" id="busuanzi_container_page_pv"><i class="post-intro-calendar fa fa-user-o"></i><span id="busuanzi_value_page_pv"></span></span></div></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><article class="article-entry" id="post"><h4 id="关系运算："><a href="#关系运算：" class="headerlink" title="关系运算："></a>关系运算：</h4><pre><code>（1）交：存在两个关系R和S，注意两个关系必须具有相同的属性列表，交操作结果为既属于R也属于S的元组集合，组成一个新的关系
+（2）并：存在两个关系R和S，注意两个关系必须具有相同的属性列表，并操作结果为属于R或者属于S的元组集合，组成一个新的关系
+（3）差：存在两个关系R和S，注意两个关系必须具有相同的属性列表，差操作结果为属于R但不属于S的元组集合，组成一个新的关系
+（4）笛卡尔乘积：存在两个关系R和S，将
+R×S的结果为笛卡尔乘积，结果中做两个关系属性的加法，元组的乘法，例如关系R包含m1个属性，n1个元组，S包含m2个属性，n2个元组，则R×S的结果包含m1+m2个属性，n1*n2个元组
+注意笛卡尔乘积的两个关系可以不具有相同的属性列集
+（5）选择操作：选择也称为限制，在关系R中选择满足指定条件的元组
+σ条件(关系)
+实际上就是从关系中查找满足条件的子关系内容
+（6）投影操作：从对应关系中选择出某一些具体的属性组成一个新的关系作为结果
+</code></pre><h4 id="∏属性列表-关系"><a href="#∏属性列表-关系" class="headerlink" title="∏属性列表(关系)"></a>∏属性列表(关系)</h4><pre><code>（7）连接操作
+连接操作为θ连接，从两个关系的笛卡尔乘积中选取属性间满足一定条件的元组，组成一个新的关系作为结果、
+连接分为两种，等值连接和不等值连接，不等值连接则代表条件是不等于相关的比较符号，等值连接则代表条件是相同的操作关系，等值连接又包括等值连接和自然连接两种
+等值连接直接按照相等条件连接即可，自然连接是特殊的等值连接，将两个关系中进行比较的必须是相同的属性，并且要在结果中将重复的属性去掉
+
+关系的完整性操作包括三种类型，分别是实体完整性，用户自定义完整性和参照完整性 
+1、实体完整性 
+也称为行完整性，能够实现对应关系中的每一行唯一确定值，实现实体完整性的操作包括设置主键、设置唯一约束和设置索引
+2、用户自定义完整性 
+也称为列完整性，也称为域完整性，能够实现在某一具体列（属性）上的域设置范围，实现用户自定义完整性的操作包括设置规则和默认值约束条件
+3、参照完整性
+设置参照完整性的应用，即在主从两表上，主表需要设置主键，从表需要设置外键，从表的信息要随着主表信息的修改而修改
+</code></pre><h2 id="关系的规范化理论"><a href="#关系的规范化理论" class="headerlink" title="关系的规范化理论"></a>关系的规范化理论</h2><h3 id="关系规范化即为了创建数据库中的关系时，一定要尽量减少数据冗余情况和可能发生的异常情况"><a href="#关系规范化即为了创建数据库中的关系时，一定要尽量减少数据冗余情况和可能发生的异常情况" class="headerlink" title="关系规范化即为了创建数据库中的关系时，一定要尽量减少数据冗余情况和可能发生的异常情况"></a>关系规范化即为了创建数据库中的关系时，一定要尽量减少数据冗余情况和可能发生的异常情况</h3><h3 id="关系规范化的主要解决问题为："><a href="#关系规范化的主要解决问题为：" class="headerlink" title="关系规范化的主要解决问题为："></a>关系规范化的主要解决问题为：</h3><pre><code>（1）数据冗余
+（2）插入数据异常
+（3）更新数据异常
+（4）删除数据异常
+</code></pre><h2 id="函数依赖"><a href="#函数依赖" class="headerlink" title="函数依赖"></a>函数依赖</h2><pre><code>如果存在关系R（U），注意U代表关系的属性集，X和Y分别是U的子集，
+存在对于R(U)的任意一个可能的关系r，r中不可能存在两个元组在X上的属性值相等，而Y上的属性值不等，则称X函数决定Y函数，或Y函数依赖于X，X-&gt;Y
+学生(学号,姓名,性别,出生日期)
+注意学号决定了姓名，性别和出生日期，因此为函数依赖关系，X属性集为学号，
+Y属性集为姓名，性别和出生日期。在整个关系模式中，非学号的其他所有属性均由学号主关键字决定，
+因此也可以被称为是完全函数依赖关系
+</code></pre><h2 id="部分函数依赖"><a href="#部分函数依赖" class="headerlink" title="部分函数依赖"></a>部分函数依赖</h2><pre><code>如果针对一个关系模式，存在子属性集X函数依赖决定Y，X的子集函数依赖决定Y&apos;，则代表该关系中存在部分函数依赖
+选课(学号,课程号,成绩,姓名)
+该关系模式主码为学号和课程号共同实现主码，学号和课程号决定了学生成绩，但是主码的一部分学号决定了姓名，因此存在部分函数依赖关系
+</code></pre><h2 id="传递函数依赖"><a href="#传递函数依赖" class="headerlink" title="传递函数依赖"></a>传递函数依赖</h2><pre><code>如果存在子属性集X函数依赖决定Y，而Y函数依赖决定Z，那么X传递函数依赖决定Z
+学生(学号,姓名,所在系,系主任)
+学号决定了学生的姓名和所在系，但是所在系决定了系主任，因此学号被传递决定了系主任，因此系主任传递函数依赖于学号
+</code></pre><h2 id="第一范式（1NF）"><a href="#第一范式（1NF）" class="headerlink" title="第一范式（1NF）"></a>第一范式（1NF）</h2><pre><code>设定存在关系R，如果关系R中的所有属性均不可再分，则实现满足1NF的要求，此要求是关系规范化的最低要求 
+</code></pre><h2 id="第二范式-2NF"><a href="#第二范式-2NF" class="headerlink" title="第二范式(2NF)"></a>第二范式(2NF)</h2><pre><code>设定存在关系R，在满足1NF的前提下，如果关系中存在部分函数依赖，将部分函数依赖关系全部清除后，实现第二范式的规范化要求
+将1NF的规范化进行2NF规范化处理的过程：
+（1）将对应关系模式的每一个主关键字的子集均单独创建一个关系模式
+（2）将每一个关系模式的完全函数依赖属性设置在对应关系模式中
+（3）去掉除了主关键字子集属性外，没有其他属性的关系模式即可
+</code></pre><h2 id="第三范式-3NF"><a href="#第三范式-3NF" class="headerlink" title="第三范式(3NF)"></a>第三范式(3NF)</h2><pre><code>设定存在关系R，在满足2NF的基础上，如果关系中存在传递函数依赖关系，将传递函数依赖关系去除，则称为满足3NF规范化要求 
+将2NF的关系进行#NF规范化处理的过程：
+（1）将传递函数依赖的属性在对应关系模式中去掉，将决定该属性的属性单独设计关系模式
+（2）将传递函数依赖的属性写在决定属性设计的新关系模式里
+学生(学号,姓名,所在系)
+R(所在系,系主任)
+</code></pre><h2 id="BC范式（BCNF）"><a href="#BC范式（BCNF）" class="headerlink" title="BC范式（BCNF）"></a>BC范式（BCNF）</h2><pre><code>在关系模式的设计中，如果不是每一个决定因素都包含关键字，则不满足BCNF，即设定存在关系R，
+则关系R中的所有属性均不传递函数依赖于每一个候选码，即消除属性对候选码的传递函数依赖即为满足BCNF
+</code></pre><ul>
+<li><p>某医院住院部业务如下： </p>
+<pre><code>（1）一个病人只有一位主治医生，每一位主治医生可以治疗多位病人；
+（2）一个病房可多位患者，一个患者可以多次住院；
+（3）病人的属性有患者编号、姓名、性别、年龄，医生的属性有医生编号、姓名、
+职务，病房的属性有病房编号、科室。
+试根据上述业务规则：① 设计E-R模型。② 将E-R模型转换成关系模式集。
+患者(患者编号,姓名,性别,年龄)
+主码是患者编号
+医生(医生编号,姓名,职务)
+主码是医生编号
+治疗(患者编号,医生编号,病历)
+主码是患者编号，外码是医生编号
+病房(病房编号,科室)
+主码是病房编号
+住院(患者编号,病房编号,住院时间,出院时间)
+主码是患者编号+病房编号，外码是患者编号，病房编号
+</code></pre></li>
+</ul>
+</article><!-- lincense--><div class="license-wrapper"><p> <span>Author:  </span><a href="//litten.me">Xgh</a></p><p> <span>Link:  </span><a href="//litten.me/2017/09/26/数据库02/">//litten.me/2017/09/26/数据库02/</a></p><p> <span>Copyright:  </span><span>All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0">CC BY-NC-SA 3.0</a> unless stating additionally.</span></p></div><div class="post-paginator"><a class="prevSlogan" href="/2017/09/26/数据库03/" title="数据库03"><span>< PreviousPost</span><br><span class="prevTitle">数据库03</span></a><a class="nextSlogan" href="/2017/09/26/数据库/" title="数据库"><span>NextPost ></span><br><span class="nextTitle">数据库</span></a><div class="clear"></div></div><div id="comment"></div></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><div class="toc-wrapper" style="top: 70vh;"><div class="toc-catalog"><i class="fa fa-list"> </i><span>CATALOG</span></div><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#关系运算："><span class="toc-number">1.</span> <span class="toc-text">关系运算：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#∏属性列表-关系"><span class="toc-number">2.</span> <span class="toc-text">∏属性列表(关系)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系的规范化理论"><span class="toc-number"></span> <span class="toc-text">关系的规范化理论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关系规范化即为了创建数据库中的关系时，一定要尽量减少数据冗余情况和可能发生的异常情况"><span class="toc-number"></span> <span class="toc-text">关系规范化即为了创建数据库中的关系时，一定要尽量减少数据冗余情况和可能发生的异常情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关系规范化的主要解决问题为："><span class="toc-number"></span> <span class="toc-text">关系规范化的主要解决问题为：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数依赖"><span class="toc-number"></span> <span class="toc-text">函数依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部分函数依赖"><span class="toc-number"></span> <span class="toc-text">部分函数依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传递函数依赖"><span class="toc-number"></span> <span class="toc-text">传递函数依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第一范式（1NF）"><span class="toc-number"></span> <span class="toc-text">第一范式（1NF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二范式-2NF"><span class="toc-number"></span> <span class="toc-text">第二范式(2NF)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三范式-3NF"><span class="toc-number"></span> <span class="toc-text">第三范式(3NF)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BC范式（BCNF）"><span class="toc-number"></span> <span class="toc-text">BC范式（BCNF）</span></a></div><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>

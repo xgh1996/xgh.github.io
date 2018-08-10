@@ -1,22 +1,206 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang=""><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="Xgh"><meta name="renderer" content="webkit"><meta name="copyright" content="Xgh"><meta name="keywords" content="Xgh的博客"><meta name="description" content="东北财经大学信管专业，喜欢技术，热爱生活，此为博客一枚。"><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>计算机基础02  · Mr.Long's Blog</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/favicon.ico"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
+    }
+    return function(){
+      return ret;
+    };
+  })();
 
-block content
-  article#post.article-entry
-    != page.content
-  // lincense
-  if(theme.copyright.enable === true && page.copyright !== false)
-    .license-wrapper
-      p 
-        span Author:  
-        a(href=config.url)= config.author
-      p 
-        span Link:  
-        a(href=page.permalink)= page.permalink
-      p 
-        span Copyright:  
-        span!= theme.copyright.license
-  include includes/partial/post-nav.pug
-  #comment
-    include includes/comment/livere.pug
-    include includes/comment/disqus.pug
-    include includes/comment/changyan.pug
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
+    }
+
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
+    }
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
+
+
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script></head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/cat.png"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">longlongyu</div><div class="profile-signature">for me</div><div class="friends"><div>FRIENDS</div><span><a href="//github.com/Longlongyu" target="_black">friendA</a></span><span><a href="//github.com/" target="_black">friendB</a></span><span><a href="//github.com/" target="_black">friendC</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a href="/">Mr.Long's Blog</a></div><div class="intro-nav-label-box"><a href="/">Home</a><a href="/about">About</a><a href="/archives">Archives</a><a href="/tags">Tags</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">Home</a><a href="/about">About</a><a href="/archives">Archives</a><a href="/tags">Tags</a></div></i><div class="clear"></div></section></nav><h1 class="post-title">计算机基础02 </h1><div class="post-intros"><div class="post-intro-meta"><span class="post-intro-time"><i class="post-intro-calendar fa fa-calendar"></i><span>2017/09/26</span></span><span class="busuanzi-pv" id="busuanzi_container_page_pv"><i class="post-intro-calendar fa fa-user-o"></i><span id="busuanzi_value_page_pv"></span></span></div></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><article class="article-entry" id="post"><h4 id="访问文件的方式包括绝对路径访问和相对路径访问"><a href="#访问文件的方式包括绝对路径访问和相对路径访问" class="headerlink" title="访问文件的方式包括绝对路径访问和相对路径访问"></a>访问文件的方式包括绝对路径访问和相对路径访问</h4><h5 id="Windows操作系统为多任务、单用户的操作系统，多任务代表可以同时在Windows打开多个应用程序运行，但是在多个应用程序中只有一个处于前台运行状态，其余应用程序处于后台运行状态"><a href="#Windows操作系统为多任务、单用户的操作系统，多任务代表可以同时在Windows打开多个应用程序运行，但是在多个应用程序中只有一个处于前台运行状态，其余应用程序处于后台运行状态" class="headerlink" title="Windows操作系统为多任务、单用户的操作系统，多任务代表可以同时在Windows打开多个应用程序运行，但是在多个应用程序中只有一个处于前台运行状态，其余应用程序处于后台运行状态"></a>Windows操作系统为多任务、单用户的操作系统，多任务代表可以同时在Windows打开多个应用程序运行，但是在多个应用程序中只有一个处于前台运行状态，其余应用程序处于后台运行状态</h5><h5 id="处于windows桌面时，指向操作没有按键应用，单击代表选定，右击会出现快捷菜单，双击代表打开，双单击代表可以为应用程序重命名，如果使用开始菜单，则单击开始菜单中的应用程序为打开操作"><a href="#处于windows桌面时，指向操作没有按键应用，单击代表选定，右击会出现快捷菜单，双击代表打开，双单击代表可以为应用程序重命名，如果使用开始菜单，则单击开始菜单中的应用程序为打开操作" class="headerlink" title="处于windows桌面时，指向操作没有按键应用，单击代表选定，右击会出现快捷菜单，双击代表打开，双单击代表可以为应用程序重命名，如果使用开始菜单，则单击开始菜单中的应用程序为打开操作"></a>处于windows桌面时，指向操作没有按键应用，单击代表选定，右击会出现快捷菜单，双击代表打开，双单击代表可以为应用程序重命名，如果使用开始菜单，则单击开始菜单中的应用程序为打开操作</h5><h5 id="针对文件，左键拖动到指定位置可以实现文件的移动；右键拖动则可以实现文件复制或移动到指定位置"><a href="#针对文件，左键拖动到指定位置可以实现文件的移动；右键拖动则可以实现文件复制或移动到指定位置" class="headerlink" title="针对文件，左键拖动到指定位置可以实现文件的移动；右键拖动则可以实现文件复制或移动到指定位置"></a>针对文件，左键拖动到指定位置可以实现文件的移动；右键拖动则可以实现文件复制或移动到指定位置</h5><h5 id="选择应用程序的标题栏，右键单击会产生应用程序的控制菜单，控制菜单主要选项包括还原（显示应用程序窗口原大小）、移动、大小（可以调整大小）、最小化、最大化和关闭"><a href="#选择应用程序的标题栏，右键单击会产生应用程序的控制菜单，控制菜单主要选项包括还原（显示应用程序窗口原大小）、移动、大小（可以调整大小）、最小化、最大化和关闭" class="headerlink" title="选择应用程序的标题栏，右键单击会产生应用程序的控制菜单，控制菜单主要选项包括还原（显示应用程序窗口原大小）、移动、大小（可以调整大小）、最小化、最大化和关闭"></a>选择应用程序的标题栏，右键单击会产生应用程序的控制菜单，控制菜单主要选项包括还原（显示应用程序窗口原大小）、移动、大小（可以调整大小）、最小化、最大化和关闭</h5><h5 id="窗口与对话框的不同在于，窗口可以改变大小和位置，但是对话框只能改变位置，不可以改变大小"><a href="#窗口与对话框的不同在于，窗口可以改变大小和位置，但是对话框只能改变位置，不可以改变大小" class="headerlink" title="窗口与对话框的不同在于，窗口可以改变大小和位置，但是对话框只能改变位置，不可以改变大小"></a>窗口与对话框的不同在于，窗口可以改变大小和位置，但是对话框只能改变位置，不可以改变大小</h5><h4 id="常用的功能键包括："><a href="#常用的功能键包括：" class="headerlink" title="常用的功能键包括："></a>常用的功能键包括：</h4><pre><code>ctrl：控制操作 
+alt：激活操作
+shift：做规则操作或连续选择操作等 
+</code></pre><h4 id="切换应用程序窗口的操作："><a href="#切换应用程序窗口的操作：" class="headerlink" title="切换应用程序窗口的操作："></a>切换应用程序窗口的操作：</h4><pre><code>alt+tab：以应用程序图标方式切换
+alt+esc：以应用程序窗口方式切换 
+</code></pre><h4 id="计算机Windows操作系统的状态："><a href="#计算机Windows操作系统的状态：" class="headerlink" title="计算机Windows操作系统的状态："></a>计算机Windows操作系统的状态：</h4><pre><code>（1）待机：除了内存以外其他设备均断电，所有程序停止运行（断网），
+    切断电源则会丢失当前未保存的数据，恢复快，按任意键唤醒，恢复待机前状态，耗电
+（2）休眠：内存数据全部存入硬盘后，所有设备断电，所有程序停止运行（断网），切断电源无影响，
+    恢复慢，和开机差不多，按开关唤醒，恢复为休眠前状态，不耗电
+（3）睡眠：将内存数据保存后待机，结合两者优点，耗电
+    屏保：用于延长计算机显示器的寿命
+    启动任务管理器的操作：alt+ctrl+del组合键
+    在桌面任务栏应用中，任务栏可以改变宽度、改变位置，还可以改变任务栏中文字的大小 
+退出应用程序的方法：
+（1）单击标题栏中的关闭按钮
+（2）选择文件菜单中的退出命令
+（3）右键单击应用程序标题栏，在弹出的控制菜单中选择关闭
+（4）在任务栏中选择应用程序，右键选择关闭操作
+（5）双击标题栏中的应用程序图标
+（6）alt+F4组合键
+</code></pre><h4 id="显示-隐藏文件扩展名的操作："><a href="#显示-隐藏文件扩展名的操作：" class="headerlink" title="显示/隐藏文件扩展名的操作："></a>显示/隐藏文件扩展名的操作：</h4><p>在我的电脑中，选择组织菜单中的文件夹和搜索选项，选择查看选项卡，勾选隐藏已知文件类型的扩展名，则代表扩展名处于隐藏状态；不勾选则代表扩展名处于显示状态</p>
+<h4 id="文件的创建操作："><a href="#文件的创建操作：" class="headerlink" title="文件的创建操作："></a>文件的创建操作：</h4><h5 id="文件的创建可以在右键菜单中选择新建创建，但是文件种类较少，"><a href="#文件的创建可以在右键菜单中选择新建创建，但是文件种类较少，" class="headerlink" title="文件的创建可以在右键菜单中选择新建创建，但是文件种类较少，"></a>文件的创建可以在右键菜单中选择新建创建，但是文件种类较少，</h5><h5 id="最好的方式为选择开始菜单中所有程序中的具体程序，新建，但是需要设计文件存储路径"><a href="#最好的方式为选择开始菜单中所有程序中的具体程序，新建，但是需要设计文件存储路径" class="headerlink" title="最好的方式为选择开始菜单中所有程序中的具体程序，新建，但是需要设计文件存储路径"></a>最好的方式为选择开始菜单中所有程序中的具体程序，新建，但是需要设计文件存储路径</h5><h4 id="文件的重命名操作："><a href="#文件的重命名操作：" class="headerlink" title="文件的重命名操作："></a>文件的重命名操作：</h4><pre><code>（1）选中文件，按F2功能键
+（2）双单击文件重命名
+（3）选中文件，右键选择重命名
+（4）选中文件， 选择组织菜单中的重命名
+文件的复制/移动操作：
+（1）选中文件，右键拖动实现复制/移动文件到当前位置操作
+（2）选中文件，右键选择复制/剪切命令，到指定位置右键选择粘贴命令
+（3）选中文件，在组织菜单中选择复制/剪切，到指定位置同样组织菜单中选择粘贴
+（4）选中文件，按ctrl+c/ctrl+x复制，到指定位置按ctrl+v粘贴
+（5）选中文件，按ctrl+鼠标拖动实现复制,直接拖动代表移动
+（6）选中文件，在不同盘符下的拖动操作实现文件的复制，相同盘符下的拖动实现文件的移动效果
+
+删除文件的操作：
+（1）选中文件，右键选择删除
+（2）选中文件，在组织菜单中选择删除
+（3）选中文件，按del键
+</code></pre><h5 id="以上三种方式删除的文件会置于回收站"><a href="#以上三种方式删除的文件会置于回收站" class="headerlink" title="以上三种方式删除的文件会置于回收站"></a>以上三种方式删除的文件会置于回收站</h5><h5 id="按shift-del实现彻底删除，清空回收站实现彻底删除"><a href="#按shift-del实现彻底删除，清空回收站实现彻底删除" class="headerlink" title="按shift+del实现彻底删除，清空回收站实现彻底删除"></a>按shift+del实现彻底删除，清空回收站实现彻底删除</h5><h4 id="控制面板是计算机配置软件、硬件的管理工具，打开控制面板的方式："><a href="#控制面板是计算机配置软件、硬件的管理工具，打开控制面板的方式：" class="headerlink" title="控制面板是计算机配置软件、硬件的管理工具，打开控制面板的方式："></a>控制面板是计算机配置软件、硬件的管理工具，打开控制面板的方式：</h4><pre><code>（1）选择开始按钮，选择控制面板；
+（2）在我的电脑状态下，选择打开控制面板
+</code></pre><h4 id="显示器的类型包括CRT显示器和LCD显示器，CRT显示器的性能指标包括：分辨率，扫描频率，带宽，TCD认证"><a href="#显示器的类型包括CRT显示器和LCD显示器，CRT显示器的性能指标包括：分辨率，扫描频率，带宽，TCD认证" class="headerlink" title="显示器的类型包括CRT显示器和LCD显示器，CRT显示器的性能指标包括：分辨率，扫描频率，带宽，TCD认证"></a>显示器的类型包括CRT显示器和LCD显示器，CRT显示器的性能指标包括：分辨率，扫描频率，带宽，TCD认证</h4><h4 id="LCD显示器的性能指标包括：响应时间，可视角度，点距，分辨率，刷新率，亮度，对比度等"><a href="#LCD显示器的性能指标包括：响应时间，可视角度，点距，分辨率，刷新率，亮度，对比度等" class="headerlink" title="LCD显示器的性能指标包括：响应时间，可视角度，点距，分辨率，刷新率，亮度，对比度等"></a>LCD显示器的性能指标包括：响应时间，可视角度，点距，分辨率，刷新率，亮度，对比度等</h4><h4 id="打印机的使用需要安装驱动程序，或者如果用户不安装打印机驱动，则可以与安装驱动的计算机实现网络资源共享（一定是局域网共享操作）"><a href="#打印机的使用需要安装驱动程序，或者如果用户不安装打印机驱动，则可以与安装驱动的计算机实现网络资源共享（一定是局域网共享操作）" class="headerlink" title="打印机的使用需要安装驱动程序，或者如果用户不安装打印机驱动，则可以与安装驱动的计算机实现网络资源共享（一定是局域网共享操作）"></a>打印机的使用需要安装驱动程序，或者如果用户不安装打印机驱动，则可以与安装驱动的计算机实现网络资源共享（一定是局域网共享操作）</h4><h4 id="画图软件的用法：选择开始菜单中的附件选项中的画图，保存文件的类型包括-bmp-png-jpg-gif-tiff等常见图像文件格式"><a href="#画图软件的用法：选择开始菜单中的附件选项中的画图，保存文件的类型包括-bmp-png-jpg-gif-tiff等常见图像文件格式" class="headerlink" title="画图软件的用法：选择开始菜单中的附件选项中的画图，保存文件的类型包括.bmp/.png/.jpg/.gif/.tiff等常见图像文件格式"></a>画图软件的用法：选择开始菜单中的附件选项中的画图，保存文件的类型包括.bmp/.png/.jpg/.gif/.tiff等常见图像文件格式</h4><h4 id="画图软件中可以实现设置文字、设置形状等"><a href="#画图软件中可以实现设置文字、设置形状等" class="headerlink" title="画图软件中可以实现设置文字、设置形状等"></a>画图软件中可以实现设置文字、设置形状等</h4><h4 id="常见的文字编辑软件包括："><a href="#常见的文字编辑软件包括：" class="headerlink" title="常见的文字编辑软件包括："></a>常见的文字编辑软件包括：</h4><pre><code>（1）记事本：做最基本的文字编辑，扩展名为.txt，只能设置字号、字体和字型
+（2）写字板：可以实现一些常规的文字格式设置，扩展名为.rtf
+（3）Word：文档编辑软件，扩展名为.docx
+注意：快捷菜单和快捷方式是不同的，快捷菜单是右键菜单，快捷方式是文件的快速访问方法
+访问快捷菜单，则选中文件后右键弹出；设置快捷方式的方法：
+选中文件，右键选择创建快捷方式或选中文件，右键选择发送到——桌面快捷方式
+</code></pre><h4 id="文件的属性包括："><a href="#文件的属性包括：" class="headerlink" title="文件的属性包括："></a>文件的属性包括：</h4><pre><code>（1）系统属性：具有系统属性的文件，多半为系统文件，表示为S
+（2）隐藏属性：被隐藏操作的文件，看不到，表示为H
+（3）只读属性：不能被修改的文件，表示为R
+（4）存档属性：只是标记，无实际意义，表示为A
+文件的基本状态包括只读和可读可写
+</code></pre><h4 id="Word的编辑状态包括两种：插入状态和改写状态，在系统默认情况下为插入状态，具体设置插入-改写的方式为："><a href="#Word的编辑状态包括两种：插入状态和改写状态，在系统默认情况下为插入状态，具体设置插入-改写的方式为：" class="headerlink" title="Word的编辑状态包括两种：插入状态和改写状态，在系统默认情况下为插入状态，具体设置插入/改写的方式为："></a>Word的编辑状态包括两种：插入状态和改写状态，在系统默认情况下为插入状态，具体设置插入/改写的方式为：</h4><pre><code>选择Word应用程序状态栏中的插入，单击变为改写；再单击变为插入
+选择键盘上的insert键，单击变为改写、再单击变为插入
+插入则代表在光标插入点处插入数据，改写则代表在光标插入点处输入的信息会改变插入点后面的文字
+常见的快捷键应用：
+ctrl+n：新建文档
+ctrl+o：打开文档
+ctrl+s：保存文档
+ctrl+p：打印文档 
+ctrl+c：复制文本
+ctrl+v：粘贴文本
+ctrl+x：剪切文本
+ctrl+a：全选
+ctrl+z：撤销操作
+ctrl+y：恢复操作
+ctrl+f：查找
+ctrl+g：替换操作
+ctrl+b：加粗
+ctrl+u：加下划线
+ctlr+i：倾斜
+注意如果一个文档是新建状态，则点击标题栏中的保存按钮、点击文件菜单中的保存、另存为等操作，效果均相同；
+如果一个已经存在的文件，点击标题栏中的保存按钮和文件菜单中的保存操作效果相同，但是与文件菜单中的另存为操作不同
+</code></pre><h4 id="Word中的标尺包括水平标尺和垂直标尺两种，Word中的视图包括四种，分别为"><a href="#Word中的标尺包括水平标尺和垂直标尺两种，Word中的视图包括四种，分别为" class="headerlink" title="Word中的标尺包括水平标尺和垂直标尺两种，Word中的视图包括四种，分别为"></a>Word中的标尺包括水平标尺和垂直标尺两种，Word中的视图包括四种，分别为</h4><h4 id="页面视图、阅读版式视图、Web版式视图和大纲视图，在四种视图中，页面视图最为常用，包括水平标尺和垂直标尺显示，Web版式视图只能显示水平标尺，阅读版式视图和大纲视图中无法显示标尺"><a href="#页面视图、阅读版式视图、Web版式视图和大纲视图，在四种视图中，页面视图最为常用，包括水平标尺和垂直标尺显示，Web版式视图只能显示水平标尺，阅读版式视图和大纲视图中无法显示标尺" class="headerlink" title="页面视图、阅读版式视图、Web版式视图和大纲视图，在四种视图中，页面视图最为常用，包括水平标尺和垂直标尺显示，Web版式视图只能显示水平标尺，阅读版式视图和大纲视图中无法显示标尺"></a>页面视图、阅读版式视图、Web版式视图和大纲视图，在四种视图中，页面视图最为常用，包括水平标尺和垂直标尺显示，Web版式视图只能显示水平标尺，阅读版式视图和大纲视图中无法显示标尺</h4><h4 id="Word文档的保存文件类型包括："><a href="#Word文档的保存文件类型包括：" class="headerlink" title="Word文档的保存文件类型包括："></a>Word文档的保存文件类型包括：</h4><pre><code>.docx（Word2007以上版本文件）、.doc（Word2003以前版本文件）、
+.txt、.rtf、.html（网页文件）、.pdf、
+.xml（可扩展标记语言文件）、.dotx（Word的模板文件）
+</code></pre><h4 id="注意：Word的文件菜单中的关闭和退出命令效果不同，关闭代表当前Word文档内容关闭，但是不退出Word应用程序软件窗口；退出则代表退出应用程序窗口"><a href="#注意：Word的文件菜单中的关闭和退出命令效果不同，关闭代表当前Word文档内容关闭，但是不退出Word应用程序软件窗口；退出则代表退出应用程序窗口" class="headerlink" title="注意：Word的文件菜单中的关闭和退出命令效果不同，关闭代表当前Word文档内容关闭，但是不退出Word应用程序软件窗口；退出则代表退出应用程序窗口"></a>注意：Word的文件菜单中的关闭和退出命令效果不同，关闭代表当前Word文档内容关闭，但是不退出Word应用程序软件窗口；退出则代表退出应用程序窗口</h4><h4 id="删除文字操作："><a href="#删除文字操作：" class="headerlink" title="删除文字操作："></a>删除文字操作：</h4><pre><code>在光标插入点位置，按backspace键删除光标前面的单个文字或字符；
+按del键删除光标后面的单个文字或字符；按ctrl+backspace删除光标前面的一个英文单词或一个汉字词组；
+按ctrl+del删除光标后面的一个英文单词或一个汉字词组
+</code></pre><h4 id="选择具体的文字信息，使用shift-向左-向右箭头即可，还可以用鼠标拖动法"><a href="#选择具体的文字信息，使用shift-向左-向右箭头即可，还可以用鼠标拖动法" class="headerlink" title="选择具体的文字信息，使用shift+向左/向右箭头即可，还可以用鼠标拖动法"></a>选择具体的文字信息，使用shift+向左/向右箭头即可，还可以用鼠标拖动法</h4><h4 id="选定一行的操作："><a href="#选定一行的操作：" class="headerlink" title="选定一行的操作："></a>选定一行的操作：</h4><pre><code>（1）将鼠标置于当前行行首位置，当鼠标形状变为向右指向的空心箭头时单击
+（2）将光标置于当前行行首第一个文字前，按shift+end组合键选定一行
+（3）将光标置于当前行行尾最后一个文字后，按shift+home组合键选定一行
+</code></pre><h4 id="选定一段的操作："><a href="#选定一段的操作：" class="headerlink" title="选定一段的操作："></a>选定一段的操作：</h4><pre><code>（1）将鼠标置于当前段落任意一行的前面，当鼠标形状变为向右指向的空心箭头时，双击选定一段
+（2）将光标置于当前段落任意位置，三击选定一段
+（3）光标置于当前段落段首第一个文字前面，按住shift键点击段尾选中一段
+（4）光标置于当前段落段尾最后一个文字后面，按住shift键点击段首选中一段
+</code></pre><h4 id="选定整篇文档：ctrl-a"><a href="#选定整篇文档：ctrl-a" class="headerlink" title="选定整篇文档：ctrl+a"></a>选定整篇文档：ctrl+a</h4><h4 id="移动光标的操作："><a href="#移动光标的操作：" class="headerlink" title="移动光标的操作："></a>移动光标的操作：</h4><pre><code>（1）将光标移动到当前行的行首位置，按home键实现
+（2）将光标移动到当前航的行尾位置，按end键实现
+（3）将光标移动到当前文档的开头位置，按ctrl+home实现
+（4）将光标移动到当前文档的结尾位置，按ctrl+end实现
+</code></pre><h4 id="在Word中，可以按住alt键-鼠标拖动，选中一列，因此如果有题目说Word能够实现选择列字块，答案是正确的"><a href="#在Word中，可以按住alt键-鼠标拖动，选中一列，因此如果有题目说Word能够实现选择列字块，答案是正确的" class="headerlink" title="在Word中，可以按住alt键+鼠标拖动，选中一列，因此如果有题目说Word能够实现选择列字块，答案是正确的"></a>在Word中，可以按住alt键+鼠标拖动，选中一列，因此如果有题目说Word能够实现选择列字块，答案是正确的</h4><h4 id="删除文字的方式除了可以使用del或backspace以外，还可以选择开始菜单中的清除命令中的清除内容，实现删除"><a href="#删除文字的方式除了可以使用del或backspace以外，还可以选择开始菜单中的清除命令中的清除内容，实现删除" class="headerlink" title="删除文字的方式除了可以使用del或backspace以外，还可以选择开始菜单中的清除命令中的清除内容，实现删除"></a>删除文字的方式除了可以使用del或backspace以外，还可以选择开始菜单中的清除命令中的清除内容，实现删除</h4><h4 id="注意Word中的清除操作可以实现清除格式-清除内容"><a href="#注意Word中的清除操作可以实现清除格式-清除内容" class="headerlink" title="注意Word中的清除操作可以实现清除格式/清除内容"></a>注意Word中的清除操作可以实现清除格式/清除内容</h4><h4 id="Word默认的格式为两端对齐，宋体，五号字，无首行缩进"><a href="#Word默认的格式为两端对齐，宋体，五号字，无首行缩进" class="headerlink" title="Word默认的格式为两端对齐，宋体，五号字，无首行缩进"></a>Word默认的格式为两端对齐，宋体，五号字，无首行缩进</h4><h4 id="Word中文本的复制-移动操作"><a href="#Word中文本的复制-移动操作" class="headerlink" title="Word中文本的复制/移动操作"></a>Word中文本的复制/移动操作</h4><pre><code>（1）选中文本，按住ctrl键拖动到指定位置实现文本复制；直接拖动到指定位置，实现文本移动
+（2）选中文本，按ctrl+c复制/ctrl+x移动，到指定位置，按ctrl+v粘贴
+（3）选中文本，选择开始菜单中的剪贴板选项中的复制/剪切命令，到指定位置，选择开始菜单中剪贴板中的粘贴命令
+（4）选中文本，右键选择复制/剪切命令，到指定位置，右键选择粘贴
+</code></pre><h4 id="查找操作的应用："><a href="#查找操作的应用：" class="headerlink" title="查找操作的应用："></a>查找操作的应用：</h4><h5 id="选择ctrl-F组合键打开查找对话框或选择开始菜单中的编辑选项中的查找中的高级查找"><a href="#选择ctrl-F组合键打开查找对话框或选择开始菜单中的编辑选项中的查找中的高级查找" class="headerlink" title="选择ctrl+F组合键打开查找对话框或选择开始菜单中的编辑选项中的查找中的高级查找"></a>选择ctrl+F组合键打开查找对话框或选择开始菜单中的编辑选项中的查找中的高级查找</h5><h4 id="查找可以查找内容，也可以查找格式或特殊格式，同时查找的方向可以向上、向下和全部查找，查找时可以全字匹配查找，还可以模糊查找，区分大小写查找等等"><a href="#查找可以查找内容，也可以查找格式或特殊格式，同时查找的方向可以向上、向下和全部查找，查找时可以全字匹配查找，还可以模糊查找，区分大小写查找等等" class="headerlink" title="查找可以查找内容，也可以查找格式或特殊格式，同时查找的方向可以向上、向下和全部查找，查找时可以全字匹配查找，还可以模糊查找，区分大小写查找等等"></a>查找可以查找内容，也可以查找格式或特殊格式，同时查找的方向可以向上、向下和全部查找，查找时可以全字匹配查找，还可以模糊查找，区分大小写查找等等</h4><h4 id="多个文档想要同时查看的操作："><a href="#多个文档想要同时查看的操作：" class="headerlink" title="多个文档想要同时查看的操作："></a>多个文档想要同时查看的操作：</h4><h5 id="选择视图菜单中的窗口选项中的并排查看，默认情况下，Word使用左右方式显示多个并排查看的文档，并排查看时还可以同步滚动"><a href="#选择视图菜单中的窗口选项中的并排查看，默认情况下，Word使用左右方式显示多个并排查看的文档，并排查看时还可以同步滚动" class="headerlink" title="选择视图菜单中的窗口选项中的并排查看，默认情况下，Word使用左右方式显示多个并排查看的文档，并排查看时还可以同步滚动"></a>选择视图菜单中的窗口选项中的并排查看，默认情况下，Word使用左右方式显示多个并排查看的文档，并排查看时还可以同步滚动</h5><h4 id="字体的设置："><a href="#字体的设置：" class="headerlink" title="字体的设置："></a>字体的设置：</h4><h5 id="选择开始菜单中的字体，-可以打开字体对话框（ctrl-d组合键）设置字体，包括设置字体样式，字号和字型"><a href="#选择开始菜单中的字体，-可以打开字体对话框（ctrl-d组合键）设置字体，包括设置字体样式，字号和字型" class="headerlink" title="选择开始菜单中的字体， 可以打开字体对话框（ctrl+d组合键）设置字体，包括设置字体样式，字号和字型"></a>选择开始菜单中的字体， 可以打开字体对话框（ctrl+d组合键）设置字体，包括设置字体样式，字号和字型</h5><h5 id="注意选中文字则设置的字体是为选中文字设置的，未选中文字则设置的字体是为光标插入点之后的文字设置的"><a href="#注意选中文字则设置的字体是为选中文字设置的，未选中文字则设置的字体是为光标插入点之后的文字设置的" class="headerlink" title="注意选中文字则设置的字体是为选中文字设置的，未选中文字则设置的字体是为光标插入点之后的文字设置的"></a>注意选中文字则设置的字体是为选中文字设置的，未选中文字则设置的字体是为光标插入点之后的文字设置的</h5><h5 id="设置字体包括设置中文字体和英文字体两种，字型包括常规、加粗、倾斜、加粗-倾斜四种，字号单位包括号和磅两种"><a href="#设置字体包括设置中文字体和英文字体两种，字型包括常规、加粗、倾斜、加粗-倾斜四种，字号单位包括号和磅两种" class="headerlink" title="设置字体包括设置中文字体和英文字体两种，字型包括常规、加粗、倾斜、加粗+倾斜四种，字号单位包括号和磅两种"></a>设置字体包括设置中文字体和英文字体两种，字型包括常规、加粗、倾斜、加粗+倾斜四种，字号单位包括号和磅两种</h5><h5 id="字符的间距是字体设置的，行与行之间的距离是段落设置的，字符间距包括的选择有三种：标准、加宽和紧缩"><a href="#字符的间距是字体设置的，行与行之间的距离是段落设置的，字符间距包括的选择有三种：标准、加宽和紧缩" class="headerlink" title="字符的间距是字体设置的，行与行之间的距离是段落设置的，字符间距包括的选择有三种：标准、加宽和紧缩"></a>字符的间距是字体设置的，行与行之间的距离是段落设置的，字符间距包括的选择有三种：标准、加宽和紧缩</h5><h4 id="Word中的段落设置："><a href="#Word中的段落设置：" class="headerlink" title="Word中的段落设置："></a>Word中的段落设置：</h4><h5 id="选择开始菜单中的段落选项，打开段落对话框，包含缩进和间距、换行和分页、中文版式三个选项"><a href="#选择开始菜单中的段落选项，打开段落对话框，包含缩进和间距、换行和分页、中文版式三个选项" class="headerlink" title="选择开始菜单中的段落选项，打开段落对话框，包含缩进和间距、换行和分页、中文版式三个选项"></a>选择开始菜单中的段落选项，打开段落对话框，包含缩进和间距、换行和分页、中文版式三个选项</h5><h5 id="在缩进和间距选项中，注意段落的对齐方式包括五种：左对齐、右对齐、居中、两端对齐和分散对齐"><a href="#在缩进和间距选项中，注意段落的对齐方式包括五种：左对齐、右对齐、居中、两端对齐和分散对齐" class="headerlink" title="在缩进和间距选项中，注意段落的对齐方式包括五种：左对齐、右对齐、居中、两端对齐和分散对齐"></a>在缩进和间距选项中，注意段落的对齐方式包括五种：左对齐、右对齐、居中、两端对齐和分散对齐</h5><h5 id="缩进的设置可以设置左缩进、右缩进、悬挂缩进和首行缩进效果"><a href="#缩进的设置可以设置左缩进、右缩进、悬挂缩进和首行缩进效果" class="headerlink" title="缩进的设置可以设置左缩进、右缩进、悬挂缩进和首行缩进效果"></a>缩进的设置可以设置左缩进、右缩进、悬挂缩进和首行缩进效果</h5><h5 id="在设置间距时，可以在段落对话框中设置段前、段后间距，还可以设置行间距，选项包括单倍行距、1-5倍行距、2倍行距、多倍行距、最小值和固定值，注意最小值和固定值的单位为磅"><a href="#在设置间距时，可以在段落对话框中设置段前、段后间距，还可以设置行间距，选项包括单倍行距、1-5倍行距、2倍行距、多倍行距、最小值和固定值，注意最小值和固定值的单位为磅" class="headerlink" title="在设置间距时，可以在段落对话框中设置段前、段后间距，还可以设置行间距，选项包括单倍行距、1.5倍行距、2倍行距、多倍行距、最小值和固定值，注意最小值和固定值的单位为磅"></a>在设置间距时，可以在段落对话框中设置段前、段后间距，还可以设置行间距，选项包括单倍行距、1.5倍行距、2倍行距、多倍行距、最小值和固定值，注意最小值和固定值的单位为磅</h5><h5 id="在段落的换行和分页选项中，分页的设置可以实现孤行控制、段前分页、与下段同页和段中不分页四种选择，在页面视图的水平标尺使用中，可以设置段落的缩进方式，左侧倒三角实现首行缩进效果，左侧正三角实现悬挂缩进效果，左侧小方块实现左缩进效果，右侧正三角实现右缩进效果"><a href="#在段落的换行和分页选项中，分页的设置可以实现孤行控制、段前分页、与下段同页和段中不分页四种选择，在页面视图的水平标尺使用中，可以设置段落的缩进方式，左侧倒三角实现首行缩进效果，左侧正三角实现悬挂缩进效果，左侧小方块实现左缩进效果，右侧正三角实现右缩进效果" class="headerlink" title="在段落的换行和分页选项中，分页的设置可以实现孤行控制、段前分页、与下段同页和段中不分页四种选择，在页面视图的水平标尺使用中，可以设置段落的缩进方式，左侧倒三角实现首行缩进效果，左侧正三角实现悬挂缩进效果，左侧小方块实现左缩进效果，右侧正三角实现右缩进效果"></a>在段落的换行和分页选项中，分页的设置可以实现孤行控制、段前分页、与下段同页和段中不分页四种选择，在页面视图的水平标尺使用中，可以设置段落的缩进方式，左侧倒三角实现首行缩进效果，左侧正三角实现悬挂缩进效果，左侧小方块实现左缩进效果，右侧正三角实现右缩进效果</h5><h5 id="在开始菜单中的段落选项中，还可以设置边框和底纹效果，打开的对话框中设置边框和底纹操作的对象可以是文字也可以是段落，还可以设置页面边框，选项包括整篇文档、本节、本节——仅首页；本节——除首页以外所有页"><a href="#在开始菜单中的段落选项中，还可以设置边框和底纹效果，打开的对话框中设置边框和底纹操作的对象可以是文字也可以是段落，还可以设置页面边框，选项包括整篇文档、本节、本节——仅首页；本节——除首页以外所有页" class="headerlink" title="在开始菜单中的段落选项中，还可以设置边框和底纹效果，打开的对话框中设置边框和底纹操作的对象可以是文字也可以是段落，还可以设置页面边框，选项包括整篇文档、本节、本节——仅首页；本节——除首页以外所有页"></a>在开始菜单中的段落选项中，还可以设置边框和底纹效果，打开的对话框中设置边框和底纹操作的对象可以是文字也可以是段落，还可以设置页面边框，选项包括整篇文档、本节、本节——仅首页；本节——除首页以外所有页</h5><h4 id="设置首字下沉的方法："><a href="#设置首字下沉的方法：" class="headerlink" title="设置首字下沉的方法："></a>设置首字下沉的方法：</h4><h5 id="选中一段的第一个文字，选择插入菜单中的文本选项中的首字下沉，包含三个选择，无、下沉和悬挂，选择下沉后，在默认的情况下，下沉行数为3行"><a href="#选中一段的第一个文字，选择插入菜单中的文本选项中的首字下沉，包含三个选择，无、下沉和悬挂，选择下沉后，在默认的情况下，下沉行数为3行" class="headerlink" title="选中一段的第一个文字，选择插入菜单中的文本选项中的首字下沉，包含三个选择，无、下沉和悬挂，选择下沉后，在默认的情况下，下沉行数为3行"></a>选中一段的第一个文字，选择插入菜单中的文本选项中的首字下沉，包含三个选择，无、下沉和悬挂，选择下沉后，在默认的情况下，下沉行数为3行</h5><h4 id="在Word操作中，按enter键为硬回车操作，另起一段；按shift-enter键为软回车操作，在当前段另起一行"><a href="#在Word操作中，按enter键为硬回车操作，另起一段；按shift-enter键为软回车操作，在当前段另起一行" class="headerlink" title="在Word操作中，按enter键为硬回车操作，另起一段；按shift+enter键为软回车操作，在当前段另起一行"></a>在Word操作中，按enter键为硬回车操作，另起一段；按shift+enter键为软回车操作，在当前段另起一行</h4><h4 id="在页面布局菜单中包括页面设置选项，可以设置纸张的大小、纸张的方向、页面的边距等，设置页面边距包括上下左右四个边距操作，还可以设置装订线，注意装订线位置包括左侧和上方两种，注意页面设置选项中还可以设置Word文档的页眉和页脚信息，同时可以指定当前文档每页多少行，每行多少字，但是不可以指定每页多少字"><a href="#在页面布局菜单中包括页面设置选项，可以设置纸张的大小、纸张的方向、页面的边距等，设置页面边距包括上下左右四个边距操作，还可以设置装订线，注意装订线位置包括左侧和上方两种，注意页面设置选项中还可以设置Word文档的页眉和页脚信息，同时可以指定当前文档每页多少行，每行多少字，但是不可以指定每页多少字" class="headerlink" title="在页面布局菜单中包括页面设置选项，可以设置纸张的大小、纸张的方向、页面的边距等，设置页面边距包括上下左右四个边距操作，还可以设置装订线，注意装订线位置包括左侧和上方两种，注意页面设置选项中还可以设置Word文档的页眉和页脚信息，同时可以指定当前文档每页多少行，每行多少字，但是不可以指定每页多少字"></a>在页面布局菜单中包括页面设置选项，可以设置纸张的大小、纸张的方向、页面的边距等，设置页面边距包括上下左右四个边距操作，还可以设置装订线，注意装订线位置包括左侧和上方两种，注意页面设置选项中还可以设置Word文档的页眉和页脚信息，同时可以指定当前文档每页多少行，每行多少字，但是不可以指定每页多少字</h4><h5 id="Word中设置样式的方法：选择开始菜单中的样式选项，系统包含快速样式和更改样式两个选择，可以套用；"><a href="#Word中设置样式的方法：选择开始菜单中的样式选项，系统包含快速样式和更改样式两个选择，可以套用；" class="headerlink" title="Word中设置样式的方法：选择开始菜单中的样式选项，系统包含快速样式和更改样式两个选择，可以套用；"></a>Word中设置样式的方法：选择开始菜单中的样式选项，系统包含快速样式和更改样式两个选择，可以套用；</h5><pre><code>（1）样式的新建 
+在样式选项中，打开样式对话框，选择新建样式按钮，在打开的对话框中设置新样式的属性，包括样式的名称、样式的类型、样式基准和后续段落样式，之后在当前对话框的左下角包含格式，打开后可以设置自定义格式多项，设置完成后确定
+（2）样式的使用
+选中文章中的文字，点击样式管理器中的自定义样式即可实现样式套用
+（3）样式的修改
+选择样式管理器中的自定义样式，右键选择修改，重新设置样式内容即可
+（4）样式的删除
+选择样式管理器中的自定义样式，右键选择删除样式
+</code></pre><h5 id="在Word中，选择页面布局菜单中的页面背景，可以设置水印效果，水印包括无水印、图片水印和文字水印三种，其中文字水印可以设置文字的字体、字号和字体颜色，还可以设置字体显示的版式，版式包括斜式和水平两种"><a href="#在Word中，选择页面布局菜单中的页面背景，可以设置水印效果，水印包括无水印、图片水印和文字水印三种，其中文字水印可以设置文字的字体、字号和字体颜色，还可以设置字体显示的版式，版式包括斜式和水平两种" class="headerlink" title="在Word中，选择页面布局菜单中的页面背景，可以设置水印效果，水印包括无水印、图片水印和文字水印三种，其中文字水印可以设置文字的字体、字号和字体颜色，还可以设置字体显示的版式，版式包括斜式和水平两种"></a>在Word中，选择页面布局菜单中的页面背景，可以设置水印效果，水印包括无水印、图片水印和文字水印三种，其中文字水印可以设置文字的字体、字号和字体颜色，还可以设置字体显示的版式，版式包括斜式和水平两种</h5><h5 id="设置页面边框的方式："><a href="#设置页面边框的方式：" class="headerlink" title="设置页面边框的方式："></a>设置页面边框的方式：</h5><pre><code>（1）选择开始菜单中段落选项中的边框和底纹选项中的页面边框
+（2）选择页面布局菜单中的页面背景选项中的页面边框 
+设置页眉和页脚：
+选择插入菜单中的页眉和页脚选项，在选项中选择页眉，编辑页眉设置页眉操作样式，
+选择页脚，编辑页脚设置页脚内容，退出页眉和页脚的编辑操作，双击正文即可，编辑页眉和页脚，则双击页眉和页脚位置即可
+注意一般页脚的设计内容为页码，那么页码的选项包括设置起始页码和续前节
+</code></pre><h5 id="插图操作：选择插入菜单中的插图选项，其中包含插入图片、剪贴画、形状、SmartArt、图表和屏幕截图，注意图片来自文件，SmartArt称为组织结构图，图表必须有Excel的表格数据做支撑，屏幕截图一定是除了当前正在编辑的Word文档以外的其他已打开的应用程序窗口"><a href="#插图操作：选择插入菜单中的插图选项，其中包含插入图片、剪贴画、形状、SmartArt、图表和屏幕截图，注意图片来自文件，SmartArt称为组织结构图，图表必须有Excel的表格数据做支撑，屏幕截图一定是除了当前正在编辑的Word文档以外的其他已打开的应用程序窗口" class="headerlink" title="插图操作：选择插入菜单中的插图选项，其中包含插入图片、剪贴画、形状、SmartArt、图表和屏幕截图，注意图片来自文件，SmartArt称为组织结构图，图表必须有Excel的表格数据做支撑，屏幕截图一定是除了当前正在编辑的Word文档以外的其他已打开的应用程序窗口"></a>插图操作：选择插入菜单中的插图选项，其中包含插入图片、剪贴画、形状、SmartArt、图表和屏幕截图，注意图片来自文件，SmartArt称为组织结构图，图表必须有Excel的表格数据做支撑，屏幕截图一定是除了当前正在编辑的Word文档以外的其他已打开的应用程序窗口</h5><h5 id="插入形状时，做规则图形按shift键-鼠标拖动，形状的位置微调按ctrl-上下左右箭头，形状的大小微调按alt-鼠标拖动"><a href="#插入形状时，做规则图形按shift键-鼠标拖动，形状的位置微调按ctrl-上下左右箭头，形状的大小微调按alt-鼠标拖动" class="headerlink" title="插入形状时，做规则图形按shift键+鼠标拖动，形状的位置微调按ctrl+上下左右箭头，形状的大小微调按alt+鼠标拖动"></a>插入形状时，做规则图形按shift键+鼠标拖动，形状的位置微调按ctrl+上下左右箭头，形状的大小微调按alt+鼠标拖动</h5></article><!-- lincense--><div class="license-wrapper"><p> <span>Author:  </span><a href="//litten.me">Xgh</a></p><p> <span>Link:  </span><a href="//litten.me/2017/09/26/计算机基础02/">//litten.me/2017/09/26/计算机基础02/</a></p><p> <span>Copyright:  </span><span>All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0">CC BY-NC-SA 3.0</a> unless stating additionally.</span></p></div><div class="post-paginator"><a class="prevSlogan" href="/2017/09/26/计算机基础03/" title="计算机基础03"><span>< PreviousPost</span><br><span class="prevTitle">计算机基础03</span></a><a class="nextSlogan" href="/2017/09/26/数据库04/" title="数据库04"><span>NextPost ></span><br><span class="nextTitle">数据库04</span></a><div class="clear"></div></div><div id="comment"></div></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><div class="toc-wrapper" style="top: 70vh;"><div class="toc-catalog"><i class="fa fa-list"> </i><span>CATALOG</span></div><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#访问文件的方式包括绝对路径访问和相对路径访问"><span class="toc-number">1.</span> <span class="toc-text">访问文件的方式包括绝对路径访问和相对路径访问</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Windows操作系统为多任务、单用户的操作系统，多任务代表可以同时在Windows打开多个应用程序运行，但是在多个应用程序中只有一个处于前台运行状态，其余应用程序处于后台运行状态"><span class="toc-number">1.1.</span> <span class="toc-text">Windows操作系统为多任务、单用户的操作系统，多任务代表可以同时在Windows打开多个应用程序运行，但是在多个应用程序中只有一个处于前台运行状态，其余应用程序处于后台运行状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#处于windows桌面时，指向操作没有按键应用，单击代表选定，右击会出现快捷菜单，双击代表打开，双单击代表可以为应用程序重命名，如果使用开始菜单，则单击开始菜单中的应用程序为打开操作"><span class="toc-number">1.2.</span> <span class="toc-text">处于windows桌面时，指向操作没有按键应用，单击代表选定，右击会出现快捷菜单，双击代表打开，双单击代表可以为应用程序重命名，如果使用开始菜单，则单击开始菜单中的应用程序为打开操作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#针对文件，左键拖动到指定位置可以实现文件的移动；右键拖动则可以实现文件复制或移动到指定位置"><span class="toc-number">1.3.</span> <span class="toc-text">针对文件，左键拖动到指定位置可以实现文件的移动；右键拖动则可以实现文件复制或移动到指定位置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#选择应用程序的标题栏，右键单击会产生应用程序的控制菜单，控制菜单主要选项包括还原（显示应用程序窗口原大小）、移动、大小（可以调整大小）、最小化、最大化和关闭"><span class="toc-number">1.4.</span> <span class="toc-text">选择应用程序的标题栏，右键单击会产生应用程序的控制菜单，控制菜单主要选项包括还原（显示应用程序窗口原大小）、移动、大小（可以调整大小）、最小化、最大化和关闭</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#窗口与对话框的不同在于，窗口可以改变大小和位置，但是对话框只能改变位置，不可以改变大小"><span class="toc-number">1.5.</span> <span class="toc-text">窗口与对话框的不同在于，窗口可以改变大小和位置，但是对话框只能改变位置，不可以改变大小</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常用的功能键包括："><span class="toc-number">2.</span> <span class="toc-text">常用的功能键包括：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#切换应用程序窗口的操作："><span class="toc-number">3.</span> <span class="toc-text">切换应用程序窗口的操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算机Windows操作系统的状态："><span class="toc-number">4.</span> <span class="toc-text">计算机Windows操作系统的状态：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#显示-隐藏文件扩展名的操作："><span class="toc-number">5.</span> <span class="toc-text">显示/隐藏文件扩展名的操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件的创建操作："><span class="toc-number">6.</span> <span class="toc-text">文件的创建操作：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#文件的创建可以在右键菜单中选择新建创建，但是文件种类较少，"><span class="toc-number">6.1.</span> <span class="toc-text">文件的创建可以在右键菜单中选择新建创建，但是文件种类较少，</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#最好的方式为选择开始菜单中所有程序中的具体程序，新建，但是需要设计文件存储路径"><span class="toc-number">6.2.</span> <span class="toc-text">最好的方式为选择开始菜单中所有程序中的具体程序，新建，但是需要设计文件存储路径</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件的重命名操作："><span class="toc-number">7.</span> <span class="toc-text">文件的重命名操作：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#以上三种方式删除的文件会置于回收站"><span class="toc-number">7.1.</span> <span class="toc-text">以上三种方式删除的文件会置于回收站</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#按shift-del实现彻底删除，清空回收站实现彻底删除"><span class="toc-number">7.2.</span> <span class="toc-text">按shift+del实现彻底删除，清空回收站实现彻底删除</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#控制面板是计算机配置软件、硬件的管理工具，打开控制面板的方式："><span class="toc-number">8.</span> <span class="toc-text">控制面板是计算机配置软件、硬件的管理工具，打开控制面板的方式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#显示器的类型包括CRT显示器和LCD显示器，CRT显示器的性能指标包括：分辨率，扫描频率，带宽，TCD认证"><span class="toc-number">9.</span> <span class="toc-text">显示器的类型包括CRT显示器和LCD显示器，CRT显示器的性能指标包括：分辨率，扫描频率，带宽，TCD认证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LCD显示器的性能指标包括：响应时间，可视角度，点距，分辨率，刷新率，亮度，对比度等"><span class="toc-number">10.</span> <span class="toc-text">LCD显示器的性能指标包括：响应时间，可视角度，点距，分辨率，刷新率，亮度，对比度等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打印机的使用需要安装驱动程序，或者如果用户不安装打印机驱动，则可以与安装驱动的计算机实现网络资源共享（一定是局域网共享操作）"><span class="toc-number">11.</span> <span class="toc-text">打印机的使用需要安装驱动程序，或者如果用户不安装打印机驱动，则可以与安装驱动的计算机实现网络资源共享（一定是局域网共享操作）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#画图软件的用法：选择开始菜单中的附件选项中的画图，保存文件的类型包括-bmp-png-jpg-gif-tiff等常见图像文件格式"><span class="toc-number">12.</span> <span class="toc-text">画图软件的用法：选择开始菜单中的附件选项中的画图，保存文件的类型包括.bmp/.png/.jpg/.gif/.tiff等常见图像文件格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#画图软件中可以实现设置文字、设置形状等"><span class="toc-number">13.</span> <span class="toc-text">画图软件中可以实现设置文字、设置形状等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见的文字编辑软件包括："><span class="toc-number">14.</span> <span class="toc-text">常见的文字编辑软件包括：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件的属性包括："><span class="toc-number">15.</span> <span class="toc-text">文件的属性包括：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Word的编辑状态包括两种：插入状态和改写状态，在系统默认情况下为插入状态，具体设置插入-改写的方式为："><span class="toc-number">16.</span> <span class="toc-text">Word的编辑状态包括两种：插入状态和改写状态，在系统默认情况下为插入状态，具体设置插入/改写的方式为：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Word中的标尺包括水平标尺和垂直标尺两种，Word中的视图包括四种，分别为"><span class="toc-number">17.</span> <span class="toc-text">Word中的标尺包括水平标尺和垂直标尺两种，Word中的视图包括四种，分别为</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#页面视图、阅读版式视图、Web版式视图和大纲视图，在四种视图中，页面视图最为常用，包括水平标尺和垂直标尺显示，Web版式视图只能显示水平标尺，阅读版式视图和大纲视图中无法显示标尺"><span class="toc-number">18.</span> <span class="toc-text">页面视图、阅读版式视图、Web版式视图和大纲视图，在四种视图中，页面视图最为常用，包括水平标尺和垂直标尺显示，Web版式视图只能显示水平标尺，阅读版式视图和大纲视图中无法显示标尺</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Word文档的保存文件类型包括："><span class="toc-number">19.</span> <span class="toc-text">Word文档的保存文件类型包括：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注意：Word的文件菜单中的关闭和退出命令效果不同，关闭代表当前Word文档内容关闭，但是不退出Word应用程序软件窗口；退出则代表退出应用程序窗口"><span class="toc-number">20.</span> <span class="toc-text">注意：Word的文件菜单中的关闭和退出命令效果不同，关闭代表当前Word文档内容关闭，但是不退出Word应用程序软件窗口；退出则代表退出应用程序窗口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除文字操作："><span class="toc-number">21.</span> <span class="toc-text">删除文字操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选择具体的文字信息，使用shift-向左-向右箭头即可，还可以用鼠标拖动法"><span class="toc-number">22.</span> <span class="toc-text">选择具体的文字信息，使用shift+向左/向右箭头即可，还可以用鼠标拖动法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选定一行的操作："><span class="toc-number">23.</span> <span class="toc-text">选定一行的操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选定一段的操作："><span class="toc-number">24.</span> <span class="toc-text">选定一段的操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选定整篇文档：ctrl-a"><span class="toc-number">25.</span> <span class="toc-text">选定整篇文档：ctrl+a</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移动光标的操作："><span class="toc-number">26.</span> <span class="toc-text">移动光标的操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在Word中，可以按住alt键-鼠标拖动，选中一列，因此如果有题目说Word能够实现选择列字块，答案是正确的"><span class="toc-number">27.</span> <span class="toc-text">在Word中，可以按住alt键+鼠标拖动，选中一列，因此如果有题目说Word能够实现选择列字块，答案是正确的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除文字的方式除了可以使用del或backspace以外，还可以选择开始菜单中的清除命令中的清除内容，实现删除"><span class="toc-number">28.</span> <span class="toc-text">删除文字的方式除了可以使用del或backspace以外，还可以选择开始菜单中的清除命令中的清除内容，实现删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注意Word中的清除操作可以实现清除格式-清除内容"><span class="toc-number">29.</span> <span class="toc-text">注意Word中的清除操作可以实现清除格式/清除内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Word默认的格式为两端对齐，宋体，五号字，无首行缩进"><span class="toc-number">30.</span> <span class="toc-text">Word默认的格式为两端对齐，宋体，五号字，无首行缩进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Word中文本的复制-移动操作"><span class="toc-number">31.</span> <span class="toc-text">Word中文本的复制/移动操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查找操作的应用："><span class="toc-number">32.</span> <span class="toc-text">查找操作的应用：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#选择ctrl-F组合键打开查找对话框或选择开始菜单中的编辑选项中的查找中的高级查找"><span class="toc-number">32.1.</span> <span class="toc-text">选择ctrl+F组合键打开查找对话框或选择开始菜单中的编辑选项中的查找中的高级查找</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查找可以查找内容，也可以查找格式或特殊格式，同时查找的方向可以向上、向下和全部查找，查找时可以全字匹配查找，还可以模糊查找，区分大小写查找等等"><span class="toc-number">33.</span> <span class="toc-text">查找可以查找内容，也可以查找格式或特殊格式，同时查找的方向可以向上、向下和全部查找，查找时可以全字匹配查找，还可以模糊查找，区分大小写查找等等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多个文档想要同时查看的操作："><span class="toc-number">34.</span> <span class="toc-text">多个文档想要同时查看的操作：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#选择视图菜单中的窗口选项中的并排查看，默认情况下，Word使用左右方式显示多个并排查看的文档，并排查看时还可以同步滚动"><span class="toc-number">34.1.</span> <span class="toc-text">选择视图菜单中的窗口选项中的并排查看，默认情况下，Word使用左右方式显示多个并排查看的文档，并排查看时还可以同步滚动</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字体的设置："><span class="toc-number">35.</span> <span class="toc-text">字体的设置：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#选择开始菜单中的字体，-可以打开字体对话框（ctrl-d组合键）设置字体，包括设置字体样式，字号和字型"><span class="toc-number">35.1.</span> <span class="toc-text">选择开始菜单中的字体， 可以打开字体对话框（ctrl+d组合键）设置字体，包括设置字体样式，字号和字型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注意选中文字则设置的字体是为选中文字设置的，未选中文字则设置的字体是为光标插入点之后的文字设置的"><span class="toc-number">35.2.</span> <span class="toc-text">注意选中文字则设置的字体是为选中文字设置的，未选中文字则设置的字体是为光标插入点之后的文字设置的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设置字体包括设置中文字体和英文字体两种，字型包括常规、加粗、倾斜、加粗-倾斜四种，字号单位包括号和磅两种"><span class="toc-number">35.3.</span> <span class="toc-text">设置字体包括设置中文字体和英文字体两种，字型包括常规、加粗、倾斜、加粗+倾斜四种，字号单位包括号和磅两种</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字符的间距是字体设置的，行与行之间的距离是段落设置的，字符间距包括的选择有三种：标准、加宽和紧缩"><span class="toc-number">35.4.</span> <span class="toc-text">字符的间距是字体设置的，行与行之间的距离是段落设置的，字符间距包括的选择有三种：标准、加宽和紧缩</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Word中的段落设置："><span class="toc-number">36.</span> <span class="toc-text">Word中的段落设置：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#选择开始菜单中的段落选项，打开段落对话框，包含缩进和间距、换行和分页、中文版式三个选项"><span class="toc-number">36.1.</span> <span class="toc-text">选择开始菜单中的段落选项，打开段落对话框，包含缩进和间距、换行和分页、中文版式三个选项</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在缩进和间距选项中，注意段落的对齐方式包括五种：左对齐、右对齐、居中、两端对齐和分散对齐"><span class="toc-number">36.2.</span> <span class="toc-text">在缩进和间距选项中，注意段落的对齐方式包括五种：左对齐、右对齐、居中、两端对齐和分散对齐</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缩进的设置可以设置左缩进、右缩进、悬挂缩进和首行缩进效果"><span class="toc-number">36.3.</span> <span class="toc-text">缩进的设置可以设置左缩进、右缩进、悬挂缩进和首行缩进效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在设置间距时，可以在段落对话框中设置段前、段后间距，还可以设置行间距，选项包括单倍行距、1-5倍行距、2倍行距、多倍行距、最小值和固定值，注意最小值和固定值的单位为磅"><span class="toc-number">36.4.</span> <span class="toc-text">在设置间距时，可以在段落对话框中设置段前、段后间距，还可以设置行间距，选项包括单倍行距、1.5倍行距、2倍行距、多倍行距、最小值和固定值，注意最小值和固定值的单位为磅</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在段落的换行和分页选项中，分页的设置可以实现孤行控制、段前分页、与下段同页和段中不分页四种选择，在页面视图的水平标尺使用中，可以设置段落的缩进方式，左侧倒三角实现首行缩进效果，左侧正三角实现悬挂缩进效果，左侧小方块实现左缩进效果，右侧正三角实现右缩进效果"><span class="toc-number">36.5.</span> <span class="toc-text">在段落的换行和分页选项中，分页的设置可以实现孤行控制、段前分页、与下段同页和段中不分页四种选择，在页面视图的水平标尺使用中，可以设置段落的缩进方式，左侧倒三角实现首行缩进效果，左侧正三角实现悬挂缩进效果，左侧小方块实现左缩进效果，右侧正三角实现右缩进效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在开始菜单中的段落选项中，还可以设置边框和底纹效果，打开的对话框中设置边框和底纹操作的对象可以是文字也可以是段落，还可以设置页面边框，选项包括整篇文档、本节、本节——仅首页；本节——除首页以外所有页"><span class="toc-number">36.6.</span> <span class="toc-text">在开始菜单中的段落选项中，还可以设置边框和底纹效果，打开的对话框中设置边框和底纹操作的对象可以是文字也可以是段落，还可以设置页面边框，选项包括整篇文档、本节、本节——仅首页；本节——除首页以外所有页</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置首字下沉的方法："><span class="toc-number">37.</span> <span class="toc-text">设置首字下沉的方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#选中一段的第一个文字，选择插入菜单中的文本选项中的首字下沉，包含三个选择，无、下沉和悬挂，选择下沉后，在默认的情况下，下沉行数为3行"><span class="toc-number">37.1.</span> <span class="toc-text">选中一段的第一个文字，选择插入菜单中的文本选项中的首字下沉，包含三个选择，无、下沉和悬挂，选择下沉后，在默认的情况下，下沉行数为3行</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在Word操作中，按enter键为硬回车操作，另起一段；按shift-enter键为软回车操作，在当前段另起一行"><span class="toc-number">38.</span> <span class="toc-text">在Word操作中，按enter键为硬回车操作，另起一段；按shift+enter键为软回车操作，在当前段另起一行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在页面布局菜单中包括页面设置选项，可以设置纸张的大小、纸张的方向、页面的边距等，设置页面边距包括上下左右四个边距操作，还可以设置装订线，注意装订线位置包括左侧和上方两种，注意页面设置选项中还可以设置Word文档的页眉和页脚信息，同时可以指定当前文档每页多少行，每行多少字，但是不可以指定每页多少字"><span class="toc-number">39.</span> <span class="toc-text">在页面布局菜单中包括页面设置选项，可以设置纸张的大小、纸张的方向、页面的边距等，设置页面边距包括上下左右四个边距操作，还可以设置装订线，注意装订线位置包括左侧和上方两种，注意页面设置选项中还可以设置Word文档的页眉和页脚信息，同时可以指定当前文档每页多少行，每行多少字，但是不可以指定每页多少字</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Word中设置样式的方法：选择开始菜单中的样式选项，系统包含快速样式和更改样式两个选择，可以套用；"><span class="toc-number">39.1.</span> <span class="toc-text">Word中设置样式的方法：选择开始菜单中的样式选项，系统包含快速样式和更改样式两个选择，可以套用；</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在Word中，选择页面布局菜单中的页面背景，可以设置水印效果，水印包括无水印、图片水印和文字水印三种，其中文字水印可以设置文字的字体、字号和字体颜色，还可以设置字体显示的版式，版式包括斜式和水平两种"><span class="toc-number">39.2.</span> <span class="toc-text">在Word中，选择页面布局菜单中的页面背景，可以设置水印效果，水印包括无水印、图片水印和文字水印三种，其中文字水印可以设置文字的字体、字号和字体颜色，还可以设置字体显示的版式，版式包括斜式和水平两种</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设置页面边框的方式："><span class="toc-number">39.3.</span> <span class="toc-text">设置页面边框的方式：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#插图操作：选择插入菜单中的插图选项，其中包含插入图片、剪贴画、形状、SmartArt、图表和屏幕截图，注意图片来自文件，SmartArt称为组织结构图，图表必须有Excel的表格数据做支撑，屏幕截图一定是除了当前正在编辑的Word文档以外的其他已打开的应用程序窗口"><span class="toc-number">39.4.</span> <span class="toc-text">插图操作：选择插入菜单中的插图选项，其中包含插入图片、剪贴画、形状、SmartArt、图表和屏幕截图，注意图片来自文件，SmartArt称为组织结构图，图表必须有Excel的表格数据做支撑，屏幕截图一定是除了当前正在编辑的Word文档以外的其他已打开的应用程序窗口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#插入形状时，做规则图形按shift键-鼠标拖动，形状的位置微调按ctrl-上下左右箭头，形状的大小微调按alt-鼠标拖动"><span class="toc-number">39.5.</span> <span class="toc-text">插入形状时，做规则图形按shift键+鼠标拖动，形状的位置微调按ctrl+上下左右箭头，形状的大小微调按alt+鼠标拖动</span></a></li></ol></li></ol></div><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>
